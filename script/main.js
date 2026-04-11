@@ -1,16 +1,15 @@
-// Change color of active Row
-// const activeRow = document.querySelectorAll(".activeRow");
-// activeRow.forEach((Case) => {
-//   Case.classList.add("activeCase");
-// });
+let wordToGuess = "Plante".toUpperCase();
+console.log(wordToGuess);
+
+const rows = document.querySelectorAll(".gridRow");
+let currentRow = rows[0];
+console.log(currentRow);
 
 const rowTest = document.querySelectorAll(".rowTest");
-// rowTest.forEach((box) => {
-//   box.innerHTML = "A";
-// });
-let current = 0;
-// document.addEventListener("keydown", (event) => {});
 
+let current = 0;
+
+// Manage user input on row
 document.addEventListener("keydown", (event) => {
   const key = event.key;
   if (key === "Backspace") {
@@ -32,11 +31,17 @@ document.addEventListener("keydown", (event) => {
 
 document.addEventListener("keydown", (event) => {
   const key = event.key;
-  if (key === "Enter") {
-    let word = "";
+  if (key === "Enter" && ) {
+    let userGuess = "";
     rowTest.forEach((letter) => {
-      word += letter.textContent;
+      userGuess += letter.textContent;
     });
-    console.log(word);
+    if (userGuess.length === wordToGuess.length) {
+    console.log(userGuess);
+    }
   }
 });
+
+// *******************
+
+
