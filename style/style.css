@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
 
+/* Page settings */
 * {
   margin: 0;
   box-sizing: border-box;
@@ -22,12 +23,10 @@ a {
 }
 body {
   max-width: 900px;
-  /* border: 1px solid blue; */
   margin: auto;
   font-family: "Fredoka";
   font-weight: 200;
-  /* background-color: #f9eacf; */
-  background: #8bdeda; /* fallback for old browsers */
+  background: #8bdeda;
   background: -webkit-linear-gradient(
     to left,
     #ef9393,
@@ -35,7 +34,7 @@ body {
     #998ee0,
     #43add0,
     #8bdeda
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  );
   background: linear-gradient(
     to left,
     #f75f5f,
@@ -43,15 +42,42 @@ body {
     #998ee0,
     #43add0,
     #8bdeda
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  );
 
   padding: 0 10px;
 }
 
-/* Title */
+/* Header */
 header {
-  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
 }
+.btn-settings {
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  text-align: center;
+  border: 1px solid rgb(49, 49, 49);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.245);
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.281);
+  transform: rotate(5deg);
+  transition: 0.2s ease-in;
+}
+.gradient-text {
+  font-size: 2em;
+  background: linear-gradient(to right, #eed249, #f49745, #e4700a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 2px black);
+}
+.btn-settings:hover {
+  transform: rotate(0deg) scale(1.2);
+}
+
+/* Title */
 
 h1 {
   font-weight: 500;
@@ -143,9 +169,6 @@ h1 span:hover {
 
   border: black 2px solid;
 }
-/* .gridRow .activeCase {
-  background: #0fb222;
-} */
 .gridRow .correctLetter {
   background: #ed213a;
   background: -webkit-linear-gradient(to right, #dd230e, #f46071);
@@ -181,7 +204,7 @@ h1 span:hover {
   width: 100%;
 }
 
-button {
+.keyboard-key {
   font-size: 1.5em;
   padding: 15px 0;
   width: 100%;
@@ -198,20 +221,30 @@ button {
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
-button:hover {
+.keyboard-key:hover {
   background-color: rgb(237, 235, 235);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 6px;
   transform: translateY(5px);
 }
-button.correct {
+.keyboard-key.correct {
   background: rgb(69, 219, 69);
   background: linear-gradient(to bottom, #4cf50f, #52c234);
 }
-button.wrong {
+.keyboard-key.wrong {
   background: #d0cece;
   background: linear-gradient(to top, #888888, #d3d3d3);
 }
 @media screen and (max-width: 800px) {
+  h1 {
+    font-size: 2em;
+  }
+  h1 span {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    line-height: 40px;
+  }
+
   .gameGrid {
     padding: 0 10px;
   }
@@ -223,5 +256,16 @@ button.wrong {
   .thirdRow,
   .valider {
     gap: 5px;
+  }
+}
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 1.7em;
+  }
+  h1 span {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    line-height: 30px;
   }
 }

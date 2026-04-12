@@ -1,47 +1,35 @@
+import { enterALetter, backspaceInput, handleEnter } from "./input.js";
+
 let wordToGuess = "Plante".toUpperCase();
 console.log(wordToGuess);
 
+const uiKeys = document.querySelectorAll(".keyboard-key");
 const rows = document.querySelectorAll(".gridRow");
-let currentRow = rows[0];
-console.log(currentRow);
 
-const rowTest = document.querySelectorAll(".rowTest");
+// let currentRow = rows[0];
+// console.log(currentRow);
 
-let current = 0;
-
-// Manage user input on row
-document.addEventListener("keydown", (event) => {
-  const key = event.key;
-  if (key === "Backspace") {
-    if (current > 0) {
-      current--;
-      rowTest[current].textContent = "";
-    }
-
-    // current = Math.max(0, current);
-    console.log(current);
-    // Add block for not changing if its last character
-  } else if (/^[a-zA-Z]$/.test(key)) {
-    if (current < rowTest.length) {
-      rowTest[current].innerHTML = key.toUpperCase();
-      current++;
-    }
+function manageUserInput(key) {
+  const isLetter = /^[a-zA-Z]$/.test(key);
+  if (isLetter) {
+    enterALetter(key);
+  } else if (key === "Backspace") {
+    backspaceInput();
+  } else if (key === "Enter") {
+    handleEnter(wordToGuess);
   }
+}
+
+document.addEventListener("click", (event) => {
+  const button = event.target.closest(".keyboard-key");
+  if (!button) return;
+  let key = button.dataset.key;
+  manageUserInput(key);
 });
 
 document.addEventListener("keydown", (event) => {
-  const key = event.key;
-  if (key === "Enter" && ) {
-    let userGuess = "";
-    rowTest.forEach((letter) => {
-      userGuess += letter.textContent;
-    });
-    if (userGuess.length === wordToGuess.length) {
-    console.log(userGuess);
-    }
-  }
+  let key = event.key;
+  manageUserInput(key);
 });
 
 // *******************
-
-

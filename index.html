@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style/style.css" />
     <script type="module" src="script/main.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/c8cb44d56f.js"
+      crossorigin="anonymous"></script>
     <title>Alphamot</title>
   </head>
   <body>
@@ -19,7 +22,11 @@
         <span>O</span>
         <span>T</span>
       </h1>
-      <nav></nav>
+      <nav>
+        <button class="btn-settings">
+          <i class="fa-solid fa-sliders gradient-text"></i>
+        </button>
+      </nav>
     </header>
     <main>
       <div class="gameGrid">
@@ -32,12 +39,12 @@
           <div class="activeRow correctLetter">E</div>
         </div>
         <div class="gridRow">
-          <div class="activeRow rowTest">P</div>
-          <div class="activeRow rowTest"></div>
-          <div class="activeRow rowTest"></div>
-          <div class="activeRow rowTest"></div>
-          <div class="activeRow rowTest"></div>
-          <div class="activeRow rowTest">E</div>
+          <div class="activeRow currentRow">P</div>
+          <div class="activeRow currentRow"></div>
+          <div class="activeRow currentRow"></div>
+          <div class="activeRow currentRow"></div>
+          <div class="activeRow currentRow"></div>
+          <div class="activeRow currentRow">E</div>
         </div>
         <div class="gridRow">
           <div class="activeRow correctLetter">P</div>
@@ -74,40 +81,40 @@
       </div>
       <div class="keyboard">
         <div class="firstRow">
-          <button value="a">A</button>
-          <button>Z</button>
-          <button class="correct">E</button>
-          <button>R</button>
-          <button class="correct">T</button>
-          <button>Y</button>
-          <button>U</button>
-          <button>I</button>
-          <button>O</button>
-          <button>P</button>
+          <button class="keyboard-key" data-key="A">A</button>
+          <button class="keyboard-key" data-key="Z">Z</button>
+          <button class="keyboard-key correct" data-key="E">E</button>
+          <button class="keyboard-key" data-key="R">R</button>
+          <button class="keyboard-key correct" data-key="T">T</button>
+          <button class="keyboard-key" data-key="Y">Y</button>
+          <button class="keyboard-key" data-key="U">U</button>
+          <button class="keyboard-key" data-key="I">I</button>
+          <button class="keyboard-key" data-key="O">O</button>
+          <button class="keyboard-key" data-key="P">P</button>
         </div>
         <div class="secondRow">
-          <button data-id="">Q</button>
-          <button data-id="">S</button>
-          <button data-id="" class="correct">D</button>
-          <button data-id="">F</button>
-          <button data-id="">G</button>
-          <button data-id="">H</button>
-          <button data-id="" class="wrong">J</button>
-          <button data-id="">K</button>
-          <button data-id="">L</button>
-          <button data-id="">M</button>
+          <button class="keyboard-key" data-key="Q">Q</button>
+          <button class="keyboard-key" data-key="S">S</button>
+          <button class="keyboard-key correct" data-key="D">D</button>
+          <button class="keyboard-key" data-key="F">F</button>
+          <button class="keyboard-key" data-key="G">G</button>
+          <button class="keyboard-key" data-key="H">H</button>
+          <button class="keyboard-key wrong" data-key="J">J</button>
+          <button class="keyboard-key" data-key="K">K</button>
+          <button class="keyboard-key" data-key="L">L</button>
+          <button class="keyboard-key" data-key="M">M</button>
         </div>
         <div class="thirdRow">
-          <button data-id="">Effacer</button>
-          <button data-id="">W</button>
-          <button data-id="">X</button>
-          <button data-id="">C</button>
-          <button data-id="">V</button>
-          <button data-id="">B</button>
-          <button data-id="">N</button>
-          <button data-id="">⌫</button>
+          <button class="keyboard-key" data-key="Backspace">Effacer</button>
+          <button class="keyboard-key" data-key="W">W</button>
+          <button class="keyboard-key" data-key="X">X</button>
+          <button class="keyboard-key" data-key="C">C</button>
+          <button class="keyboard-key" data-key="V">V</button>
+          <button class="keyboard-key" data-key="B">B</button>
+          <button class="keyboard-key" data-key="N">N</button>
+          <button class="keyboard-key" data-key="Backspace">⌫</button>
         </div>
-        <button class="valider">Valider</button>
+        <button class="keyboard-key valider" data-key="Enter">Valider</button>
       </div>
     </main>
   </body>
