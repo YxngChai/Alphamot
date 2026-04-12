@@ -1,12 +1,10 @@
 import { enterALetter, backspaceInput, handleEnter } from "./input.js";
 
-let wordToGuess = "Plante".toUpperCase();
-console.log(wordToGuess);
+export let wordToGuess = "Plante".toUpperCase();
+// console.log(wordToGuess);
 
 const uiKeys = document.querySelectorAll(".keyboard-key");
-const rows = document.querySelectorAll(".gridRow");
 
-// let currentRow = rows[0];
 // console.log(currentRow);
 
 function manageUserInput(key) {

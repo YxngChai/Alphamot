@@ -68,7 +68,14 @@ header {
 }
 .gradient-text {
   font-size: 2em;
-  background: linear-gradient(to right, #eed249, #f49745, #e4700a);
+  background: linear-gradient(
+    to right,
+    rgb(255, 253, 213),
+    #eed249,
+    #f49745,
+    #e4700a,
+    #513c33
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 2px 2px black);
