@@ -65,10 +65,10 @@ header {
   height: 60px;
   margin-right: 20px;
   text-align: center;
-  border: 1px solid rgb(49, 49, 49);
+  border: 1px solid rgb(255, 199, 44);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.245);
   border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.281);
+  background-color: rgba(255, 255, 255, 0.312);
   transform: rotate(5deg);
   transition: 0.2s ease-in;
 }
@@ -94,7 +94,7 @@ header {
 
 h1 {
   font-weight: 500;
-  color: #0182e5;
+  color: #0bcd22;
   font-size: 3em;
   display: flex;
   padding: 20px 0;
@@ -118,21 +118,24 @@ h1 span:nth-child(2n) {
 }
 
 h1 span:nth-child(3n) {
-  color: #0fb222;
+  color: #1192f5;
 }
 h1 span:nth-child(5) {
-  color: rgb(193, 208, 21);
+  color: rgb(21, 196, 91);
 }
 h1 span:nth-child(2) {
-  color: rgb(255, 27, 27);
+  color: #f8be10;
 }
 h1 span:nth-child(6) {
   transform: rotate(25deg);
   color: rgb(194, 23, 194);
   z-index: -1;
 }
+h1 span:nth-child(7) {
+  color: #10c2f8;
+}
 h1 span:nth-child(8) {
-  color: #f8be10;
+  color: rgb(247, 39, 39);
 }
 h1 span:hover {
   transform: scale(1.2);
@@ -189,7 +192,7 @@ h1 span:hover {
   background: -webkit-linear-gradient(to right, #dd230e, #f46071);
   background: linear-gradient(to right, #dd230e, #f46071); */
 }
-.gridRow .misPlaced {
+.gridRow .misplaced {
   background: #f2994a;
   background: -webkit-linear-gradient(to right, #f9da7e, #f0b025);
   background: linear-gradient(to right, #f9da7e, #f0b025);
@@ -238,18 +241,30 @@ h1 span:hover {
 }
 .keyboard-key:hover {
   background-color: rgb(237, 235, 235);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 6px;
+  box-shadow: rgba(12, 12, 12, 0.2) 0px 2px 6px;
   transform: translateY(5px);
 }
 .keyboard-key.correct {
   background: rgb(69, 219, 69);
-  background: linear-gradient(to bottom, #4cf50f, #52c234);
+  background: linear-gradient(to bottom, #69f636, #52c234);
+}
+.keyboard-key.correct:hover {
+  background: rgb(69, 219, 69);
+  background: linear-gradient(to bottom, #4cf50f, #409c27);
 }
 .keyboard-key.wrong {
-  /* background: #d0cece;
-  background: linear-gradient(to top, #888888, #d3d3d3); */
   background: #cd0505;
+  background: linear-gradient(to top, #f71d1d, #f78383);
+}
+.keyboard-key.wrong:hover {
   background: linear-gradient(to top, #e30707, #f07575);
+}
+.keyboard-key.misplaced {
+  background: #edf103;
+  background: linear-gradient(to bottom, #f9da7e, #f0b025);
+}
+.keyboard-key.misplaced:hover {
+  background: linear-gradient(to bottom, #f9da7e, #c1880f);
 }
 
 /* Footer */

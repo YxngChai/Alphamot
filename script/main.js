@@ -8,7 +8,7 @@ const uiKeys = document.querySelectorAll(".keyboard-key");
 // console.log(currentRow);
 
 function manageUserInput(key) {
-  const isLetter = /^[a-zA-Z]$/.test(key);
+  const isLetter = /^[a-zA-Z\-]$/.test(key);
   if (isLetter) {
     enterALetter(key);
   } else if (key === "Backspace") {
@@ -18,6 +18,7 @@ function manageUserInput(key) {
   }
 }
 
+// Mouse input
 document.addEventListener("click", (event) => {
   const button = event.target.closest(".keyboard-key");
   if (!button) return;
@@ -25,6 +26,7 @@ document.addEventListener("click", (event) => {
   manageUserInput(key);
 });
 
+// Keyboard input
 document.addEventListener("keydown", (event) => {
   let key = event.key;
   manageUserInput(key);

@@ -1,4 +1,5 @@
 import { wordToGuess } from "./main.js";
+import { processWord } from "./word-config.js";
 
 // decide the column case where next input  will go
 let currentPlacement = 1;
@@ -12,6 +13,25 @@ let currentRow = [...rows[rowCounter - 1].children];
 
 let userGuess = "";
 let tries = 1;
+
+// will save all letters from player input in different categories
+let gameState = {
+  wrongLetters: [],
+  newMisplaced: [],
+  correct: [],
+};
+//Collect list at each turn, compare list and returns unique items
+function sortUsedLetters(wrongLetters, newMisplaced, correct) {
+  gameState.wrongLetters = [
+    ...new Set([...gameState.wrongLetters, ...wrongLetters]),
+  ];
+
+  gameState.newMisplaced = [
+    ...new Set([...gameState.newMisplaced, ...newMisplaced]),
+  ];
+
+  gameState.correct = [...new Set([...gameState.correct, ...correct])];
+}
 
 // add selecter letters to the screen
 export function enterALetter(key) {
@@ -48,6 +68,18 @@ export function handleEnter(wordToGuess) {
     if (checkWin(userGuess, wordToGuess)) {
       console.log("You Win!");
     } else {
+      const { wrongLetters, newMisplaced, correct, position } =
+        processWord(userGuess);
+      sortUsedLetters(wrongLetters, newMisplaced, correct);
+      console.log("red:");
+      console.log(gameState.wrongLetters);
+      console.log("Yellow:");
+      console.log(gameState.newMisplaced);
+      console.log("green:");
+      console.log(gameState.correct);
+      console.log("position:");
+      console.log(position);
+
       changeLineDown();
     }
   }
