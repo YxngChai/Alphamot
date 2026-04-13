@@ -17,18 +17,16 @@ let tries = 1;
 // will save all letters from player input in different categories
 let gameState = {
   wrongLetters: [],
-  newMisplaced: [],
+  misplaced: [],
   correct: [],
 };
 //Collect list at each turn, compare list and returns unique items
-function sortUsedLetters(wrongLetters, newMisplaced, correct) {
+function sortUsedLetters(wrongLetters, misplaced, correct) {
   gameState.wrongLetters = [
     ...new Set([...gameState.wrongLetters, ...wrongLetters]),
   ];
 
-  gameState.newMisplaced = [
-    ...new Set([...gameState.newMisplaced, ...newMisplaced]),
-  ];
+  gameState.misplaced = [...new Set([...gameState.misplaced, ...misplaced])];
 
   gameState.correct = [...new Set([...gameState.correct, ...correct])];
 }
@@ -60,34 +58,7 @@ function buildUserGuess() {
 function checkWin(userGuess, wordToGuess) {
   return userGuess === wordToGuess;
 }
-
-// Function to validate the word by pressing enter
-export function handleEnter(wordToGuess) {
-  userGuess = buildUserGuess();
-  if (userGuess.length === wordToGuess.length) {
-    if (checkWin(userGuess, wordToGuess)) {
-      console.log("You Win!");
-    } else {
-      const { wrongLetters, newMisplaced, correct, position } =
-        processWord(userGuess);
-      sortUsedLetters(wrongLetters, newMisplaced, correct);
-      console.log("red:");
-      console.log(gameState.wrongLetters);
-      console.log("Yellow:");
-      console.log(gameState.newMisplaced);
-      console.log("green:");
-      console.log(gameState.correct);
-      console.log("position:");
-      console.log(position);
-
-      changeLineDown();
-    }
-  }
-}
-
-// document.addEventListener("Enter", () => {
-
-// });
+// Change user input to line below
 
 function changeLineDown() {
   tries++;
@@ -109,6 +80,30 @@ function changeLineDown() {
     currentPlacement = 1;
     currentRow = document.querySelectorAll(".currentRow");
     currentRow[currentPlacement - 1].textContent = wordToGuess[0];
+  }
+}
+
+// Function to validate the word by pressing enter
+export function handleEnter(wordToGuess) {
+  userGuess = buildUserGuess();
+  if (userGuess.length === wordToGuess.length) {
+    if (checkWin(userGuess, wordToGuess)) {
+      console.log("You Win!");
+    } else {
+      const { wrongLetters, misplaced, correct, position } =
+        processWord(userGuess);
+      sortUsedLetters(wrongLetters, misplaced, correct);
+      console.log("red:");
+      console.log(gameState.wrongLetters);
+      console.log("Yellow:");
+      console.log(gameState.misplaced);
+      console.log("green:");
+      console.log(gameState.correct);
+      console.log("position:");
+      console.log(position);
+
+      changeLineDown();
+    }
   }
 }
 

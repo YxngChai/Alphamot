@@ -12,6 +12,7 @@ function buildUIWrongLetters(userGuess, wordToGuess) {
   }
   return wrongLetters;
 }
+
 function buildFrequencyMapOfWord(wordToGuess) {
   let letterCount = {};
   for (let char of wordToGuess) {
@@ -19,19 +20,14 @@ function buildFrequencyMapOfWord(wordToGuess) {
   }
   return letterCount;
 }
-export function processWord(userGuess) {
-  // Create an empty list length of word where items will later be replaced with patterns to style a valid line
-  let position = new Array(wordToGuess.length).fill("");
 
-  // 3 lists to collect letters to update the UI keyboard with the right color;
-  const misplaced = [];
-  const correct = [];
-
-  const wrongLetters = buildUIWrongLetters(userGuess, wordToGuess);
-
-  const letterCount = buildFrequencyMapOfWord(wordToGuess);
-
-  //first pass to mark correct letteres
+function markCorrectLetters(
+  userGuess,
+  wordToGuess,
+  position,
+  letterCount,
+  correct,
+) {
   for (let i = 0; i < userGuess.length; i++) {
     if (userGuess[i] === wordToGuess[i]) {
       position[i] = "correct";
@@ -39,7 +35,9 @@ export function processWord(userGuess) {
       correct.push(userGuess[i]);
     }
   }
-  //second pass for misplaced letter
+}
+
+function markMisplacedLetters(userGuess, position, letterCount, misplaced) {
   for (let i = 0; i < userGuess.length; i++) {
     if (position[i] === "correct") continue;
     let char = userGuess[i];
@@ -48,16 +46,27 @@ export function processWord(userGuess) {
       letterCount[char]--;
       misplaced.push(char);
     }
-    //  list of useless Letters
   }
+}
+export function processWord(userGuess) {
+  // Create an empty list length of word where items will later be replaced with patterns to style a valid line
+  let position = new Array(wordToGuess.length).fill("");
 
-  let newMisplaced = [...misplaced].filter(
-    (item) => ![...correct].includes(item),
-  );
-  return {
-    wrongLetters,
-    newMisplaced,
-    correct,
-    position,
-  };
+  // 3 lists to collect letters to update the UI keyboard with the right color;
+  let misplaced = [];
+  const correct = [];
+  const wrongLetters = buildUIWrongLetters(userGuess, wordToGuess);
+
+  // List to compare and count letters frequency
+  const letterCount = buildFrequencyMapOfWord(wordToGuess);
+
+  //first pass to mark correct letters
+  markCorrectLetters(userGuess, wordToGuess, position, letterCount, correct);
+
+  //second pass for misplaced letter
+  markMisplacedLetters(userGuess, position, letterCount, misplaced);
+
+  //
+  misplaced = misplaced.filter((item) => ![...correct].includes(item));
+  return { wrongLetters, misplaced, correct, position };
 }
