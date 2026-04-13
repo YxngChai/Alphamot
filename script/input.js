@@ -6,7 +6,7 @@ let currentPlacement = 1;
 
 // To change line down when validating a word
 const rows = document.querySelectorAll(".gridRow");
-let rowCounter = 2;
+let rowCounter = 1;
 
 // Select all the cells from current row
 let currentRow = [...rows[rowCounter - 1].children];
@@ -59,6 +59,12 @@ function checkWin(userGuess, wordToGuess) {
   return userGuess === wordToGuess;
 }
 // Change user input to line below
+function updateLineColor(position) {
+  for (let i = 0; i < wordToGuess.length; i++)
+    if (position[i] !== "") {
+      rows[rowCounter - 1].children[i].classList.add(position[i]);
+    }
+}
 
 function changeLineDown() {
   tries++;
@@ -87,21 +93,22 @@ function changeLineDown() {
 export function handleEnter(wordToGuess) {
   userGuess = buildUserGuess();
   if (userGuess.length === wordToGuess.length) {
+    const { wrongLetters, misplaced, correct, position } =
+      processWord(userGuess);
+    sortUsedLetters(wrongLetters, misplaced, correct);
+    console.log("red:");
+    console.log(gameState.wrongLetters);
+    console.log("Yellow:");
+    console.log(gameState.misplaced);
+    console.log("green:");
+    console.log(gameState.correct);
+    console.log("position:");
+    console.log(position);
+
+    updateLineColor(position);
     if (checkWin(userGuess, wordToGuess)) {
       console.log("You Win!");
     } else {
-      const { wrongLetters, misplaced, correct, position } =
-        processWord(userGuess);
-      sortUsedLetters(wrongLetters, misplaced, correct);
-      console.log("red:");
-      console.log(gameState.wrongLetters);
-      console.log("Yellow:");
-      console.log(gameState.misplaced);
-      console.log("green:");
-      console.log(gameState.correct);
-      console.log("position:");
-      console.log(position);
-
       changeLineDown();
     }
   }
