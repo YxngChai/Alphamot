@@ -23,6 +23,7 @@ a {
 }
 body {
   max-width: 900px;
+  min-height: 100vh;
   margin: auto;
   font-family: "Fredoka";
   font-weight: 200;
@@ -45,6 +46,11 @@ body {
   );
 
   padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
 }
 
 /* Header */
@@ -172,16 +178,18 @@ h1 span:hover {
 .gridRow .activeRow {
   background: #59cde9;
   background: -webkit-linear-gradient(to right, #2d5ef0, #59cde9);
-  background: linear-gradient(to right, #2d5ef0, #59cde9);
+  background: linear-gradient(to right, #218ad5, #59d8e9);
 
   border: black 2px solid;
 }
-.gridRow .correctLetter {
-  background: #ed213a;
+.gridRow .correct {
+  background: rgb(69, 219, 69);
+  background: linear-gradient(to left, #4cf50f, #44ad27);
+  /* background: #ed213a;
   background: -webkit-linear-gradient(to right, #dd230e, #f46071);
-  background: linear-gradient(to right, #dd230e, #f46071);
+  background: linear-gradient(to right, #dd230e, #f46071); */
 }
-.gridRow .misPlacedLetter {
+.gridRow .misPlaced {
   background: #f2994a;
   background: -webkit-linear-gradient(to right, #f9da7e, #f0b025);
   background: linear-gradient(to right, #f9da7e, #f0b025);
@@ -238,9 +246,24 @@ h1 span:hover {
   background: linear-gradient(to bottom, #4cf50f, #52c234);
 }
 .keyboard-key.wrong {
-  background: #d0cece;
-  background: linear-gradient(to top, #888888, #d3d3d3);
+  /* background: #d0cece;
+  background: linear-gradient(to top, #888888, #d3d3d3); */
+  background: #cd0505;
+  background: linear-gradient(to top, #e30707, #f07575);
 }
+
+/* Footer */
+footer {
+  height: 200px;
+  background: rgba(255, 255, 255, 0.2); /* more transparent */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+}
+
 @media screen and (max-width: 800px) {
   h1 {
     font-size: 2em;
@@ -275,4 +298,27 @@ h1 span:hover {
     border-radius: 10px;
     line-height: 30px;
   }
+}
+
+/* Setting menu */
+.settings {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(5px);
+}
+.settings-card {
+  height: 500px;
+  width: 400px;
+  background-color: #0182e5;
+  border-radius: 40px;
+  margin: 0 10px;
 }
