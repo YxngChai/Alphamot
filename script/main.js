@@ -1,6 +1,6 @@
 import { enterALetter, backspaceInput, handleEnter } from "./input.js";
 
-export let wordToGuess = "banana".toUpperCase();
+export let wordToGuess = "danger".toUpperCase();
 // console.log(wordToGuess);
 
 const uiKeys = document.querySelectorAll(".keyboard-key");

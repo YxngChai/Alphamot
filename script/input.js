@@ -12,7 +12,7 @@ let rowCounter = 1;
 let currentRow = [...rows[rowCounter - 1].children];
 
 let userGuess = "";
-let tries = 1;
+let tries = 0;
 
 // will save all letters from player input in different categories
 let gameState = {
@@ -68,6 +68,7 @@ function updateLineColor(position) {
 
 function changeLineDown() {
   tries++;
+  // console.log(object);
   if (tries === 6) {
     console.log("You lost!");
   } else {
@@ -88,6 +89,19 @@ function changeLineDown() {
     currentRow[currentPlacement - 1].textContent = wordToGuess[0];
   }
 }
+function updateKeyboard(wrongLetters, misplaced, correct) {
+  const keys = document.querySelectorAll(".keyboard-key");
+  console.log(wrongLetters);
+  keys.forEach((key) => {
+    if (wrongLetters.includes(key.dataset.key)) {
+      key.classList.add("wrong");
+    } else if (misplaced.includes(key.dataset.key)) {
+      key.classList.add("misplaced");
+    } else if (correct.includes(key.dataset.key)) {
+      key.classList.add("correct");
+    }
+  });
+}
 
 // Function to validate the word by pressing enter
 export function handleEnter(wordToGuess) {
@@ -95,7 +109,9 @@ export function handleEnter(wordToGuess) {
   if (userGuess.length === wordToGuess.length) {
     const { wrongLetters, misplaced, correct, position } =
       processWord(userGuess);
+    updateKeyboard(wrongLetters, misplaced, correct);
     sortUsedLetters(wrongLetters, misplaced, correct);
+
     console.log("red:");
     console.log(gameState.wrongLetters);
     console.log("Yellow:");
@@ -104,7 +120,6 @@ export function handleEnter(wordToGuess) {
     console.log(gameState.correct);
     console.log("position:");
     console.log(position);
-
     updateLineColor(position);
     if (checkWin(userGuess, wordToGuess)) {
       console.log("You Win!");
