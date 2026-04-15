@@ -1,5 +1,7 @@
-import { setupFirstLetter } from "./initialization.js";
+import { setupFirstLetter, buildGameGrid } from "./initialization.js";
 import { enterALetter, backspaceInput, handleEnter } from "./input.js";
+
+buildGameGrid();
 
 setupFirstLetter();
 
