@@ -6,13 +6,13 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="style/style.css" />
+     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
     <script type="module" src="script/main.js" defer></script>
+    
     <script
       src="https://kit.fontawesome.com/c8cb44d56f.js"
       crossorigin="anonymous"></script>
-    <title>Alphamot</title>
-  </head>
-  <body>
+   
     <header>
       <h1>
         <span>A</span>
@@ -26,14 +26,17 @@
       </h1>
       <nav>
         <button class="btn-settings">
-          <i class="fa-solid fa-sliders gradient-text"></i>
+          <!-- <i class="fa-solid fa-sliders gradient-text"></i> -->
+           <!-- <i class="fa-solid fa-bars-staggered gradient-text"></i> -->
+           <!-- <i class="fa-solid fa-ellipsis gradient-text"></i> -->
+           <i class="fa-solid fa-gear setting-wheel"></i>
         </button>
       </nav>
     </header>
     <main>
       <div class="gameGrid">
         <div class="gridRow">
-          <div class="activeRow currentRow">D</div>
+          <div class="activeRow currentRow"></div>
           <div class="activeRow currentRow"></div>
           <div class="activeRow currentRow"></div>
           <div class="activeRow currentRow"></div>
@@ -120,8 +123,10 @@
       </div>
       <div class="settings"><div class="settings-card">Settings Card</div></div>
     </main>
+    <canvas class="js-confetti"></canvas>
     <footer>
-      <h3>Yxng Chai 2026</h3>
+      <h3>Valentin Robert</h3>
+      <p>2026</p>
       <br />
       <i class="fa-brands fa-linkedin fa-xl"></i>
       <i class="fa-brands fa-github fa-xl"></i>

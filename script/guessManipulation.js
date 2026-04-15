@@ -1,4 +1,4 @@
-import { wordToGuess } from "./main.js";
+import { wordToGuess } from "./initialization.js";
 
 function buildUIWrongLetters(userGuess, wordToGuess) {
   const wrongLetters = [];

@@ -1,11 +1,7 @@
+import { setupFirstLetter } from "./initialization.js";
 import { enterALetter, backspaceInput, handleEnter } from "./input.js";
 
-export let wordToGuess = "danger".toUpperCase();
-// console.log(wordToGuess);
-
-const uiKeys = document.querySelectorAll(".keyboard-key");
-
-// console.log(currentRow);
+setupFirstLetter();
 
 function manageUserInput(key) {
   const isLetter = /^[a-zA-Z\-]$/.test(key);
@@ -14,7 +10,7 @@ function manageUserInput(key) {
   } else if (key === "Backspace") {
     backspaceInput();
   } else if (key === "Enter") {
-    handleEnter(wordToGuess);
+    handleEnter();
   }
 }
 
@@ -31,5 +27,3 @@ document.addEventListener("keydown", (event) => {
   let key = event.key;
   manageUserInput(key);
 });
-
-// *******************
