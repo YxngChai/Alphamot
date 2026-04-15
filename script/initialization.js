@@ -34,8 +34,8 @@ const animals = [
   "lizard",
 ];
 
-export let wordToGuess = "Elephant";
-//   animals[Math.floor(Math.random() * animals.length)].toUpperCase();
+export let wordToGuess =
+  animals[Math.floor(Math.random() * animals.length)].toUpperCase();
 
 export function setupFirstLetter() {
   const firstRow = document.querySelectorAll(".currentRow");
@@ -43,7 +43,7 @@ export function setupFirstLetter() {
 }
 
 export function buildGameGrid() {
-  const testRows = document.querySelectorAll(".testRow");
+  const testRows = document.querySelectorAll(".gridRow");
   testRows.forEach((row, index) => {
     for (let i = 0; i < wordToGuess.length; i++) {
       const cell = document.createElement("div");

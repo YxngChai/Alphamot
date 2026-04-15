@@ -1,9 +1,14 @@
 import { setupFirstLetter, buildGameGrid } from "./initialization.js";
-import { enterALetter, backspaceInput, handleEnter } from "./input.js";
+import {
+  enterALetter,
+  backspaceInput,
+  handleEnter,
+  initInput,
+} from "./input.js";
 
 buildGameGrid();
-
 setupFirstLetter();
+initInput();
 
 function manageUserInput(key) {
   const isLetter = /^[a-zA-Z\-]$/.test(key);

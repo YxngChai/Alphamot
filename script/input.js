@@ -3,13 +3,18 @@ import { processWord } from "./guessManipulation.js";
 
 // decide the column case where next input  will go
 let currentPlacement = 1;
-
 // To change line down when validating a word
-const rows = document.querySelectorAll(".gridRow");
+let rows;
 let rowCounter = 0;
+let currentRow;
 
-// Select all the cells from current row
-let currentRow = [...rows[rowCounter].children];
+export function initInput() {
+  rows = document.querySelectorAll(".gridRow");
+  rowCounter = 0;
+  // Select all the cells from current row
+  currentRow = [...rows[rowCounter].children];
+  currentPlacement = 1;
+}
 
 let userGuess = "";
 let tries = 0;

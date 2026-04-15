@@ -314,6 +314,7 @@ footer {
   }
   .keyboard {
     gap: 10px;
+    margin: 20px 0;
   }
   .firstRow,
   .secondRow,
@@ -340,7 +341,7 @@ footer {
     line-height: 30px;
   }
   .keyboard {
-    margin: 20px 0;
+    margin: 20px 0 0 0;
   }
   .keyboard-key {
     height: 20px;
