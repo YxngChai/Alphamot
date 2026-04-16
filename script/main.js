@@ -1,13 +1,14 @@
-import { setupFirstLetter, buildGameGrid } from "./initialization.js";
+import { buildGameGrid } from "./initialization.js";
 import {
   enterALetter,
   backspaceInput,
   handleEnter,
   initInput,
 } from "./input.js";
+import { openCloseSettings } from "./settings.js";
 
+openCloseSettings();
 buildGameGrid();
-setupFirstLetter();
 initInput();
 
 function manageUserInput(key) {
