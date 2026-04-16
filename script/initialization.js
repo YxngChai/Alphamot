@@ -1,3 +1,5 @@
+import { keyboards } from "./keyboardLayout.js";
+
 const mots = [
   "pardon",
   "chalet",
@@ -62,4 +64,34 @@ export function buildGameGrid() {
     }
   });
   setupFirstLetter();
+}
+
+export function buildKeyboard(keyboardLanguage) {
+  const keyboard = document.querySelector(".keyboard");
+  const keyboardLayout = keyboards[keyboardLanguage];
+
+  for (let i = 0; i < keyboardLayout.length; i++) {
+    let keyboardRow = document.createElement("div");
+    keyboardRow.classList.add("keyboardRow");
+    console.log(keyboardLayout[i].length);
+    for (let y = 0; y < keyboardLayout[i].length; y++) {
+      let cell = document.createElement("div");
+      if (keyboardLayout[i][y] === "Backspace") {
+        cell.innerHTML = `<i class="far fa-backspace"></i>`;
+      } else {
+        cell.textContent = keyboardLayout[i][y];
+      }
+
+      cell.classList.add("keyboard-key");
+      cell.dataset.key = keyboardLayout[i][y];
+      keyboardRow.appendChild(cell);
+    }
+
+    keyboard.appendChild(keyboardRow);
+  }
+  const validateBtn = document.createElement("button");
+  validateBtn.classList.add("keyboard-key", "valider");
+  validateBtn.dataset.key = "Enter";
+  validateBtn.textContent = "Valider";
+  keyboard.appendChild(validateBtn);
 }

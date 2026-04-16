@@ -180,6 +180,9 @@ h1 span:hover {
 
   border: black 2px solid;
 }
+.setting-wheel {
+  pointer-events: none;
+}
 .gridRow .misplaced {
   background: #f2994a;
   background: -webkit-linear-gradient(to right, #f9da7e, #f0b025);
@@ -203,9 +206,7 @@ h1 span:hover {
   flex-direction: column;
   gap: 20px;
 }
-.firstRow,
-.secondRow,
-.thirdRow,
+.keyboardRow,
 .valider {
   display: flex;
   justify-content: space-around;
@@ -215,6 +216,8 @@ h1 span:hover {
 
 .keyboard-key {
   touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
   font-size: 1.5em;
   padding: 15px 0;
   width: 100%;
@@ -300,9 +303,7 @@ footer {
     gap: 10px;
     margin: 20px 0;
   }
-  .firstRow,
-  .secondRow,
-  .thirdRow,
+  .keyboardRow,
   .valider {
     gap: 5px;
   }
@@ -325,19 +326,18 @@ footer {
     line-height: 30px;
   }
   .keyboard {
-    margin: 20px 0 0 0;
+    margin: 20px 5px;
   }
   .keyboard-key {
-    height: 20px;
+    height: 40px;
   }
 }
 
 /* Setting menu */
 .settings {
-  position: absolute;
+  position: fixed;
   inset: 0;
   z-index: 99;
-  height: 115lvh;
   display: flex;
   justify-content: center;
   align-items: center;

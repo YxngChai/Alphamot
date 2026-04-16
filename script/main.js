@@ -1,4 +1,4 @@
-import { buildGameGrid } from "./initialization.js";
+import { buildGameGrid, buildKeyboard } from "./initialization.js";
 import {
   enterALetter,
   backspaceInput,
@@ -9,6 +9,7 @@ import { openCloseSettings } from "./settings.js";
 
 openCloseSettings();
 buildGameGrid();
+buildKeyboard("qwerty");
 initInput();
 
 function manageUserInput(key) {
@@ -35,3 +36,17 @@ document.addEventListener("keydown", (event) => {
   let key = event.key;
   manageUserInput(key);
 });
+
+document.addEventListener(
+  "touchend",
+  function (event) {
+    const now = Date.now();
+    const DOUBLE_TAP_DELAY = 300;
+
+    if (this.lastTouchEnd && now - this.lastTouchEnd <= DOUBLE_TAP_DELAY) {
+      event.preventDefault();
+    }
+    this.lastTouchEnd = now;
+  },
+  { passive: false },
+);
