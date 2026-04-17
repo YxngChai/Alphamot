@@ -1,5 +1,7 @@
 import { wordToGuess } from "./initialization.js";
 import { processWord } from "./guessManipulation.js";
+import { playGame } from "./main.js";
+import { handleGuess } from "./initialization.js";
 
 // decide the column case where next input  will go
 let currentPlacement = 1;
@@ -7,14 +9,6 @@ let currentPlacement = 1;
 let rows;
 let rowCounter = 0;
 let currentRow;
-
-export function initInput() {
-  rows = document.querySelectorAll(".gridRow");
-  rowCounter = 0;
-  // Select all the cells from current row
-  currentRow = [...rows[rowCounter].children];
-  currentPlacement = 1;
-}
 
 let userGuess = "";
 let tries = 0;
@@ -25,7 +19,44 @@ let gameState = {
   misplaced: [],
   correct: [],
 };
+
 let correctPositions;
+
+export function manageUserInput(key) {
+  const isLetter = /^[a-zA-Z\-]$/.test(key);
+  if (isLetter) {
+    enterALetter(key);
+  } else if (key === "Backspace") {
+    backspaceInput();
+  } else if (key === "Enter") {
+    handleEnter();
+  }
+}
+
+export function handleInputType() {
+  // Mouse input
+  document.addEventListener("click", (event) => {
+    const button = event.target.closest(".keyboard-key");
+    if (!button) return;
+    let key = button.dataset.key;
+    manageUserInput(key);
+  });
+
+  // Keyboard input
+  document.addEventListener("keydown", (event) => {
+    let key = event.key;
+    manageUserInput(key);
+  });
+}
+
+export function initInput() {
+  rows = document.querySelectorAll(".gridRow");
+  rowCounter = 0;
+  // Select all the cells from current row
+  currentRow = [...rows[rowCounter].children];
+  currentPlacement = 1;
+}
+
 function initCorrectPositions() {
   correctPositions = Array(wordToGuess.length).fill(null);
 }
@@ -109,10 +140,73 @@ function updateSoftLockedCell() {
   currentRow[0].classList.remove("fade");
 }
 
+function hideKeyboard() {
+  const keyboard = document.querySelector(".keyboard");
+  keyboard.classList.add("hidden");
+}
+function showAnswer() {
+  const keyboard = document.querySelector(".keyboard");
+  let message = document.createElement("div");
+  message.classList.add("lossAnswer");
+  message.textContent = `Correct Answer: ${wordToGuess}`;
+  keyboard.after(message);
+}
+function resetState() {
+  currentPlacement = 1;
+  correctPositions = [];
+  rowCounter = 0;
+  tries = 0;
+  userGuess = "";
+  gameState = {
+    wrongLetters: [],
+    misplaced: [],
+    correct: [],
+  };
+}
+export function clearGame() {
+  const app = document.querySelector(".app");
+  app.innerHTML = "";
+  const gameGrid = document.createElement("div");
+  gameGrid.classList.add("gameGrid");
+  app.appendChild(gameGrid);
+  const keyboard = document.createElement("div");
+  keyboard.classList.add("keyboard");
+  app.appendChild(keyboard);
+}
+
+function restartTheGame() {
+  const app = document.querySelector(".app");
+  let message = document.createElement("div");
+  message.classList.add("restart");
+  message.innerHTML = `<p>Play Again   </p>
+  <i class="fa-solid fa-arrow-rotate-left"></i>`;
+
+  message.addEventListener("click", () => {
+    resetState();
+    clearGame();
+    playGame();
+  });
+  app.appendChild(message);
+}
+
+function handleLoss() {
+  hideKeyboard();
+  resetState();
+  showAnswer();
+  restartTheGame();
+}
+function handleWin() {
+  throwConfetti();
+  resetState();
+  hideKeyboard();
+  restartTheGame();
+}
+
 function changeLineDown() {
   tries++;
   if (tries === 6) {
     console.log("You lost!");
+    handleLoss();
   } else {
     console.log("Wrong Answer!");
     for (let child of rows[rowCounter + 1].children) {
@@ -129,9 +223,6 @@ function changeLineDown() {
 
 function updateKeyboard(wrongLetters, misplaced, correct) {
   const keys = document.querySelectorAll(".keyboard-key");
-  console.log(wrongLetters);
-  console.log(correct);
-  console.log(misplaced);
   keys.forEach((key) => {
     if (correct.includes(key.dataset.key)) {
       key.classList.remove("misplaced");
@@ -151,8 +242,17 @@ function throwConfetti() {
 }
 
 // Function to validate the word by pressing enter
-export function handleEnter() {
+export async function handleEnter() {
   userGuess = buildUserGuess();
+
+  const isValid = await handleGuess(userGuess);
+
+  if (!isValid) {
+    rows[rowCounter].classList.add("shake");
+    setTimeout(() => rows[rowCounter].classList.remove("shake"), 300);
+    return;
+  }
+
   if (userGuess.length === wordToGuess.length) {
     tries;
     const { wrongLetters, misplaced, correct, position } =
@@ -168,8 +268,8 @@ export function handleEnter() {
 
     updateLineColor(position);
     if (checkWin(userGuess, wordToGuess)) {
-      console.log("You Win!");
-      throwConfetti();
+      console.log(correctPositions);
+      handleWin();
     } else {
       changeLineDown();
     }

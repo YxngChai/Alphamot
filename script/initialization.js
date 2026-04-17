@@ -1,5 +1,27 @@
 import { keyboards } from "./keyboardLayout.js";
 
+// const response = await fetch(
+//   `https://api.dictionaryapi.dev/api/v2/entries/en/BANANA`,
+// );
+// export const dictionaryapi = response.json();
+
+async function verifyWord(userGuess) {
+  const guessWordToVerify = userGuess.toLowerCase();
+  const response = await fetch(
+    `https://api.dictionaryapi.dev/api/v2/entries/en/${guessWordToVerify}`,
+  );
+  if (!response.ok) {
+    return false;
+  }
+  const dictionaryApi = await response.json();
+  return dictionaryApi;
+}
+
+export async function handleGuess(userGuess) {
+  const result = await verifyWord(userGuess);
+  return result;
+}
+
 const mots = [
   "pardon",
   "chalet",
@@ -35,9 +57,47 @@ const animals = [
   "cougar",
   "lizard",
 ];
+const words = [
+  "banana",
+  "orange",
+  "tomato",
+  "pardon",
+  "cherry",
+  "purple",
+  "silver",
+  "circle",
+  "animal",
+  "guitar",
+  "planet",
+  "socket",
+  "stream",
+  "button",
+  "forest",
+  "castle",
+  "bridge",
+  "pencil",
+  "planet",
+  "coffee",
+  "street",
+  "market",
+  "school",
+  "bottle",
+  "window",
+  "family",
+  "monkey",
+  "rabbit",
+  "turtle",
+  "donkey",
+  "beacon",
+  "spring",
+  "bright",
+  "travel",
+  "health",
+  "summer",
+];
 
 export let wordToGuess =
-  animals[Math.floor(Math.random() * animals.length)].toUpperCase();
+  words[Math.floor(Math.random() * words.length)].toUpperCase();
 
 function setupFirstLetter() {
   const firstRow = document.querySelectorAll(".currentRow");
@@ -70,25 +130,25 @@ export function buildKeyboard(keyboardLanguage) {
   const keyboard = document.querySelector(".keyboard");
   const keyboardLayout = keyboards[keyboardLanguage];
 
-  for (let i = 0; i < keyboardLayout.length; i++) {
+  keyboardLayout.forEach((row, i) => {
     let keyboardRow = document.createElement("div");
     keyboardRow.classList.add("keyboardRow");
-    console.log(keyboardLayout[i].length);
-    for (let y = 0; y < keyboardLayout[i].length; y++) {
+
+    row.forEach((key, y) => {
       let cell = document.createElement("div");
-      if (keyboardLayout[i][y] === "Backspace") {
+      if (key === "Backspace") {
         cell.innerHTML = `<i class="far fa-backspace"></i>`;
       } else {
-        cell.textContent = keyboardLayout[i][y];
+        cell.textContent = key;
       }
 
       cell.classList.add("keyboard-key");
-      cell.dataset.key = keyboardLayout[i][y];
+      cell.dataset.key = key;
       keyboardRow.appendChild(cell);
-    }
-
+    });
     keyboard.appendChild(keyboardRow);
-  }
+  });
+
   const validateBtn = document.createElement("button");
   validateBtn.classList.add("keyboard-key", "valider");
   validateBtn.dataset.key = "Enter";

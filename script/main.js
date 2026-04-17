@@ -1,41 +1,31 @@
 import { buildGameGrid, buildKeyboard } from "./initialization.js";
 import {
-  enterALetter,
-  backspaceInput,
-  handleEnter,
   initInput,
+  manageUserInput,
+  handleInputType,
+  clearGame,
 } from "./input.js";
 import { openCloseSettings } from "./settings.js";
 
 openCloseSettings();
-buildGameGrid();
-buildKeyboard("qwerty");
-initInput();
 
-function manageUserInput(key) {
-  const isLetter = /^[a-zA-Z\-]$/.test(key);
-  if (isLetter) {
-    enterALetter(key);
-  } else if (key === "Backspace") {
-    backspaceInput();
-  } else if (key === "Enter") {
-    handleEnter();
-  }
+export function playGame() {
+  clearGame();
+  buildGameGrid();
+  buildKeyboard("qwerty");
+  initInput();
 }
 
-// Mouse input
-document.addEventListener("click", (event) => {
-  const button = event.target.closest(".keyboard-key");
-  if (!button) return;
-  let key = button.dataset.key;
-  manageUserInput(key);
-});
+handleInputType();
 
-// Keyboard input
-document.addEventListener("keydown", (event) => {
-  let key = event.key;
-  manageUserInput(key);
-});
+playGame();
+
+const replayBtn = document.querySelector(".restart");
+if (replayBtn) {
+  replayBtn.addEventListener("click", () => {
+    playGame();
+  });
+}
 
 document.addEventListener(
   "touchend",

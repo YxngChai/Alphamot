@@ -44,6 +44,15 @@ body {
     #43add0,
     #8bdeda
   );
+  /* dark Mode
+  background: linear-gradient(
+    to left,
+    #b0304f,
+    #8a3fb0,
+    #4f4fd6,
+    #1f7fd1,
+    #19a39a
+  ); */
 
   padding: 0 10px;
   display: flex;
@@ -206,6 +215,10 @@ h1 span:hover {
   flex-direction: column;
   gap: 20px;
 }
+.keyboard.hidden {
+  display: none;
+}
+
 .keyboardRow,
 .valider {
   display: flex;
@@ -269,10 +282,44 @@ h1 span:hover {
   color: rgb(195, 194, 194);
 }
 
+/* Answer after loss */
+.lossAnswer,
+.restart {
+  border: 1px solid black;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  font-weight: 400;
+  font-size: 1.3em;
+
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+.restart {
+  font-size: 1.5em;
+  transition: 0.1s ease-in;
+  cursor: pointer;
+  z-index: 9999;
+  /* margin-top: 100px; */
+}
+.restart:hover {
+  transform: scale(1.2);
+}
+.fa-arrow-rotate-left {
+  display: inline-block;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  margin-left: 20px;
+}
+
 /* Footer */
 footer {
   height: 200px;
-  background: rgba(255, 255, 255, 0.2); /* more transparent */
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -314,6 +361,9 @@ footer {
     margin-right: 10px;
   }
 }
+canvas {
+  pointer-events: none;
+}
 @media screen and (max-width: 500px) {
   h1 {
     font-size: 1.7em;
@@ -330,6 +380,9 @@ footer {
   }
   .keyboard-key {
     height: 40px;
+  }
+  .btn-settings {
+    margin-right: 20px;
   }
 }
 
@@ -374,11 +427,37 @@ footer {
 
   display: flex;
   justify-content: space-around;
+  pointer-events: none;
 }
 .settings.opened .settings-card {
   transform: scale(1) translateY(-100px) translateX(0);
   opacity: 1;
+  pointer-events: auto;
 }
 .js-confetti {
   height: 0;
+}
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake {
+  animation: shake 0.3s ease-in-out;
 }
