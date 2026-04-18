@@ -1,7 +1,5 @@
 import { getWordToGuess } from "./gameState.js";
 
-const wordToGuess = getWordToGuess();
-
 function buildUIWrongLetters(userGuess, wordToGuess) {
   const wrongLetters = [];
   for (let i = 0; i < userGuess.length; i++) {
@@ -51,6 +49,7 @@ function markMisplacedLetters(userGuess, position, letterCount, misplaced) {
   }
 }
 export function processWord(userGuess) {
+  const wordToGuess = getWordToGuess();
   // Create an empty list length of word where items will later be replaced with patterns to style a valid line
   let position = new Array(wordToGuess.length).fill("");
 

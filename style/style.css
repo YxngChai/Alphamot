@@ -188,6 +188,7 @@ h1 span:hover {
   background: linear-gradient(to right, #218ad5, #59d8e9);
 
   border: black 2px solid;
+  transition: border-radius 1s ease-in;
 }
 .setting-wheel {
   pointer-events: none;
