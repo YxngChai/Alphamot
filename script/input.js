@@ -3,18 +3,8 @@ import { playGame } from "./main.js";
 import { handleGuess } from "./initialization.js";
 import { getWordToGuess, resetState, state } from "./gameState.js";
 
-// decide the column case where next input  will go
-
-// To change line down when validating a word
 let rows;
 let currentRow;
-
-// will save all letters from player input in different categories
-// let gameState = {
-//   wrongLetters: [],
-//   misplaced: [],
-//   correct: [],
-// };
 
 export function manageUserInput(key) {
   const isLetter = /^[a-zA-Z\-]$/.test(key);

@@ -18,7 +18,7 @@ openCloseSettings();
 
 export function playGame() {
   clearGame();
-  const newWord = generateWordToGuess(englishWords);
+  const newWord = generateWordToGuess(mots);
   console.log(newWord);
   setWordToGuess(newWord);
   buildGameGrid(newWord);
