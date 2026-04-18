@@ -1,26 +1,20 @@
-import { wordToGuess } from "./initialization.js";
 import { processWord } from "./guessManipulation.js";
 import { playGame } from "./main.js";
 import { handleGuess } from "./initialization.js";
+import { getWordToGuess, resetState, state } from "./gameState.js";
 
 // decide the column case where next input  will go
-let currentPlacement = 1;
+
 // To change line down when validating a word
 let rows;
-let rowCounter = 0;
 let currentRow;
 
-let userGuess = "";
-let tries = 0;
-
 // will save all letters from player input in different categories
-let gameState = {
-  wrongLetters: [],
-  misplaced: [],
-  correct: [],
-};
-
-let correctPositions;
+// let gameState = {
+//   wrongLetters: [],
+//   misplaced: [],
+//   correct: [],
+// };
 
 export function manageUserInput(key) {
   const isLetter = /^[a-zA-Z\-]$/.test(key);
@@ -51,47 +45,51 @@ export function handleInputType() {
 
 export function initInput() {
   rows = document.querySelectorAll(".gridRow");
-  rowCounter = 0;
+  state.rowCounter = 0;
   // Select all the cells from current row
-  currentRow = [...rows[rowCounter].children];
-  currentPlacement = 1;
+  currentRow = [...rows[state.rowCounter].children];
+  state.currentPlacement = 1;
 }
 
 function initCorrectPositions() {
-  correctPositions = Array(wordToGuess.length).fill(null);
+  state.correctPositions = Array(getWordToGuess().length).fill(null);
 }
 
 //Collect list at each turn, compare list and returns unique items
 function sortUsedLetters(wrongLetters, misplaced, correct) {
-  gameState.wrongLetters = [
-    ...new Set([...gameState.wrongLetters, ...wrongLetters]),
+  state.gameState.wrongLetters = [
+    ...new Set([...state.gameState.wrongLetters, ...wrongLetters]),
   ];
 
-  gameState.misplaced = [...new Set([...gameState.misplaced, ...misplaced])];
+  state.gameState.misplaced = [
+    ...new Set([...state.gameState.misplaced, ...misplaced]),
+  ];
 
-  gameState.correct = [...new Set([...gameState.correct, ...correct])];
+  state.gameState.correct = [
+    ...new Set([...state.gameState.correct, ...correct]),
+  ];
 }
 
 // add selecter letters to the screen
 export function enterALetter(key) {
-  if (!correctPositions) {
+  if (!state.correctPositions) {
     initCorrectPositions();
   }
-  if (currentPlacement < currentRow.length) {
-    currentRow[currentPlacement].classList.remove("fade");
-    currentRow[currentPlacement].textContent = key.toUpperCase();
+  if (state.currentPlacement < currentRow.length) {
+    currentRow[state.currentPlacement].classList.remove("fade");
+    currentRow[state.currentPlacement].textContent = key.toUpperCase();
 
-    currentPlacement++;
+    state.currentPlacement++;
   }
-  return currentPlacement;
+  return state.currentPlacement;
 }
 // Update screen when user use backspace
 export function backspaceInput() {
-  if (currentPlacement > 1) {
-    currentPlacement--;
-    const cell = currentRow[currentPlacement];
-    if (correctPositions[currentPlacement] !== null) {
-      cell.textContent = correctPositions[currentPlacement];
+  if (state.currentPlacement > 1) {
+    state.currentPlacement--;
+    const cell = currentRow[state.currentPlacement];
+    if (state.correctPositions[state.currentPlacement] !== null) {
+      cell.textContent = state.correctPositions[state.currentPlacement];
       cell.classList.add("fade");
     } else {
       cell.textContent = "";
@@ -113,27 +111,27 @@ function checkWin(userGuess, wordToGuess) {
 }
 // Change user input to line below
 function updateLineColor(position) {
-  for (let i = 0; i < wordToGuess.length; i++) {
+  for (let i = 0; i < getWordToGuess().length; i++) {
     if (position[i] !== "") {
-      rows[rowCounter].children[i].classList.add(position[i]);
+      rows[state.rowCounter].children[i].classList.add(position[i]);
     }
   }
 }
 
 function rememberCorrectPosition(userGuess) {
   for (let i = 0; i < userGuess.length; i++) {
-    if (userGuess[i] === wordToGuess[i]) {
-      correctPositions[i] = userGuess[i];
+    if (userGuess[i] === getWordToGuess()[i]) {
+      state.correctPositions[i] = getWordToGuess()[i];
     }
   }
 }
 // Add and style orrect letters to next row, first letter is always valid.
 function updateSoftLockedCell() {
-  currentPlacement = 1;
-  currentRow = [...rows[rowCounter].children];
-  for (let i = 0; i < wordToGuess.length; i++) {
-    if (correctPositions[i] !== null) {
-      currentRow[i].textContent = correctPositions[i];
+  state.currentPlacement = 1;
+  currentRow = [...rows[state.rowCounter].children];
+  for (let i = 0; i < getWordToGuess().length; i++) {
+    if (state.correctPositions[i] !== null) {
+      currentRow[i].textContent = state.correctPositions[i];
       currentRow[i].classList.add("fade");
     }
   }
@@ -148,21 +146,10 @@ function showAnswer() {
   const keyboard = document.querySelector(".keyboard");
   let message = document.createElement("div");
   message.classList.add("lossAnswer");
-  message.textContent = `Correct Answer: ${wordToGuess}`;
+  message.textContent = `Correct Answer: ${getWordToGuess()}`;
   keyboard.after(message);
 }
-function resetState() {
-  currentPlacement = 1;
-  correctPositions = [];
-  rowCounter = 0;
-  tries = 0;
-  userGuess = "";
-  gameState = {
-    wrongLetters: [],
-    misplaced: [],
-    correct: [],
-  };
-}
+
 export function clearGame() {
   const app = document.querySelector(".app");
   app.innerHTML = "";
@@ -203,20 +190,20 @@ function handleWin() {
 }
 
 function changeLineDown() {
-  tries++;
-  if (tries === 6) {
+  state.tries++;
+  if (state.tries === 6) {
     console.log("You lost!");
     handleLoss();
   } else {
     console.log("Wrong Answer!");
-    for (let child of rows[rowCounter + 1].children) {
+    for (let child of rows[state.rowCounter + 1].children) {
       child.classList.remove("upcomingRow");
       child.classList.add("currentRow");
     }
-    for (let child of rows[rowCounter].children) {
+    for (let child of rows[state.rowCounter].children) {
       child.classList.remove("currentRow");
     }
-    rowCounter++;
+    state.rowCounter++;
     updateSoftLockedCell();
   }
 }
@@ -243,32 +230,32 @@ function throwConfetti() {
 
 // Function to validate the word by pressing enter
 export async function handleEnter() {
-  userGuess = buildUserGuess();
+  state.userGuess = buildUserGuess();
 
-  const isValid = await handleGuess(userGuess);
+  const isValid = await handleGuess(state.userGuess);
 
   if (!isValid) {
-    rows[rowCounter].classList.add("shake");
-    setTimeout(() => rows[rowCounter].classList.remove("shake"), 300);
+    rows[state.rowCounter].classList.add("shake");
+    setTimeout(() => rows[state.rowCounter].classList.remove("shake"), 300);
     return;
   }
 
-  if (userGuess.length === wordToGuess.length) {
-    tries;
-    const { wrongLetters, misplaced, correct, position } =
-      processWord(userGuess);
+  if (state.userGuess.length === getWordToGuess().length) {
+    const { wrongLetters, misplaced, correct, position } = processWord(
+      state.userGuess,
+    );
     // updateKeyboard(wrongLetters, misplaced, correct);
     sortUsedLetters(wrongLetters, misplaced, correct);
     updateKeyboard(
-      gameState.wrongLetters,
-      gameState.misplaced,
-      gameState.correct,
+      state.gameState.wrongLetters,
+      state.gameState.misplaced,
+      state.gameState.correct,
     );
-    rememberCorrectPosition(userGuess);
+    rememberCorrectPosition(state.userGuess);
 
     updateLineColor(position);
-    if (checkWin(userGuess, wordToGuess)) {
-      console.log(correctPositions);
+    if (checkWin(state.userGuess, getWordToGuess())) {
+      console.log(state.correctPositions);
       handleWin();
     } else {
       changeLineDown();

@@ -1,4 +1,9 @@
-import { buildGameGrid, buildKeyboard } from "./initialization.js";
+import {
+  buildGameGrid,
+  buildKeyboard,
+  generateWordToGuess,
+  setupFirstLetter,
+} from "./initialization.js";
 import {
   initInput,
   manageUserInput,
@@ -6,12 +11,18 @@ import {
   clearGame,
 } from "./input.js";
 import { openCloseSettings } from "./settings.js";
+import { englishWords, mots } from "./wordLists.js";
+import { setWordToGuess } from "./gameState.js";
 
 openCloseSettings();
 
 export function playGame() {
   clearGame();
-  buildGameGrid();
+  const newWord = generateWordToGuess(englishWords);
+  console.log(newWord);
+  setWordToGuess(newWord);
+  buildGameGrid(newWord);
+  setupFirstLetter(newWord);
   buildKeyboard("qwerty");
   initInput();
 }

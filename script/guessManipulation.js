@@ -1,4 +1,6 @@
-import { wordToGuess } from "./initialization.js";
+import { getWordToGuess } from "./gameState.js";
+
+const wordToGuess = getWordToGuess();
 
 function buildUIWrongLetters(userGuess, wordToGuess) {
   const wrongLetters = [];
