@@ -44,15 +44,15 @@ body {
     #43add0,
     #8bdeda
   );
-  /* dark Mode
-  background: linear-gradient(
+  /* /* dark Mode */
+  /* background: linear-gradient(
     to left,
     #b0304f,
     #8a3fb0,
     #4f4fd6,
     #1f7fd1,
     #19a39a
-  ); */
+  ); * */
 
   padding: 0 10px;
   display: flex;
@@ -468,12 +468,15 @@ canvas {
   margin-right: 0;
   font-size: 0.7em;
 }
+.btn-settings.setting-wheel {
+  transform: rotate(0);
+}
 .toggleIcon {
   font-size: 2em;
-  color: rgb(233, 231, 231);
+  color: rgb(241, 210, 241);
 }
 .flag {
-  border: 1px solid plum;
+  border: 1px solid rgb(238, 203, 238);
   border-radius: 50px;
   padding: 7px 10px;
 }
@@ -481,13 +484,14 @@ canvas {
   margin-right: 10px;
 }
 .unselectedFlag {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 .selectedFlag {
-  background: rgba(49, 0, 128, 0.425);
+  background: #60bff3;
 }
 .unselectedFlag:hover {
   opacity: 1;
+  background: #60bff3;
 }
 .settings-card__row--top button:hover {
   transform: scale(1);
