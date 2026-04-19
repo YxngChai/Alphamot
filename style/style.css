@@ -415,7 +415,7 @@ canvas {
 .settings-card {
   height: 500px;
   width: 400px;
-  background-color: #0182e5;
+  background: linear-gradient(to right, #768bf4, #59cde9);
   border-radius: 40px;
   margin: 0 10px;
   transform: scale(0.85) translateY(-200px) translateX(50px);
@@ -426,14 +426,76 @@ canvas {
   z-index: 2;
 
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   pointer-events: none;
+
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.693);
 }
 .settings.opened .settings-card {
   transform: scale(1) translateY(-100px) translateX(0);
   opacity: 1;
   pointer-events: auto;
 }
+
+.settings-card__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgb(238, 203, 238);
+  background: rgba(73, 121, 254, 0.403);
+  margin: 0 20px;
+  padding: 0 20px;
+  border-radius: 40px;
+  height: 80px;
+  color: whitesmoke;
+  font-size: 1.2em;
+  transition: 0.3s ease-in;
+}
+.setting-option:hover {
+  background: linear-gradient(to right, #c848f296, #9637b696);
+  cursor: pointer;
+}
+.settings-card__row--top {
+  border: 1px solid rgba(238, 203, 238, 0);
+  background: rgba(0, 0, 0, 0);
+  color: whitesmoke;
+  font-size: 1.4em;
+  font-weight: 400;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.391);
+}
+.settings-card__row--top button {
+  margin-right: 0;
+  font-size: 0.7em;
+}
+.toggleIcon {
+  font-size: 2em;
+  color: rgb(233, 231, 231);
+}
+.flag {
+  border: 1px solid plum;
+  border-radius: 50px;
+  padding: 7px 10px;
+}
+.franceFlag {
+  margin-right: 10px;
+}
+.unselectedFlag {
+  opacity: 0.5;
+}
+.selectedFlag {
+  background: rgba(49, 0, 128, 0.425);
+}
+.unselectedFlag:hover {
+  opacity: 1;
+}
+.settings-card__row--top button:hover {
+  transform: scale(1);
+  background: linear-gradient(to right, #c848f296, #6a268096);
+}
+
+/* Effect */
+
 .js-confetti {
   height: 0;
 }

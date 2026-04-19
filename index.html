@@ -35,12 +35,31 @@
       <div class="gameGrid"></div>
       <div class="keyboard"></div>
       </div>
-      <div class="settings">
+      <div class="settings opened">
         <div class="settings-overlay"></div>
-        <div class="settings-card">Settings Card
-          <button class="btn-settings">            
-          <i class="fa-regular fa-xmark setting-wheel"></i>
-        </button></div></div>
+        <div class="settings-card">
+          <div class="settings-card__row settings-card__row--top">
+            <p>Settings</p>
+            <button class="btn-settings">            
+              <i class="fa-regular fa-xmark setting-wheel"></i>
+            </button>
+          </div>
+          <div  class="settings-card__row setting-option">
+            <p>Language</p>
+            <div><i class="toggleIcon flag franceFlag unselectedFlag">🇫🇷</i>
+              <i class="toggleIcon flag englishFlash selectedFlag">🇬🇧</i>
+            </div>
+          </div>
+          <div  class="settings-card__row setting-option">
+            <p>Dark Mode</p>
+            <i   class="fa-solid fa-toggle-off toggleIcon"></i>
+          </div>
+          <div  class="settings-card__row setting-option">
+            <p>Sound</p>
+            <i   class="fa-solid fa-toggle-off toggleIcon"></i>
+          </div>
+        </div>
+      </div>
     </main>
     <canvas class="js-confetti"></canvas>
 
