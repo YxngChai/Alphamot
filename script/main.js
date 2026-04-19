@@ -13,8 +13,10 @@ import {
 import { openCloseSettings } from "./settings.js";
 import { englishWords, mots } from "./wordLists.js";
 import { setWordToGuess } from "./gameState.js";
+import { AnimateToggleSettings } from "./settings.js";
 
 openCloseSettings();
+AnimateToggleSettings();
 
 export function playGame() {
   clearGame();

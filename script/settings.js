@@ -8,3 +8,15 @@ export function openCloseSettings() {
     });
   });
 }
+
+export function AnimateToggleSettings() {
+  document.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("fa-toggle-on") ||
+      e.target.classList.contains("fa-toggle-off")
+    ) {
+      e.target.classList.toggle("fa-toggle-on");
+      e.target.classList.toggle("fa-toggle-off");
+    }
+  });
+}
