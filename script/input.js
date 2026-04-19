@@ -242,7 +242,6 @@ export async function handleEnter() {
       state.gameState.correct,
     );
     rememberCorrectPosition(state.userGuess);
-    console.log(position);
     updateLineColor(position);
     if (checkWin(state.userGuess, getWordToGuess())) {
       console.log(state.correctPositions);

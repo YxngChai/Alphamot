@@ -103,3 +103,4 @@ export const englishWords = [
   "service",
   "system",
 ];
+// export const englishWords = ["alter"];

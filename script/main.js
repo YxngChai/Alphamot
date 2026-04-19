@@ -20,7 +20,7 @@ AnimateToggleSettings();
 
 export function playGame() {
   clearGame();
-  const newWord = generateWordToGuess(mots);
+  const newWord = generateWordToGuess(englishWords);
   console.log(newWord);
   setWordToGuess(newWord);
   buildGameGrid(newWord);
