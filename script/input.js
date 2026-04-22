@@ -7,6 +7,8 @@ let rows;
 let currentRow;
 
 export function manageUserInput(key) {
+  if (state.gameOver) return;
+
   const isLetter = /^[a-zA-Z\-]$/.test(key);
   if (isLetter) {
     enterALetter(key);
@@ -167,14 +169,14 @@ function restartTheGame() {
 }
 
 function handleLoss() {
+  state.gameOver = true;
   hideKeyboard();
-  resetState();
   showAnswer();
   restartTheGame();
 }
 function handleWin() {
+  state.gameOver = true;
   throwConfetti();
-  resetState();
   hideKeyboard();
   restartTheGame();
 }
@@ -220,10 +222,12 @@ function throwConfetti() {
 
 // Function to validate the word by pressing enter
 export async function handleEnter() {
+  if (state.gameOver) return;
   state.userGuess = buildUserGuess();
 
   const isValid = await handleGuess(state.userGuess);
 
+  if (state.gameOver) return;
   if (!isValid) {
     rows[state.rowCounter].classList.add("shake");
     setTimeout(() => rows[state.rowCounter].classList.remove("shake"), 300);

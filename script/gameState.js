@@ -10,6 +10,7 @@ export const state = {
     misplaced: [],
     correct: [],
   },
+  gameOver: false,
 };
 
 export function resetState() {
@@ -23,6 +24,7 @@ export function resetState() {
     misplaced: [],
     correct: [],
   };
+  state.gameOver = false;
 }
 
 export function setWordToGuess(word) {

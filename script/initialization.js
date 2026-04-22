@@ -1,5 +1,20 @@
 import { keyboards } from "./keyboardLayout.js";
 
+// let englishWordSet = {};
+// fetch("./words_dictionary.json")
+//   .then((res) => res.json())
+//   .then((data) => {
+//     englishWordSet = data;
+
+//     let guess = "market";
+
+//     if (guess.toLowerCase() in englishWordSet) {
+//       console.log("yes");
+//     } else {
+//       console.log("problem");
+//     }
+//   });
+
 async function verifyWord(userGuess) {
   const guessWordToVerify = userGuess.toLowerCase();
   const response = await fetch(
