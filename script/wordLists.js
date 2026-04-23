@@ -104,3 +104,5 @@ export const englishWords = [
   "system",
 ];
 // export const englishWords = ["alter"];
+
+//function getDefinition

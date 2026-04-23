@@ -1,36 +1,40 @@
 import { keyboards } from "./keyboardLayout.js";
 
-// let englishWordSet = {};
-// fetch("./words_dictionary.json")
-//   .then((res) => res.json())
-//   .then((data) => {
-//     englishWordSet = data;
+// async function createEnglishWordSet() {
+//   fetch("./englishDictionary.json")
+//     .then((res) => res.json())
+//     .then((data) => {
+//       let englishWordSet = data;
+//     });
+//   return englishWordSet;
+// }
+export const englishWordSet = await fetch("./englishDictionary.json").then(
+  (res) => res.json(),
+);
 
-//     let guess = "market";
-
-//     if (guess.toLowerCase() in englishWordSet) {
-//       console.log("yes");
-//     } else {
-//       console.log("problem");
-//     }
-//   });
-
-async function verifyWord(userGuess) {
+export function verifyWord(userGuess) {
   const guessWordToVerify = userGuess.toLowerCase();
+  return guessWordToVerify in englishWordSet;
+}
+
+async function getDefinition(wordToGuess) {
   const response = await fetch(
-    `https://api.dictionaryapi.dev/api/v2/entries/en/${guessWordToVerify}`,
+    `https://api.dictionaryapi.dev/api/v2/entries/en/apple`,
   );
   if (!response.ok) {
     return false;
   }
   const dictionaryApi = await response.json();
-  return dictionaryApi;
+  const definition =
+    dictionaryApi[0]?.meanings[0]?.definitions[0]?.definition ??
+    "No definition found";
+  return definition;
 }
 
-export async function handleGuess(userGuess) {
-  const result = await verifyWord(userGuess);
-  return result;
-}
+// export async function handleGuess(userGuess) {
+//   const result = await verifyWord(userGuess);
+//   return result;
+// }
 
 export function generateWordToGuess(wordList) {
   return wordList[Math.floor(Math.random() * wordList.length)].toUpperCase();

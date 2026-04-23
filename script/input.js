@@ -1,6 +1,6 @@
 import { processWord } from "./guessManipulation.js";
 import { playGame } from "./main.js";
-import { handleGuess } from "./initialization.js";
+import { verifyWord } from "./initialization.js";
 import { getWordToGuess, resetState, state } from "./gameState.js";
 
 let rows;
@@ -225,7 +225,7 @@ export async function handleEnter() {
   if (state.gameOver) return;
   state.userGuess = buildUserGuess();
 
-  const isValid = await handleGuess(state.userGuess);
+  const isValid = verifyWord(state.userGuess);
 
   if (state.gameOver) return;
   if (!isValid) {
