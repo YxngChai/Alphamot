@@ -126,7 +126,7 @@ export const frenchWordsToGuess = [
   "voyage",
 ];
 
-export const englishWordstoGuess = [
+export const englishWordsToGuess = [
   "cat",
   "dog",
   "sun",

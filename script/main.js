@@ -4,6 +4,7 @@ import {
   generateWordToGuess,
   setupFirstLetter,
   setLangAttribute,
+  setGameLanguage,
 } from "./initialization.js";
 import {
   initInput,
@@ -16,11 +17,6 @@ import { englishWords, mots } from "./wordLists.js";
 import { setWordToGuess } from "./gameState.js";
 import { AnimateToggleSettings } from "./settings.js";
 
-setLangAttribute();
-
-openCloseSettings();
-AnimateToggleSettings();
-
 export function playGame() {
   clearGame();
   const newWord = generateWordToGuess(englishWords);
@@ -31,6 +27,12 @@ export function playGame() {
   buildKeyboard("qwerty");
   initInput();
 }
+
+setLangAttribute();
+setGameLanguage();
+
+openCloseSettings();
+AnimateToggleSettings();
 
 handleInputType();
 

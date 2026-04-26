@@ -4,19 +4,24 @@ import { englishWordsToGuess, frenchWordsToGuess } from "./wordLists.js";
 
 export function setLangAttribute() {
   const supported = ["fr", "en"];
-  let lang = (navigator.language || "en").toLowerCase().split("-")[0];
+  let lang = localStorage.getItem("lang");
+  if (!lang) {
+    let lang = (navigator.language || "en").toLowerCase().split("-")[0];
+  }
   if (!supported.includes(lang)) lang = "en";
   document.documentElement.lang = lang;
   state.language = lang;
   console.log(state.language);
 }
 
-function setGameLanguage() {
+export function setGameLanguage() {
   if (state.language === "fr") {
-    setForVerification = frenchWordSet;
-    // word to guess from =
+    state.verificationSet = frenchWordSet;
+    state.wordPool = frenchWordsToGuess;
   } else {
-    setForVerification = englishWordSet;
+    state.verificationSet = englishWordSet;
+    state.wordPool = englishWordsToGuess;
+    console.log(state.wordPool);
   }
 }
 
@@ -38,11 +43,9 @@ export const frenchWordSet = new Set(
     .filter(Boolean),
 );
 
-// need to pass set as variable
 export function verifyWord(userGuess) {
   const guessWordToVerify = userGuess.toLowerCase();
-  return guessWordToVerify in setForVerification;
-  return frenchWordSet.has(guessWordToVerify);
+  return state.verificationSet.has(guessWordToVerify);
 }
 
 // Not emplemented yet

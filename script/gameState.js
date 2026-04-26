@@ -12,6 +12,8 @@ export const state = {
   },
   gameOver: false,
   language: "",
+  wordPool: [],
+  verificationSet: new Set(),
 };
 
 export function resetState() {
