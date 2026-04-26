@@ -103,6 +103,45 @@ export const englishWords = [
   "service",
   "system",
 ];
+export const frenchWordsToGuess = [
+  "pardon",
+  "chalet",
+  "bateau",
+  "fraise",
+  "garage",
+  "valise",
+  "tomate",
+  "pierre",
+  "chemin",
+  "plante",
+  "orange",
+  "maison",
+  "brosse",
+  "animal",
+  "bureau",
+  "cactus",
+  "bassin",
+  "ballet",
+  "crayon",
+  "voyage",
+];
+
+export const englishWordstoGuess = [
+  "cat",
+  "dog",
+  "sun",
+  "car",
+  "pen",
+  "box",
+
+  "science",
+  "culture",
+  "economy",
+  "network",
+  "process",
+  "service",
+  "system",
+];
 // export const englishWords = ["alter"];
 
 //function getDefinition

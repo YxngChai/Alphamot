@@ -1,22 +1,51 @@
 import { keyboards } from "./keyboardLayout.js";
+import { state } from "./gameState.js";
+import { englishWordsToGuess, frenchWordsToGuess } from "./wordLists.js";
 
-// async function createEnglishWordSet() {
-//   fetch("./englishDictionary.json")
-//     .then((res) => res.json())
-//     .then((data) => {
-//       let englishWordSet = data;
-//     });
-//   return englishWordSet;
-// }
-export const englishWordSet = await fetch("./englishDictionary.json").then(
-  (res) => res.json(),
-);
-
-export function verifyWord(userGuess) {
-  const guessWordToVerify = userGuess.toLowerCase();
-  return guessWordToVerify in englishWordSet;
+export function setLangAttribute() {
+  const supported = ["fr", "en"];
+  let lang = (navigator.language || "en").toLowerCase().split("-")[0];
+  if (!supported.includes(lang)) lang = "en";
+  document.documentElement.lang = lang;
+  state.language = lang;
+  console.log(state.language);
 }
 
+function setGameLanguage() {
+  if (state.language === "fr") {
+    setForVerification = frenchWordSet;
+    // word to guess from =
+  } else {
+    setForVerification = englishWordSet;
+  }
+}
+
+// Create one set of english and on french words that are valid to check against userGuess
+const englishWords = await fetch("./englishDictionary.json").then((res) =>
+  res.json(),
+);
+export const englishWordSet = new Set(
+  Object.keys(englishWords).map((w) => w.toLowerCase()),
+);
+
+const frenchWords = await fetch("./frenchDictionary.txt").then((res) =>
+  res.text(),
+);
+export const frenchWordSet = new Set(
+  frenchWords
+    .split(/\r?\n/)
+    .map((w) => w.trim().toLowerCase())
+    .filter(Boolean),
+);
+
+// need to pass set as variable
+export function verifyWord(userGuess) {
+  const guessWordToVerify = userGuess.toLowerCase();
+  return guessWordToVerify in setForVerification;
+  return frenchWordSet.has(guessWordToVerify);
+}
+
+// Not emplemented yet
 async function getDefinition(wordToGuess) {
   const response = await fetch(
     `https://api.dictionaryapi.dev/api/v2/entries/en/apple`,

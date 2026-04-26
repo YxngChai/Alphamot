@@ -3,6 +3,7 @@ import {
   buildKeyboard,
   generateWordToGuess,
   setupFirstLetter,
+  setLangAttribute,
 } from "./initialization.js";
 import {
   initInput,
@@ -14,6 +15,8 @@ import { openCloseSettings } from "./settings.js";
 import { englishWords, mots } from "./wordLists.js";
 import { setWordToGuess } from "./gameState.js";
 import { AnimateToggleSettings } from "./settings.js";
+
+setLangAttribute();
 
 openCloseSettings();
 AnimateToggleSettings();

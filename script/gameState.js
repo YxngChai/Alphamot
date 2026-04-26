@@ -11,6 +11,7 @@ export const state = {
     correct: [],
   },
   gameOver: false,
+  language: "",
 };
 
 export function resetState() {
