@@ -11,17 +11,17 @@ export function setLangAttribute() {
   if (!supported.includes(lang)) lang = "en";
   document.documentElement.lang = lang;
   state.language = lang;
-  console.log(state.language);
 }
 
 export function setGameLanguage() {
   if (state.language === "fr") {
     state.verificationSet = frenchWordSet;
     state.wordPool = frenchWordsToGuess;
+    state.keyboard = "azerty";
   } else {
     state.verificationSet = englishWordSet;
     state.wordPool = englishWordsToGuess;
-    console.log(state.wordPool);
+    state.keyboard = "qwerty";
   }
 }
 
@@ -115,15 +115,14 @@ export function buildKeyboard(keyboardLanguage) {
       }
 
       cell.classList.add("keyboard-key");
-      cell.dataset.key = key;
+      if (key === "Enter" || key === "Valider") {
+        cell.dataset.key = "Enter";
+        cell.classList.add("enter");
+      } else {
+        cell.dataset.key = key;
+      }
       keyboardRow.appendChild(cell);
     });
     keyboard.appendChild(keyboardRow);
   });
-
-  const validateBtn = document.createElement("button");
-  validateBtn.classList.add("keyboard-key", "valider");
-  validateBtn.dataset.key = "Enter";
-  validateBtn.textContent = "Valider";
-  keyboard.appendChild(validateBtn);
 }

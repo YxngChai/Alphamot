@@ -220,8 +220,7 @@ h1 span:hover {
   display: none;
 }
 
-.keyboardRow,
-.valider {
+.keyboardRow {
   display: flex;
   justify-content: space-around;
   gap: 15px;
@@ -247,6 +246,9 @@ h1 span:hover {
   user-select: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
+}
+.enter {
+  cursor: pointer;
 }
 .keyboard-key:hover {
   background-color: rgb(237, 235, 235);
@@ -351,8 +353,7 @@ footer {
     gap: 10px;
     margin: 20px 0;
   }
-  .keyboardRow,
-  .valider {
+  .keyboardRow {
     gap: 5px;
   }
   .btn-settings {
