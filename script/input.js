@@ -2,6 +2,7 @@ import { processWord } from "./guessManipulation.js";
 import { playGame } from "./main.js";
 import { verifyWord } from "./initialization.js";
 import { getWordToGuess, resetState, state } from "./gameState.js";
+import { updateTexts } from "./translation.js";
 
 let rows;
 let currentRow;
@@ -138,8 +139,10 @@ function showAnswer() {
   const keyboard = document.querySelector(".keyboard");
   let message = document.createElement("div");
   message.classList.add("lossAnswer");
-  message.textContent = `Correct Answer: ${getWordToGuess()}`;
+  message.setAttribute("data-i18n", "correctAnswer");
+  message.dataset.word = getWordToGuess();
   keyboard.after(message);
+  updateTexts();
 }
 
 export function clearGame() {
@@ -157,7 +160,7 @@ function restartTheGame() {
   const app = document.querySelector(".app");
   let message = document.createElement("div");
   message.classList.add("restart");
-  message.innerHTML = `<p>Play Again   </p>
+  message.innerHTML = `<p data-i18n="replay"></p>
   <i class="fa-solid fa-arrow-rotate-left"></i>`;
 
   message.addEventListener("click", () => {
@@ -166,6 +169,7 @@ function restartTheGame() {
     playGame();
   });
   app.appendChild(message);
+  updateTexts();
 }
 
 function handleLoss() {
@@ -184,10 +188,8 @@ function handleWin() {
 function changeLineDown() {
   state.tries++;
   if (state.tries === 6) {
-    console.log("You lost!");
     handleLoss();
   } else {
-    console.log("Wrong Answer!");
     for (let child of rows[state.rowCounter + 1].children) {
       child.classList.remove("upcomingRow");
       child.classList.add("currentRow");

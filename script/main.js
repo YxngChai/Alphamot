@@ -13,6 +13,7 @@ import {
   clearGame,
 } from "./input.js";
 import { state } from "./gameState.js";
+import { updateTexts } from "./translation.js";
 import { openCloseSettings } from "./settings.js";
 import { englishWords, mots } from "./wordLists.js";
 import { setWordToGuess } from "./gameState.js";
@@ -46,6 +47,8 @@ export function playGame() {
 setLangAttribute();
 setGameLanguage();
 
+updateTexts();
+
 openCloseSettings();
 AnimateToggleSettings();
 
@@ -71,6 +74,7 @@ buttons.forEach((btn) => {
     state.language = btn.dataset.lang;
 
     setGameLanguage();
+    updateTexts();
     playGame();
   });
 });
