@@ -1,12 +1,19 @@
 import { keyboards } from "./keyboardLayout.js";
 import { state } from "./gameState.js";
-import { englishWordsToGuess, frenchWordsToGuess } from "./wordLists.js";
+import {
+  brazilianWordsToGuess,
+  englishWordsToGuess,
+  frenchWordsToGuess,
+} from "./wordLists.js";
 
 export function setLangAttribute() {
-  const supported = ["fr", "en"];
+  const supported = ["fr", "en", "pt-BR"];
   let lang = localStorage.getItem("lang");
   if (!lang) {
-    let lang = (navigator.language || "en").toLowerCase().split("-")[0];
+    lang = navigator.language || "en";
+    if (lang.startsWith("fr")) lang = "fr";
+    else if (lang.startsWith("pt")) lang = "pt-BR";
+    else lang = "en";
   }
   if (!supported.includes(lang)) lang = "en";
   document.documentElement.lang = lang;
@@ -18,6 +25,10 @@ export function setGameLanguage() {
     state.verificationSet = frenchWordSet;
     state.wordPool = frenchWordsToGuess;
     state.keyboard = "azerty";
+  } else if (state.language === "pt-BR") {
+    state.verificationSet = portugueseWordSet;
+    state.wordPool = brazilianWordsToGuess;
+    state.keyboard = "qwertyBR";
   } else {
     state.verificationSet = englishWordSet;
     state.wordPool = englishWordsToGuess;
@@ -38,6 +49,15 @@ const frenchWords = await fetch("./frenchDictionary.txt").then((res) =>
 );
 export const frenchWordSet = new Set(
   frenchWords
+    .split(/\r?\n/)
+    .map((w) => w.trim().toLowerCase())
+    .filter(Boolean),
+);
+const portugueseWords = await fetch("./portugueseDictionary.txt").then((res) =>
+  res.text(),
+);
+export const portugueseWordSet = new Set(
+  portugueseWords
     .split(/\r?\n/)
     .map((w) => w.trim().toLowerCase())
     .filter(Boolean),

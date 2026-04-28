@@ -17,6 +17,14 @@ const translations = {
     replay: "Rejouer",
     correctAnswer: (word) => `Bonne Réponse: ${word}`,
   },
+  "pt-BR": {
+    settingsTitle: "Configurações",
+    language: "Idioma",
+    darkMode: "Modo Escuro ",
+    sound: "Som",
+    replay: "Jogar novamente",
+    correctAnswer: (word) => `Resposta correta: ${word}`,
+  },
 };
 
 export function updateTexts() {
@@ -28,4 +36,5 @@ export function updateTexts() {
         ? translations[lang][key](el.dataset.word)
         : translations[lang][key];
   });
+  console.log(state.language);
 }
