@@ -44,20 +44,22 @@ body {
     #43add0,
     #8bdeda
   );
-  /* /* dark Mode */
-  /* background: linear-gradient(
+
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+}
+body.dark {
+  background: linear-gradient(
     to left,
     #b0304f,
     #8a3fb0,
     #4f4fd6,
     #1f7fd1,
     #19a39a
-  ); * */
-
-  padding: 0 10px;
-  display: flex;
-  flex-direction: column;
+  );
 }
+
 main {
   flex: 1;
 }
@@ -75,6 +77,10 @@ header {
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   border-radius: 0 0 20px 20px;
+}
+.dark header {
+  background: rgba(255, 255, 255, 0.07); /* more transparent */
+  border: 1px solid rgba(188, 187, 187, 0.3);
 }
 .btn-settings {
   width: 55px;
@@ -104,6 +110,9 @@ header {
   color: rgb(229, 229, 229);
   text-shadow: 1px 2px 2px black;
 }
+.dark .setting-wheel {
+  color: rgb(162, 161, 161);
+}
 
 /* Title */
 
@@ -125,6 +134,11 @@ h1 span {
   text-align: center;
   background-color: white;
   transition: 0.2s ease-in;
+}
+.dark h1 span {
+  background-color: rgb(28, 28, 28);
+  border: 1px solid rgb(105, 105, 105);
+  opacity: 0.9;
 }
 
 h1 span:nth-child(2n) {
@@ -184,29 +198,40 @@ h1 span:hover {
   justify-content: center;
   align-items: center;
   background: #59cde9;
-  background: -webkit-linear-gradient(to right, #2d5ef0, #59cde9);
   background: linear-gradient(to right, #218ad5, #59d8e9);
-
   border: black 2px solid;
-  transition: border-radius 1s ease-in;
+  transition: border-radius 0.2s ease-in;
+}
+.dark .gridRow div {
+  background: linear-gradient(to right, #155e92, #46abb8);
 }
 .setting-wheel {
   pointer-events: none;
 }
 .gridRow .misplaced {
   background: #f2994a;
-  background: -webkit-linear-gradient(to right, #f9da7e, #f0b025);
   background: linear-gradient(to right, #f9da7e, #f0b025);
   border-radius: 50px;
+}
+.dark .gridRow .misplaced {
+  background: #b67339;
+  background: linear-gradient(to right, #c6ad62, #b7861d);
 }
 .gridRow .correct {
   background: rgb(69, 219, 69);
   background: linear-gradient(to left, #4cf50f, #44ad27);
 }
+.dark .gridRow .correct {
+  background: rgb(51, 159, 51);
+  background: linear-gradient(to left, #3fc70e, #2d7419);
+}
 .gridRow .upcomingRow {
-  background: -webkit-linear-gradient(to right, #2d5ef0, #59cde9);
   background: linear-gradient(to right, #4cabf0, #99eaf4);
-  border: rgb(120, 120, 120) 2px solid;
+  border: rgb(120, 120, 120) 1px solid;
+}
+.dark .gridRow .upcomingRow {
+  background: linear-gradient(to right, #0e6db1, #81a6d2);
+  border: rgb(139, 139, 139) 1px solid;
 }
 
 /* Keys */
@@ -247,6 +272,10 @@ h1 span:hover {
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
+.dark .keyboard-key {
+  background-color: rgb(99, 99, 99);
+  color: #e1e1e1;
+}
 .enter {
   cursor: pointer;
 }
@@ -255,35 +284,59 @@ h1 span:hover {
   box-shadow: rgba(12, 12, 12, 0.2) 0px 2px 6px;
   transform: translateY(5px);
 }
+.dark .keyboard-key:hover {
+  background-color: rgb(84, 83, 83);
+}
 .keyboard-key.correct {
   background: rgb(69, 219, 69);
   background: linear-gradient(to bottom, #69f636, #52c234);
+}
+.dark .keyboard-key.correct {
+  background: rgb(50, 161, 50);
+  background: linear-gradient(to bottom, #51bd29, #30761d);
 }
 .keyboard-key.correct:hover {
   background: rgb(69, 219, 69);
   background: linear-gradient(to bottom, #4cf50f, #409c27);
 }
+.dark .keyboard-key.correct:hover {
+  background: rgb(50, 161, 50);
+  background: linear-gradient(to bottom, #48a924, #245715);
+}
 .keyboard-key.wrong {
-  /* background: #cd3a3a;
-  background: linear-gradient(to top, #882f2f, #fc8f8f); */
   background: #d0cece;
   background: linear-gradient(to top, #888888, #d3d3d3);
 }
+.dark .keyboard-key.wrong {
+  background: #a5a3a3;
+  background: linear-gradient(to top, #2d2d2d, #696868);
+}
 .keyboard-key.wrong:hover {
-  /* background: linear-gradient(to top, #6b2323, #f28a8a); */
   background: #d0cece;
   background: linear-gradient(to top, #6d6c6c, #d3d3d3);
+}
+.dark .keyboard-key.wrong:hover {
+  background: #979595;
+  background: linear-gradient(to top, #202020, #535252);
 }
 .keyboard-key.misplaced {
   background: #edf103;
   background: linear-gradient(to bottom, #f9da7e, #f0b025);
 }
+.dark .keyboard-key.misplaced {
+  background: #c8cb03;
+  background: linear-gradient(to bottom, #c8b065, #b1821b);
+}
 .keyboard-key.misplaced:hover {
   background: linear-gradient(to bottom, #f9da7e, #c1880f);
 }
-.currentRow.fade {
-  color: rgb(195, 194, 194);
+.dark .keyboard-key.misplaced:hover {
+  background: #c8cb03;
+  background: linear-gradient(to bottom, #a59153, #906a16);
 }
+/* .currentRow.fade {
+  color: rgb(195, 194, 194);
+} */
 
 /* Answer after loss */
 .lossAnswer,
@@ -331,6 +384,10 @@ footer {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   border-radius: 20px 20px 0 0;
   padding: 20px;
+}
+.dark footer {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(188, 187, 187, 0.3);
 }
 
 @media screen and (max-width: 800px) {
@@ -404,13 +461,14 @@ canvas {
 .settings-overlay {
   position: absolute;
   inset: 0;
-
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(5px);
-
   opacity: 0;
   transition: 0.4s ease;
+}
+.dark .settings-overlay {
+  background: rgba(255, 255, 255, 0.13);
 }
 .settings.opened .settings-overlay {
   opacity: 1;
@@ -436,6 +494,10 @@ canvas {
 
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.693);
 }
+.dark .settings-card {
+  background: linear-gradient(to right, #3e52b4, #3aa1ba);
+}
+
 .settings.opened .settings-card {
   transform: scale(1) translateY(-100px) translateX(0);
   opacity: 1;
@@ -456,8 +518,16 @@ canvas {
   font-size: 1.2em;
   transition: 0.3s ease-in;
 }
+.dark .settings-card__row {
+  border: 1px solid rgb(176, 176, 176);
+  color: rgb(210, 209, 210);
+}
 .setting-option:hover {
   background: linear-gradient(to right, #c848f296, #9637b696);
+  cursor: pointer;
+}
+.dark .setting-option:hover {
+  background: linear-gradient(to left, #9535b596, #62247796);
   cursor: pointer;
 }
 .settings-card__row--top {
@@ -479,10 +549,16 @@ canvas {
   font-size: 2em;
   color: rgb(241, 210, 241);
 }
+.dark .toggleIcon {
+  color: rgb(62, 62, 62);
+}
 .flag {
   border: 1px solid rgb(238, 203, 238);
   border-radius: 50px;
   padding: 7px 10px;
+}
+.dark .flag {
+  border: 1px solid rgb(176, 176, 176);
 }
 .franceFlag {
   margin-right: 10px;
@@ -493,10 +569,17 @@ canvas {
 .selectedFlag {
   background: #60bff3;
 }
+.dark .selectedFlag {
+  background: #1584c0;
+}
 .unselectedFlag:hover {
   opacity: 1;
   background: #60bff3;
 }
+.dark .unselectedFlag:hover {
+  background: #2d8abc;
+}
+
 .settings-card__row--top button:hover {
   transform: scale(1);
   background: linear-gradient(to right, #c848f296, #6a268096);

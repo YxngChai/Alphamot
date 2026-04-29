@@ -14,7 +14,7 @@ import {
 } from "./input.js";
 import { state } from "./gameState.js";
 import { updateTexts } from "./translation.js";
-import { openCloseSettings } from "./settings.js";
+import { openCloseSettings, toggleDarkMode } from "./settings.js";
 import { englishWords, mots } from "./wordLists.js";
 import { setWordToGuess } from "./gameState.js";
 import { AnimateToggleSettings } from "./settings.js";
@@ -46,11 +46,11 @@ export function playGame() {
 
 setLangAttribute();
 setGameLanguage();
-
 updateTexts();
 
 openCloseSettings();
 AnimateToggleSettings();
+toggleDarkMode();
 
 handleInputType();
 

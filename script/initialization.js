@@ -59,7 +59,13 @@ const portugueseWords = await fetch("./portugueseDictionary.txt").then((res) =>
 export const portugueseWordSet = new Set(
   portugueseWords
     .split(/\r?\n/)
-    .map((w) => w.trim().toLowerCase())
+    .map((w) =>
+      w
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, ""),
+    )
     .filter(Boolean),
 );
 

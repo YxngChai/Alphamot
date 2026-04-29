@@ -11,12 +11,28 @@ export function openCloseSettings() {
 
 export function AnimateToggleSettings() {
   document.addEventListener("click", (e) => {
-    if (
-      e.target.classList.contains("fa-toggle-on") ||
-      e.target.classList.contains("fa-toggle-off")
-    ) {
-      e.target.classList.toggle("fa-toggle-on");
-      e.target.classList.toggle("fa-toggle-off");
-    }
+    const row = e.target.closest(".setting-option");
+
+    if (!row) return;
+
+    const icon = row.querySelector("i");
+
+    if (!icon) return;
+
+    icon.classList.toggle("fa-toggle-on");
+    icon.classList.toggle("fa-toggle-off");
   });
+}
+
+export function toggleDarkMode() {
+  const darkModeBtn = document.querySelector(".darkModeBtn");
+  darkModeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    // const isDark = document.body.classList.contains("dark");
+    // localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+  // if (localStorage.getItem("theme") === "dark") {
+  //   document.body.classList.add("dark");
+  // }
 }
