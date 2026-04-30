@@ -18,7 +18,7 @@ import {
   updateTexts,
   styleFlagLanguageOptions,
 } from "./translation.js";
-import { openCloseSettings, toggleDarkMode } from "./settings.js";
+import { openCloseSettings, initDarkMode } from "./settings.js";
 import { setWordToGuess } from "./gameState.js";
 import { AnimateToggleSettings } from "./settings.js";
 
@@ -55,7 +55,8 @@ changeLanguage();
 
 openCloseSettings();
 AnimateToggleSettings();
-toggleDarkMode();
+
+initDarkMode();
 
 handleInputType();
 

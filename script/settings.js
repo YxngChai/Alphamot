@@ -24,15 +24,20 @@ export function AnimateToggleSettings() {
   });
 }
 
-export function toggleDarkMode() {
+export function initDarkMode() {
   const darkModeBtn = document.querySelector(".darkModeBtn");
-  darkModeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
 
-    // const isDark = document.body.classList.contains("dark");
-    // localStorage.setItem("theme", isDark ? "dark" : "light");
+  const saved = localStorage.getItem("darkMode");
+
+  if (saved === "on") {
+    document.body.classList.add("dark");
+  } else {
+    document.body.classList.remove("dark");
+  }
+
+  darkModeBtn.addEventListener("click", () => {
+    const isDark = document.body.classList.toggle("dark");
+
+    localStorage.setItem("darkMode", isDark ? "on" : "off");
   });
-  // if (localStorage.getItem("theme") === "dark") {
-  //   document.body.classList.add("dark");
-  // }
 }
