@@ -1,4 +1,6 @@
 import { state } from "./gameState.js";
+import { playGame } from "./main.js";
+import { setGameLanguage } from "./initialization.js";
 
 const translations = {
   en: {
@@ -26,6 +28,16 @@ const translations = {
     correctAnswer: (word) => `Resposta correta: ${word}`,
   },
 };
+export function styleFlagLanguageOptions() {
+  const buttons = document.querySelectorAll(".languageBtn");
+  buttons.forEach((btn) => {
+    const icon = btn.querySelector("i");
+    const isActive = btn.dataset.lang === state.language;
+
+    icon.classList.toggle("selectedFlag", isActive);
+    icon.classList.toggle("unselectedFlag", !isActive);
+  });
+}
 
 export function updateTexts() {
   const lang = state.language;
@@ -37,4 +49,24 @@ export function updateTexts() {
         : translations[lang][key];
   });
   console.log(state.language);
+}
+
+export function changeLanguage() {
+  const buttons = document.querySelectorAll(".languageBtn");
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      buttons.forEach((b) => {
+        const icon = b.querySelector("i");
+        icon.classList.toggle("selectedFlag", b === btn);
+        icon.classList.toggle("unselectedFlag", b !== btn);
+      });
+      state.language = btn.dataset.lang;
+      localStorage.setItem("lang", state.language);
+
+      setGameLanguage();
+      updateTexts();
+      styleFlagLanguageOptions();
+      playGame();
+    });
+  });
 }

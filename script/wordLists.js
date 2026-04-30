@@ -1,5 +1,5 @@
-export const mots = [
-  "été",
+export const frenchWordsToGuess = [
+  "pardon",
   "chalet",
   "bateau",
   "fraise",
@@ -19,31 +19,6 @@ export const mots = [
   "ballet",
   "crayon",
   "voyage",
-];
-
-export const englishWords = ["cat", "dog"];
-export const frenchWordsToGuess = [
-  "été",
-  // "pardon",
-  // "chalet",
-  // "bateau",
-  // "fraise",
-  // "garage",
-  // "valise",
-  // "tomate",
-  // "pierre",
-  // "chemin",
-  // "plante",
-  // "orange",
-  // "maison",
-  // "brosse",
-  // "animal",
-  // "bureau",
-  // "cactus",
-  // "bassin",
-  // "ballet",
-  // "crayon",
-  // "voyage",
 ];
 
 export const englishWordsToGuess = [
@@ -85,7 +60,7 @@ export const brazilianWordsToGuess = [
   "amigo",
   "mulher",
   "homem",
-  "criança",
+  "crianca",
   "comida",
   "ser",
   "estar",

@@ -136,7 +136,7 @@ h1 span {
   transition: 0.2s ease-in;
 }
 .dark h1 span {
-  background-color: rgb(28, 28, 28);
+  background-color: rgb(54, 54, 54);
   border: 1px solid rgb(105, 105, 105);
   opacity: 0.9;
 }

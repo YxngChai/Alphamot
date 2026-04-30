@@ -13,9 +13,12 @@ import {
   clearGame,
 } from "./input.js";
 import { state } from "./gameState.js";
-import { updateTexts } from "./translation.js";
+import {
+  changeLanguage,
+  updateTexts,
+  styleFlagLanguageOptions,
+} from "./translation.js";
 import { openCloseSettings, toggleDarkMode } from "./settings.js";
-import { englishWords, mots } from "./wordLists.js";
 import { setWordToGuess } from "./gameState.js";
 import { AnimateToggleSettings } from "./settings.js";
 
@@ -47,6 +50,8 @@ export function playGame() {
 setLangAttribute();
 setGameLanguage();
 updateTexts();
+styleFlagLanguageOptions();
+changeLanguage();
 
 openCloseSettings();
 AnimateToggleSettings();
@@ -62,19 +67,3 @@ if (replayBtn) {
     playGame();
   });
 }
-
-const buttons = document.querySelectorAll(".languageBtn");
-buttons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    buttons.forEach((b) => {
-      const icon = b.querySelector("i");
-      icon.classList.toggle("selectedFlag", b === btn);
-      icon.classList.toggle("unselectedFlag", b !== btn);
-    });
-    state.language = btn.dataset.lang;
-
-    setGameLanguage();
-    updateTexts();
-    playGame();
-  });
-});
