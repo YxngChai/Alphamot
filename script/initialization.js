@@ -103,6 +103,20 @@ export function setupFirstLetter(wordToGuess) {
   firstRow[0].textContent = wordToGuess[0];
 }
 
+export function clearGame() {
+  const app = document.querySelector(".app");
+  app.innerHTML = "";
+  const gameArea = document.createElement("div");
+  gameArea.classList.add("gameArea");
+  const gameGrid = document.createElement("div");
+  gameGrid.classList.add("gameGrid");
+  gameArea.appendChild(gameGrid);
+  app.appendChild(gameArea);
+  const keyboard = document.createElement("div");
+  keyboard.classList.add("keyboard");
+  app.appendChild(keyboard);
+}
+
 export function buildGameGrid(wordToGuess) {
   const grid = document.querySelector(".gameGrid");
   // can be changed in futur for difficulty options

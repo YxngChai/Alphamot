@@ -71,7 +71,7 @@ header {
   align-items: center;
   padding-top: 20px;
   margin-bottom: 10px;
-  background: rgba(255, 255, 255, 0.2); /* more transparent */
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -79,7 +79,7 @@ header {
   border-radius: 0 0 20px 20px;
 }
 .dark header {
-  background: rgba(255, 255, 255, 0.07); /* more transparent */
+  background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(188, 187, 187, 0.3);
 }
 .btn-settings {
@@ -171,9 +171,23 @@ h1 span:hover {
 }
 
 /* GameGrid */
-.gameGrid {
+.gameArea {
   margin: 10px 0;
+  padding: 20px 40px;
 }
+
+.gameGrid {
+  border: 1px solid palegoldenrod;
+  padding: 15px 10px;
+  width: auto;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 5px 8px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
 .gridRow {
   margin: 5px 0;
   width: 100%;
@@ -184,7 +198,7 @@ h1 span:hover {
 }
 
 .gridRow div {
-  box-shadow: 0 0 15px rgba(56, 56, 56, 0.116);
+  box-shadow: 0 0 15px rgba(56, 56, 56, 0.382);
   color: white;
   font-size: 1.7em;
   font-weight: 500;
@@ -199,8 +213,7 @@ h1 span:hover {
   align-items: center;
   background: #59cde9;
   background: linear-gradient(to right, #218ad5, #59d8e9);
-  border: black 2px solid;
-  transition: border-radius 0.2s ease-in;
+  border: rgb(0, 0, 0) 1.5px solid;
 }
 .dark .gridRow div {
   background: linear-gradient(to right, #155e92, #46abb8);
@@ -226,7 +239,7 @@ h1 span:hover {
   background: linear-gradient(to left, #3fc70e, #2d7419);
 }
 .gridRow .upcomingRow {
-  background: linear-gradient(to right, #4cabf0, #99eaf4);
+  background: linear-gradient(to right, #4cacf0d5, #99e9f49f);
   border: rgb(120, 120, 120) 1px solid;
 }
 .dark .gridRow .upcomingRow {
@@ -240,6 +253,13 @@ h1 span:hover {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
 }
 .keyboard.hidden {
   display: none;
@@ -271,6 +291,7 @@ h1 span:hover {
   user-select: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
 }
 .dark .keyboard-key {
   background-color: rgb(99, 99, 99);
@@ -388,63 +409,6 @@ footer {
 .dark footer {
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(188, 187, 187, 0.3);
-}
-
-@media screen and (max-width: 800px) {
-  header {
-    padding-top: 5px;
-  }
-  h1 {
-    font-size: 2em;
-    margin-left: 30px;
-  }
-  h1 span {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    line-height: 40px;
-  }
-
-  .gameGrid {
-    padding: 0 10px;
-  }
-  .keyboard {
-    gap: 10px;
-    margin: 20px 0;
-  }
-  .keyboardRow {
-    gap: 5px;
-  }
-  .btn-settings {
-    width: 45px;
-    height: 45px;
-    font-size: 0.8em;
-    margin-right: 10px;
-  }
-}
-canvas {
-  pointer-events: none;
-}
-@media screen and (max-width: 500px) {
-  h1 {
-    font-size: 1.7em;
-    margin-left: 12px;
-  }
-  h1 span {
-    width: 30px;
-    height: 30px;
-    border-radius: 10px;
-    line-height: 30px;
-  }
-  .keyboard {
-    margin: 20px 5px;
-  }
-  .keyboard-key {
-    height: 40px;
-  }
-  .btn-settings {
-    margin-right: 20px;
-  }
 }
 
 /* Setting menu */
@@ -613,4 +577,109 @@ canvas {
 
 .shake {
   animation: shake 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 800px) {
+  header {
+    padding-top: 5px;
+  }
+  h1 {
+    font-size: 2em;
+    margin-left: 30px;
+  }
+  h1 span {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    line-height: 40px;
+  }
+  .gameArea {
+    padding: 0;
+  }
+
+  .gridRow {
+    gap: 5px;
+  }
+  .gridRow div {
+    font-size: 1.2em;
+    max-width: 50px;
+    min-width: 0px;
+    height: 50px;
+  }
+  .keyboard {
+    gap: 10px;
+    margin: 20px 0;
+  }
+  .keyboardRow {
+    gap: 5px;
+  }
+  .btn-settings {
+    width: 45px;
+    height: 45px;
+    font-size: 0.8em;
+    margin-right: 10px;
+  }
+}
+canvas {
+  pointer-events: none;
+}
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 1.7em;
+    margin-left: 12px;
+  }
+  h1 span {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    line-height: 30px;
+  }
+  .gridRow div {
+    border: black 1px solid;
+  }
+
+  .keyboard {
+    margin: 20px 5px;
+  }
+  .keyboard-key {
+    height: 40px;
+    font-size: 1em;
+  }
+  .btn-settings {
+    margin-right: 20px;
+  }
+  .toggleIcon {
+    font-size: 1.5em;
+  }
+  .settings.opened .settings-card {
+    transform: scale(1) translateY(0) translateX(0);
+  }
+}
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 1.4em;
+    margin-left: 7px;
+  }
+  h1 span {
+    width: 25px;
+    height: 25px;
+    border-radius: 8px;
+    line-height: 25px;
+  }
+  .gridRow div {
+    font-size: 1.2em;
+    max-width: 40px;
+    min-width: 0px;
+    height: 40px;
+    border-radius: 10px;
+  }
+  .btn-settings {
+    width: 35px;
+    height: 35px;
+    font-size: 0.7em;
+    margin-right: 10px;
+  }
+  .settings-card__row {
+    font-size: 1em;
+  }
 }

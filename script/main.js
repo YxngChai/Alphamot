@@ -1,4 +1,5 @@
 import {
+  clearGame,
   buildGameGrid,
   buildKeyboard,
   generateWordToGuess,
@@ -6,12 +7,7 @@ import {
   setLangAttribute,
   setGameLanguage,
 } from "./initialization.js";
-import {
-  initInput,
-  manageUserInput,
-  handleInputType,
-  clearGame,
-} from "./input.js";
+import { initInput, manageUserInput, handleInputType } from "./input.js";
 import { state } from "./gameState.js";
 import {
   changeLanguage,

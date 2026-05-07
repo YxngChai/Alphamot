@@ -1,6 +1,6 @@
 import { processWord } from "./guessManipulation.js";
 import { playGame } from "./main.js";
-import { verifyWord } from "./initialization.js";
+import { verifyWord, clearGame } from "./initialization.js";
 import { getWordToGuess, resetState, state } from "./gameState.js";
 import { updateTexts } from "./translation.js";
 
@@ -143,17 +143,6 @@ function showAnswer() {
   message.dataset.word = getWordToGuess();
   keyboard.after(message);
   updateTexts();
-}
-
-export function clearGame() {
-  const app = document.querySelector(".app");
-  app.innerHTML = "";
-  const gameGrid = document.createElement("div");
-  gameGrid.classList.add("gameGrid");
-  app.appendChild(gameGrid);
-  const keyboard = document.createElement("div");
-  keyboard.classList.add("keyboard");
-  app.appendChild(keyboard);
 }
 
 function restartTheGame() {
