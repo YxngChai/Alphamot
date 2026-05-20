@@ -82,7 +82,11 @@ header {
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(188, 187, 187, 0.3);
 }
-.btn-settings {
+nav {
+  display: flex;
+}
+.btn-settings,
+.btn-help {
   width: 55px;
   height: 55px;
   margin-right: 20px;
@@ -90,20 +94,19 @@ header {
   border: 1px solid rgb(69, 69, 69);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.245);
   border-radius: 15px;
-  background-color: rgba(239, 239, 239, 0);
-  transform: rotate(5deg);
+  background: linear-gradient(120deg, #59d8e9, #218ad5);
   transition: 0.2s ease-in;
 }
-/* .gradient-text {
-  font-size: 2em;
-  /* background: linear-gradient(to right, #e28622, gold, gold, #e4700a); */
-/* background: rgb(235, 234, 234);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 1));
-} */
+.btn-help {
+  margin-right: 10px;
+  background: linear-gradient(120deg, #60dd27, #368917);
+}
+
 .btn-settings:hover {
-  transform: rotate(0deg) scale(1.2);
+  transform: rotate(5deg) scale(1.2);
+}
+.btn-help:hover {
+  transform: rotate(-5deg) scale(1.2);
 }
 .setting-wheel {
   font-size: 1.7em;
@@ -297,6 +300,7 @@ h1 span:hover {
   background-color: rgb(99, 99, 99);
   color: #e1e1e1;
 }
+
 .enter {
   cursor: pointer;
 }
@@ -506,9 +510,6 @@ footer {
   margin-right: 0;
   font-size: 0.7em;
 }
-.btn-settings.setting-wheel {
-  transform: rotate(0);
-}
 .toggleIcon {
   font-size: 2em;
   color: rgb(241, 210, 241);
@@ -613,7 +614,8 @@ footer {
   .keyboardRow {
     gap: 5px;
   }
-  .btn-settings {
+  .btn-settings,
+  .btn-help {
     width: 45px;
     height: 45px;
     font-size: 0.8em;
@@ -645,7 +647,8 @@ canvas {
     height: 40px;
     font-size: 1em;
   }
-  .btn-settings {
+  .btn-settings,
+  .btn-help {
     margin-right: 20px;
   }
   .toggleIcon {
@@ -673,11 +676,13 @@ canvas {
     height: 40px;
     border-radius: 10px;
   }
-  .btn-settings {
+  .btn-settings,
+  .btn-help {
     width: 35px;
     height: 35px;
     font-size: 0.7em;
     margin-right: 10px;
+    border-radius: 10px;
   }
   .settings-card__row {
     font-size: 1em;
