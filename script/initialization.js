@@ -149,7 +149,7 @@ export function buildKeyboard(keyboardLanguage) {
     row.forEach((key, y) => {
       let cell = document.createElement("div");
       if (key === "Backspace") {
-        cell.innerHTML = `<i class="far fa-backspace"></i>`;
+        cell.innerHTML = `<i class="fas fa-backspace"></i>`;
       } else {
         cell.textContent = key;
       }
