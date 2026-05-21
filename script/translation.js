@@ -9,6 +9,7 @@ const translations = {
     darkMode: "Dark Mode",
     sound: "Sound",
     replay: "Play Again",
+    instructionsTitle: "How to Play",
     correctAnswer: (word) => `Correct Answer: ${word}`,
   },
   fr: {
@@ -17,6 +18,7 @@ const translations = {
     darkMode: "Mode Sombre",
     sound: "Son",
     replay: "Rejouer",
+    instructionsTitle: "Comment jouer",
     correctAnswer: (word) => `Bonne Réponse: ${word}`,
   },
   "pt-BR": {
@@ -25,6 +27,7 @@ const translations = {
     darkMode: "Modo Escuro ",
     sound: "Som",
     replay: "Jogar novamente",
+    instructionsTitle: "Como jogar",
     correctAnswer: (word) => `Resposta correta: ${word}`,
   },
 };
