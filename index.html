@@ -36,19 +36,24 @@
     <main>
       <div class="app">
       </div>
-      <div class="instructions">
+      <div class="instructions opened">
         <div class="instructions-overlay"></div>
         <div class="instructions-card">
-          <div class="settings-card__row settings-card__row--top">
-            <p data-i18n="instructionsTitle"></p>
+          <div class="settings-card__row settings-card__row--top instructions-top">
+            <p data-i18n="instructionsTitle" class="instructionsTitle"></p>
             <button class="btn-help btn-close">            
               <i class="fa-solid fa-x fa-xl"></i>
             </button>
           </div>
           <div>
-            <p>Insert Image</p>
+            <div class="instructions__image-frame"></div>
           </div>
-          <div><p>Explanation</p></div>
+          <div class="instructions__text"><p>You have 6 tries to guess the hidden 5-letter word.</p>
+<p>Type a valid word and press enter.</p><br>
+<p>🟩 Green → correct letter in the correct position</p>
+<p>🟨 Yellow → correct letter but wrong position</p>
+<p>🟦 Gray → letter is not in the word</p><br>
+<p>Find the correct word in as few tries as possible!</p></div>
         </div>
       </div>
       <!-- Settings -->
@@ -56,7 +61,7 @@
         <div class="settings-overlay"></div>
         <div class="settings-card">
           <div class="settings-card__row settings-card__row--top">
-            <p data-i18n="settingsTitle"></p>
+            <h2 data-i18n="settingsTitle" class="settingsTitle"></h2>
             <button class="btn-settings btn-close">            
               <i class="fa-solid fa-x fa-xl"></i>
             </button>

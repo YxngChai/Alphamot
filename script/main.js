@@ -35,7 +35,9 @@ document.addEventListener(
 
 export function playGame() {
   clearGame();
-  const newWord = generateWordToGuess(state.wordPool);
+  // const newWord = generateWordToGuess(state.wordPool);
+  const newWord = "RADIO";
+
   console.log(newWord);
   setWordToGuess(newWord);
   buildGameGrid(newWord);

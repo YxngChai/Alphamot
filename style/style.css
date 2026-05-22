@@ -104,6 +104,9 @@ nav {
     rgba(0, 0, 0, 0.12) 0px 1px 3px,
     rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
+.dark .btn-close {
+  background: linear-gradient(120deg, #0d8989bb, #33c3d0c6);
+}
 .btn-help {
   margin-right: 20px;
 }
@@ -364,9 +367,9 @@ h1 span:hover {
   background: #c8cb03;
   background: linear-gradient(to bottom, #a59153, #906a16);
 }
-/* .currentRow.fade {
+.currentRow.fade {
   color: rgb(195, 194, 194);
-} */
+}
 
 /* Answer after loss */
 .lossAnswer,
@@ -452,8 +455,7 @@ footer {
   opacity: 1;
 }
 
-.settings-card,
-.instructions-card {
+.settings-card {
   height: 500px;
   width: 400px;
   background: linear-gradient(to right, #768bf4, #59cde9);
@@ -465,12 +467,10 @@ footer {
   position: relative;
   pointer-events: auto;
   z-index: 2;
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   pointer-events: none;
-
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.693);
 }
 .dark .settings-card {
@@ -489,6 +489,10 @@ footer {
   transform: scale(1) translateY(-100px) translateX(0);
   opacity: 1;
   pointer-events: auto;
+}
+.settingsTitle {
+  font-weight: 400;
+  font-size: 1.2em;
 }
 
 .settings-card__row {
@@ -525,13 +529,16 @@ footer {
   font-weight: 400;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.391);
 }
+.dark .settings-card__row--top {
+  border: 1px solid rgba(238, 203, 238, 0);
+}
 .settings-card__row--top button {
   margin-right: 0;
   font-size: 0.7em;
 }
 .toggleIcon {
   font-size: 2em;
-  color: rgb(241, 210, 241);
+  color: rgb(248, 217, 248);
 }
 .dark .toggleIcon {
   color: rgb(62, 62, 62);
@@ -569,6 +576,48 @@ footer {
   background: linear-gradient(to right, #c848f296, #6a268096);
 }
 
+/* How to Play */
+
+.instructions-card {
+  max-width: 450px;
+  width: 100%;
+  background: linear-gradient(to right, #768bf4, #59cde9);
+  border-radius: 40px;
+  margin: 0 10px;
+  transform: scale(0.85) translateY(-200px) translateX(50px);
+  opacity: 0;
+  transition: 0.4s ease;
+  position: relative;
+  pointer-events: auto;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  pointer-events: none;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.693);
+}
+
+.instructions__image-frame {
+  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: 250px;
+  width: 80%;
+  margin: 20px auto;
+  border-radius: 52% 48% 63% 37% / 37% 57% 43% 63%;
+  background: url(../data/instruction-example.jpg) center / cover no-repeat;
+}
+.instructions-top {
+  margin-top: 20px;
+}
+.instructionsTitle {
+  font-weight: 400;
+  font-size: 1.2em;
+}
+.instructions__text {
+  padding: 25px;
+  font-size: 1.1em;
+  color: white;
+}
 /* Effect */
 
 .js-confetti {

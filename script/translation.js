@@ -11,6 +11,15 @@ const translations = {
     replay: "Play Again",
     instructionsTitle: "How to Play",
     correctAnswer: (word) => `Correct Answer: ${word}`,
+    instructions: `
+    You have 6 tries to guess the hidden 5-letter word.
+Type a valid word and press enter.
+
+🟩 Green → correct letter in the correct position
+🟨 Yellow → correct letter but wrong position
+⬜ Gray → letter is not in the word
+
+Find the correct word in as few tries as possible!`,
   },
   fr: {
     settingsTitle: "Paramètres",
