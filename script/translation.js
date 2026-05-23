@@ -11,7 +11,7 @@ const translations = {
     replay: "Play Again",
     correctAnswer: (word) => `Correct Answer: ${word}`,
     instructionsTitle: "How to Play",
-    instructions_line1: "You have 6 tries to guess the hidden 5-letter word",
+    instructions_line1: "You have 6 tries to guess the hidden word",
     instructions_line2: "Type a valid word and press enter",
     instructions_line3: "🟩 Green → correct letter in the correct position",
     instructions_line4: "🟨 Yellow → correct letter but wrong position",
@@ -26,8 +26,7 @@ const translations = {
     replay: "Rejouer",
     correctAnswer: (word) => `Bonne Réponse: ${word}`,
     instructionsTitle: "Comment jouer",
-    instructions_line1:
-      "Vous avez 6 essais pour deviner le mot caché de 5 lettres",
+    instructions_line1: "Vous avez 6 essais pour deviner le mot caché",
     instructions_line2: "Tapez un mot valide et appuyez sur Entrée.",
     instructions_line3: "🟩 Vert → lettre correcte à la bonne position",
     instructions_line4: "🟨 Jaune → lettre correcte mais mauvaise position",
@@ -42,8 +41,7 @@ const translations = {
     replay: "Jogar novamente",
     correctAnswer: (word) => `Resposta correta: ${word}`,
     instructionsTitle: "Como jogar",
-    instructions_line1:
-      "Você tem 6 tentativas para adivinhar a palavra secreta de 5 letras",
+    instructions_line1: "São 6 tentativas para adivinhar a palavra secreta.",
     instructions_line2: "Digite uma palavra válida e pressione Enter",
     instructions_line3: "🟩 Verde → letra correta na posição correta",
     instructions_line4: "🟨 Amarelo → letra correta, mas na posição errada",
