@@ -9,17 +9,14 @@ const translations = {
     darkMode: "Dark Mode",
     sound: "Sound",
     replay: "Play Again",
-    instructionsTitle: "How to Play",
     correctAnswer: (word) => `Correct Answer: ${word}`,
-    instructions: `
-    You have 6 tries to guess the hidden 5-letter word.
-Type a valid word and press enter.
-
-🟩 Green → correct letter in the correct position
-🟨 Yellow → correct letter but wrong position
-⬜ Gray → letter is not in the word
-
-Find the correct word in as few tries as possible!`,
+    instructionsTitle: "How to Play",
+    instructions_line1: "You have 6 tries to guess the hidden 5-letter word",
+    instructions_line2: "Type a valid word and press enter",
+    instructions_line3: "🟩 Green → correct letter in the correct position",
+    instructions_line4: "🟨 Yellow → correct letter but wrong position",
+    instructions_line5: "🟦 Gray → letter is not in the word",
+    instructions_line6: "Find the correct word in as few tries as possible!",
   },
   fr: {
     settingsTitle: "Paramètres",
@@ -27,8 +24,15 @@ Find the correct word in as few tries as possible!`,
     darkMode: "Mode Sombre",
     sound: "Son",
     replay: "Rejouer",
-    instructionsTitle: "Comment jouer",
     correctAnswer: (word) => `Bonne Réponse: ${word}`,
+    instructionsTitle: "Comment jouer",
+    instructions_line1:
+      "Vous avez 6 essais pour deviner le mot caché de 5 lettres",
+    instructions_line2: "Tapez un mot valide et appuyez sur Entrée.",
+    instructions_line3: "🟩 Vert → lettre correcte à la bonne position",
+    instructions_line4: "🟨 Jaune → lettre correcte mais mauvaise position",
+    instructions_line5: "🟦 Blue → la lettre n’est pas dans le mot",
+    instructions_line6: "Trouvez le mot correct en un minimum d’essais !",
   },
   "pt-BR": {
     settingsTitle: "Configurações",
@@ -36,8 +40,16 @@ Find the correct word in as few tries as possible!`,
     darkMode: "Modo Escuro ",
     sound: "Som",
     replay: "Jogar novamente",
-    instructionsTitle: "Como jogar",
     correctAnswer: (word) => `Resposta correta: ${word}`,
+    instructionsTitle: "Como jogar",
+    instructions_line1:
+      "Você tem 6 tentativas para adivinhar a palavra secreta de 5 letras",
+    instructions_line2: "Digite uma palavra válida e pressione Enter",
+    instructions_line3: "🟩 Verde → letra correta na posição correta",
+    instructions_line4: "🟨 Amarelo → letra correta, mas na posição errada",
+    instructions_line5: "🟦 Azul → a letra não está na palavra",
+    instructions_line6:
+      "Encontre a palavra correta com o menor número de tentativas possível!",
   },
 };
 export function styleFlagLanguageOptions() {
