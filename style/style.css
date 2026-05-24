@@ -409,7 +409,7 @@ h1 span:hover {
 
 /* Footer */
 footer {
-  height: 200px;
+  height: 120px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -618,11 +618,12 @@ footer {
   margin: 20px auto;
   /* animation: blob 4s ease-in-out infinite; */
   border-radius: 52% 48% 63% 37% / 37% 57% 43% 63%;
-  background: url(../data/instruction-example.jpg) center / cover no-repeat;
+  background: url(../data/images/instruction-example.jpg) center / cover
+    no-repeat;
 }
 .dark .instructions__image-frame {
-  background: url(../data/instruction-example-darkmode.jpg) center / cover
-    no-repeat;
+  background: url(../data/images/instruction-example-darkmode.jpg) center /
+    cover no-repeat;
 }
 .instructions-top {
   margin-top: 20px;

@@ -37,25 +37,25 @@ export function setGameLanguage() {
 }
 
 // Create one set of english and on french words that are valid to check against userGuess
-const englishWords = await fetch("./englishDictionary.json").then((res) =>
-  res.json(),
-);
+const englishWords = await fetch(
+  "../data/dictionaries/englishDictionary.json",
+).then((res) => res.json());
 export const englishWordSet = new Set(
   Object.keys(englishWords).map((w) => w.toLowerCase()),
 );
 
-const frenchWords = await fetch("./frenchDictionary.txt").then((res) =>
-  res.text(),
-);
+const frenchWords = await fetch(
+  "../data/dictionaries/frenchDictionary.txt",
+).then((res) => res.text());
 export const frenchWordSet = new Set(
   frenchWords
     .split(/\r?\n/)
     .map((w) => w.trim().toLowerCase())
     .filter(Boolean),
 );
-const portugueseWords = await fetch("./portugueseDictionary.txt").then((res) =>
-  res.text(),
-);
+const portugueseWords = await fetch(
+  "../data/dictionaries/portugueseDictionary.txt",
+).then((res) => res.text());
 export const portugueseWordSet = new Set(
   portugueseWords
     .split(/\r?\n/)
