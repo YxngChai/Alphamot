@@ -407,22 +407,6 @@ h1 span:hover {
   margin-left: 20px;
 }
 
-/* Footer */
-footer {
-  height: 120px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  border-radius: 20px 20px 0 0;
-  padding: 20px;
-}
-.dark footer {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(188, 187, 187, 0.3);
-}
-
 /* Setting menu */
 .settings,
 .instructions {
@@ -637,6 +621,43 @@ footer {
   font-size: 1.1em;
   color: white;
 }
+/* Footer */
+.footer {
+  height: 110px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.dark footer {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(188, 187, 187, 0.3);
+}
+.footer-name {
+  font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.link-icons {
+  font-size: 1.4em;
+  margin-top: 18px;
+  color: rgba(0, 0, 0, 0.77);
+}
+.link-icon {
+  display: inline-block;
+  margin-left: 10px;
+  transition: transform 0.2s ease-in;
+  transform: scale(1);
+}
+.link-icon:hover {
+  transform: scale(1.2);
+}
+
 /* Effect */
 
 .js-confetti {
