@@ -166,3 +166,12 @@ export function buildKeyboard(keyboardLanguage) {
     keyboard.appendChild(keyboardRow);
   });
 }
+
+export function initFirstTime() {
+  const alreadyVisited = localStorage.getItem("alreadyVisited");
+  if (!alreadyVisited) {
+    const instructions = document.querySelector(".instructions");
+    instructions.classList.add("opened");
+    localStorage.setItem("alreadyVisited", "true");
+  }
+}

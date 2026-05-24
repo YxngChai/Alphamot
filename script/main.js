@@ -6,6 +6,7 @@ import {
   setupFirstLetter,
   setLangAttribute,
   setGameLanguage,
+  initFirstTime,
 } from "./initialization.js";
 import { initInput, manageUserInput, handleInputType } from "./input.js";
 import { state } from "./gameState.js";
@@ -49,6 +50,7 @@ setGameLanguage();
 updateTexts();
 styleFlagLanguageOptions();
 changeLanguage();
+initFirstTime();
 
 openCloseSettings();
 openCloseInstructions();
