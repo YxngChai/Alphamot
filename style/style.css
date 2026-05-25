@@ -741,7 +741,7 @@ h1 span:hover {
 canvas {
   pointer-events: none;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
   h1 {
     font-size: 1.7em;
     margin-left: 12px;
@@ -750,7 +750,14 @@ canvas {
     width: 30px;
     height: 30px;
     border-radius: 10px;
-    line-height: 30px;
+    line-height: 25px;
+  }
+  .btn-settings,
+  .btn-help {
+    width: 35px;
+    height: 35px;
+    font-size: 0.6em;
+    border-radius: 10px;
   }
   .gridRow div {
     border: black 1px solid;
@@ -779,14 +786,14 @@ canvas {
 }
 @media screen and (max-width: 400px) {
   h1 {
-    font-size: 1.4em;
+    font-size: 1.3em;
     margin-left: 7px;
   }
   h1 span {
     width: 25px;
     height: 25px;
     border-radius: 8px;
-    line-height: 25px;
+    line-height: 23px;
   }
   .gridRow div {
     font-size: 1.2em;
@@ -795,12 +802,17 @@ canvas {
     height: 40px;
     border-radius: 10px;
   }
+  .keyboard-key {
+    height: 35px;
+    font-size: 0.8em;
+    border-radius: 8px;
+  }
   .btn-settings,
   .btn-help {
-    width: 35px;
-    height: 35px;
-    font-size: 0.7em;
-    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 0.5em;
+    margin-right: 9px;
     border-radius: 10px;
   }
   .settings-card__row {
