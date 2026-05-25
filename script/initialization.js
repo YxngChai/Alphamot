@@ -175,3 +175,19 @@ export function initFirstTime() {
     localStorage.setItem("alreadyVisited", "true");
   }
 }
+
+export function preventQuickTapMobileZoom() {
+  document.addEventListener(
+    "touchend",
+    function (event) {
+      const now = Date.now();
+      const DOUBLE_TAP_DELAY = 300;
+
+      if (this.lastTouchEnd && now - this.lastTouchEnd <= DOUBLE_TAP_DELAY) {
+        event.preventDefault();
+      }
+      this.lastTouchEnd = now;
+    },
+    { passive: false },
+  );
+}

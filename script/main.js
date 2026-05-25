@@ -7,6 +7,7 @@ import {
   setLangAttribute,
   setGameLanguage,
   initFirstTime,
+  preventQuickTapMobileZoom,
 } from "./initialization.js";
 import { initInput, manageUserInput, handleInputType } from "./input.js";
 import { state } from "./gameState.js";
@@ -19,20 +20,6 @@ import { openCloseSettings, initDarkMode } from "./settings.js";
 import { openCloseInstructions } from "./instructions.js";
 import { setWordToGuess } from "./gameState.js";
 import { AnimateToggleSettings } from "./settings.js";
-
-document.addEventListener(
-  "touchend",
-  function (event) {
-    const now = Date.now();
-    const DOUBLE_TAP_DELAY = 300;
-
-    if (this.lastTouchEnd && now - this.lastTouchEnd <= DOUBLE_TAP_DELAY) {
-      event.preventDefault();
-    }
-    this.lastTouchEnd = now;
-  },
-  { passive: false },
-);
 
 export function playGame() {
   clearGame();
@@ -51,6 +38,7 @@ updateTexts();
 styleFlagLanguageOptions();
 changeLanguage();
 initFirstTime();
+preventQuickTapMobileZoom();
 
 openCloseSettings();
 openCloseInstructions();

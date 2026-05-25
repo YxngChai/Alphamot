@@ -7,6 +7,11 @@ export function openCloseSettings() {
       settings.classList.toggle("opened");
     });
   });
+
+  const overlay = document.querySelector(".settings-overlay");
+  overlay.addEventListener("click", () => {
+    settings.classList.remove("opened");
+  });
 }
 
 export function AnimateToggleSettings() {
