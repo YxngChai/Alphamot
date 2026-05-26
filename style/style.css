@@ -453,10 +453,10 @@ h1 span:hover {
   background: linear-gradient(to right, #768bf4, #59cde9);
   border-radius: 40px;
   margin: 0 10px;
-  transform: scale(0.85) translateY(-200px) translateX(50px);
+  position: relative;
+  transform: scale(0.85);
   opacity: 0;
   transition: 0.4s ease;
-  position: relative;
   pointer-events: auto;
   z-index: 2;
   display: flex;
@@ -473,15 +473,11 @@ h1 span:hover {
 }
 
 .settings.opened .settings-card {
-  transform: scale(1) translateY(-100px) translateX(0);
+  transform: scale(1);
   opacity: 1;
   pointer-events: auto;
 }
-.instructions.opened .instructions-card {
-  transform: scale(1) translateY(-100px) translateX(0);
-  opacity: 1;
-  pointer-events: auto;
-}
+
 .settingsTitle {
   font-weight: 400;
   font-size: 1.2em;
@@ -576,10 +572,10 @@ h1 span:hover {
   background: linear-gradient(to right, #768bf4, #59cde9);
   border-radius: 40px;
   margin: 0 10px;
-  transform: scale(0.85) translateY(-200px) translateX(50px);
+  transform: scale(0.85);
+  position: relative;
   opacity: 0;
   transition: 0.4s ease;
-  position: relative;
   pointer-events: auto;
   z-index: 2;
   display: flex;
@@ -587,6 +583,11 @@ h1 span:hover {
   justify-content: space-around;
   pointer-events: none;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.693);
+}
+.instructions.opened .instructions-card {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
 }
 /* @keyframes blob {
   0% {
@@ -608,7 +609,6 @@ h1 span:hover {
   height: 250px;
   width: 80%;
   margin: 20px auto;
-  /* animation: blob 4s ease-in-out infinite; */
   border-radius: 52% 48% 63% 37% / 37% 57% 43% 63%;
   background: url(../data/images/instruction-example.jpg) center / cover
     no-repeat;
@@ -777,12 +777,16 @@ canvas {
   .toggleIcon {
     font-size: 1.5em;
   }
+  .instructions.opened .instructions-card,
   .settings.opened .settings-card {
+    transform: scale(0.82);
+  }
+  /* .settings.opened .settings-card {
     transform: scale(1) translateY(0) translateX(0);
   }
   .instructions.opened .instructions-card {
     transform: scale(1) translateY(0) translateX(0);
-  }
+  } */
 }
 @media screen and (max-width: 400px) {
   h1 {
@@ -793,7 +797,7 @@ canvas {
     width: 25px;
     height: 25px;
     border-radius: 8px;
-    line-height: 23px;
+    line-height: 21px;
   }
   .gridRow div {
     font-size: 1.2em;
