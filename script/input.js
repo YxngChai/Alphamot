@@ -145,7 +145,7 @@ function showAnswer() {
   updateTexts();
 }
 
-function restartTheGame() {
+export function restartTheGame() {
   const app = document.querySelector(".app");
   let message = document.createElement("div");
   message.classList.add("restart");

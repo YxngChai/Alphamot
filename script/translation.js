@@ -1,6 +1,7 @@
-import { state } from "./gameState.js";
+import { state, resetState } from "./gameState.js";
 import { playGame } from "./main.js";
-import { setGameLanguage } from "./initialization.js";
+import { setGameLanguage, clearGame } from "./initialization.js";
+import { restartTheGame } from "./input.js";
 
 const translations = {
   en: {
@@ -70,7 +71,6 @@ export function updateTexts() {
         ? translations[lang][key](el.dataset.word)
         : translations[lang][key];
   });
-  console.log(state.language);
 }
 
 export function changeLanguage() {
@@ -88,6 +88,7 @@ export function changeLanguage() {
       setGameLanguage();
       updateTexts();
       styleFlagLanguageOptions();
+      resetState();
       playGame();
     });
   });

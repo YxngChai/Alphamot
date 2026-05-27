@@ -29,7 +29,7 @@ body {
   font-weight: 200;
   background: #8bdeda;
   background: -webkit-linear-gradient(
-    to left,
+    300deg,
     #ef9393,
     #e17dc2,
     #998ee0,
@@ -37,7 +37,7 @@ body {
     #8bdeda
   );
   background: linear-gradient(
-    to left,
+    300deg,
     #f75f5f,
     #e17dc2,
     #998ee0,
@@ -231,11 +231,11 @@ h1 span:hover {
   justify-content: center;
   align-items: center;
   background: #59cde9;
-  background: linear-gradient(to right, #218ad5, #59d8e9);
+  background: linear-gradient(45deg, #218ad5, #59d8e9);
   border: rgb(0, 0, 0) 1.5px solid;
 }
 .dark .gridRow div {
-  background: linear-gradient(to right, #155e92, #46abb8);
+  background: linear-gradient(45deg, #155e92, #46abb8);
 }
 .setting-wheel {
   pointer-events: none;
@@ -258,11 +258,11 @@ h1 span:hover {
   background: linear-gradient(to left, #3fc70e, #2d7419);
 }
 .gridRow .upcomingRow {
-  background: linear-gradient(to right, #4cacf0d5, #99e9f49f);
+  background: linear-gradient(45deg, #4cacf0d5, #99e9f49f);
   border: rgb(120, 120, 120) 1px solid;
 }
 .dark .gridRow .upcomingRow {
-  background: linear-gradient(to right, #0e6db1, #81a6d2);
+  background: linear-gradient(45deg, #0e6db1, #81a6d2);
   border: rgb(139, 139, 139) 1px solid;
 }
 

@@ -69,9 +69,5 @@ export function processWord(userGuess) {
 
   //
   misplaced = misplaced.filter((item) => ![...correct].includes(item));
-  console.log(wrongLetters);
-  console.log(misplaced);
-  console.log(correct);
-  console.log(position);
   return { wrongLetters, misplaced, correct, position };
 }
