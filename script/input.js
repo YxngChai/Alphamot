@@ -3,6 +3,7 @@ import { playGame } from "./main.js";
 import { verifyWord, clearGame } from "./initialization.js";
 import { getWordToGuess, resetState, state } from "./gameState.js";
 import { updateTexts } from "./translation.js";
+import { SoundManager } from "./sound.js";
 
 let rows;
 let currentRow;
@@ -71,6 +72,7 @@ export function enterALetter(key) {
   if (state.currentPlacement < currentRow.length) {
     currentRow[state.currentPlacement].classList.remove("fade");
     currentRow[state.currentPlacement].textContent = key.toUpperCase();
+    SoundManager.play("entry");
 
     state.currentPlacement++;
   }
@@ -79,6 +81,7 @@ export function enterALetter(key) {
 // Update screen when user use backspace
 export function backspaceInput() {
   if (state.currentPlacement > 1) {
+    SoundManager.play("backspace");
     state.currentPlacement--;
     const cell = currentRow[state.currentPlacement];
     if (state.correctPositions[state.currentPlacement] !== null) {
@@ -169,6 +172,7 @@ function handleLoss() {
 }
 function handleWin() {
   state.gameOver = true;
+  SoundManager.play("win");
   throwConfetti();
   hideKeyboard();
   restartTheGame();
@@ -179,6 +183,7 @@ function changeLineDown() {
   if (state.tries === 6) {
     handleLoss();
   } else {
+    SoundManager.play("nextrow");
     for (let child of rows[state.rowCounter + 1].children) {
       child.classList.remove("upcomingRow");
       child.classList.add("currentRow");
@@ -221,6 +226,7 @@ export async function handleEnter() {
   if (state.gameOver) return;
   if (!isValid) {
     rows[state.rowCounter].classList.add("shake");
+    SoundManager.play("error");
     setTimeout(() => rows[state.rowCounter].classList.remove("shake"), 300);
     return;
   }

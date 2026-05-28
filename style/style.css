@@ -499,13 +499,13 @@ h1 span:hover {
   padding: 0 20px;
   border-radius: 40px;
   height: 80px;
-  color: #c6c5c5;
+  color: #ebeaea;
   font-size: 1.2em;
   transition: 0.3s ease-in;
 }
 .dark .settings-card__row {
   border: 1px solid rgb(176, 176, 176);
-  color: rgb(210, 209, 210);
+  color: #c5c5c5;
 }
 .setting-option:hover {
   background: linear-gradient(to right, #c848f296, #9637b696);
