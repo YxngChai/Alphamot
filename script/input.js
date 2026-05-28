@@ -156,6 +156,7 @@ export function restartTheGame() {
   <i class="fa-solid fa-arrow-rotate-left"></i>`;
 
   message.addEventListener("click", () => {
+    SoundManager.play("restart");
     resetState();
     clearGame();
     playGame();

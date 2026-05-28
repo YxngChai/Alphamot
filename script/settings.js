@@ -1,9 +1,12 @@
+import { SoundManager } from "./sound.js";
+
 const btnSettingsOpen = document.querySelectorAll(".btn-settings");
 const settings = document.querySelector(".settings");
 
 export function openCloseSettings() {
   btnSettingsOpen.forEach((btn) => {
     btn.addEventListener("click", () => {
+      SoundManager.play("menu");
       settings.classList.toggle("opened");
     });
   });
@@ -41,6 +44,7 @@ export function initDarkMode() {
   }
 
   darkModeBtn.addEventListener("click", () => {
+    SoundManager.play("menu");
     const isDark = document.body.classList.toggle("dark");
 
     localStorage.setItem("darkMode", isDark ? "on" : "off");

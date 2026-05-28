@@ -2,6 +2,7 @@ import { state, resetState } from "./gameState.js";
 import { playGame } from "./main.js";
 import { setGameLanguage, clearGame } from "./initialization.js";
 import { restartTheGame } from "./input.js";
+import { SoundManager } from "./sound.js";
 
 const translations = {
   en: {
@@ -77,6 +78,7 @@ export function changeLanguage() {
   const buttons = document.querySelectorAll(".languageBtn");
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
+      SoundManager.play("menu");
       buttons.forEach((b) => {
         const icon = b.querySelector("i");
         icon.classList.toggle("selectedFlag", b === btn);
