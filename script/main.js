@@ -19,7 +19,7 @@ import {
 import { openCloseSettings, initDarkMode } from "./settings.js";
 import { openCloseInstructions } from "./instructions.js";
 import { setWordToGuess } from "./gameState.js";
-import { AnimateToggleSettings } from "./settings.js";
+import { AnimateToggleSettings, activateSound } from "./settings.js";
 
 export function playGame() {
   clearGame();
@@ -45,6 +45,7 @@ openCloseInstructions();
 AnimateToggleSettings();
 
 initDarkMode();
+activateSound();
 
 handleInputType();
 

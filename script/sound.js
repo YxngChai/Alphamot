@@ -10,10 +10,15 @@ export const SoundManager = {
   },
 
   play(name) {
+    if (this.muted) return;
+
     const sound = this.sounds[name];
     if (!sound) return;
     const clone = sound.cloneNode();
     clone.currentTime = 0;
     clone.play();
+  },
+  toggleMute() {
+    this.muted = !this.muted;
   },
 };

@@ -51,6 +51,10 @@ export function initDarkMode() {
   });
 }
 
-// function activeSound() {
+export function activateSound() {
+  const soundBtn = document.querySelector(".sound-btn");
 
-// }
+  soundBtn.addEventListener("click", () => {
+    SoundManager.toggleMute();
+  });
+}
