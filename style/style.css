@@ -236,6 +236,7 @@ h1 span:hover {
 }
 .dark .gridRow div {
   background: linear-gradient(45deg, #155e92, #46abb8);
+  color: rgb(211, 211, 211);
 }
 .setting-wheel {
   pointer-events: none;
@@ -258,12 +259,12 @@ h1 span:hover {
   background: linear-gradient(to left, #3fc70e, #2d7419);
 }
 .gridRow .upcomingRow {
-  background: linear-gradient(45deg, #4cacf0d5, #99e9f49f);
+  background: linear-gradient(45deg, #4cacf0, #99e9f406);
   border: rgb(120, 120, 120) 1px solid;
 }
 .dark .gridRow .upcomingRow {
-  background: linear-gradient(45deg, #0e6db1, #81a6d2);
-  border: rgb(139, 139, 139) 1px solid;
+  background: linear-gradient(45deg, #0e6db15d, #81a6d26b);
+  border: rgba(117, 116, 116, 0.641) 1px solid;
 }
 
 /* Keys */
@@ -314,19 +315,21 @@ h1 span:hover {
 }
 .dark .keyboard-key {
   background-color: rgb(99, 99, 99);
-  color: #e1e1e1;
+  color: #c3c2c2;
 }
 
 .enter {
   cursor: pointer;
 }
-.keyboard-key:hover {
-  background-color: rgb(237, 235, 235);
-  box-shadow: rgba(12, 12, 12, 0.2) 0px 2px 6px;
-  transform: translateY(5px);
-}
-.dark .keyboard-key:hover {
-  background-color: rgb(84, 83, 83);
+@media (hover: hover) and (pointer: fine) {
+  .keyboard-key:hover {
+    background-color: rgb(237, 235, 235);
+    box-shadow: rgba(12, 12, 12, 0.2) 0px 2px 6px;
+    transform: translateY(5px);
+  }
+  .dark .keyboard-key:hover {
+    background-color: rgb(84, 83, 83);
+  }
 }
 .keyboard-key.correct {
   background: rgb(69, 219, 69);
@@ -482,6 +485,9 @@ h1 span:hover {
   font-weight: 400;
   font-size: 1.2em;
 }
+.dark .settingsTitle {
+  color: #c5c5c5;
+}
 
 .settings-card__row {
   display: flex;
@@ -493,7 +499,7 @@ h1 span:hover {
   padding: 0 20px;
   border-radius: 40px;
   height: 80px;
-  color: whitesmoke;
+  color: #c6c5c5;
   font-size: 1.2em;
   transition: 0.3s ease-in;
 }
@@ -564,7 +570,7 @@ h1 span:hover {
   background: linear-gradient(to right, #c848f296, #6a268096);
 }
 
-/* How to Play */
+/* Instructions */
 
 .instructions-card {
   max-width: 450px;
@@ -584,6 +590,7 @@ h1 span:hover {
   pointer-events: none;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.693);
 }
+
 .instructions.opened .instructions-card {
   transform: scale(1);
   opacity: 1;
@@ -624,10 +631,16 @@ h1 span:hover {
   font-weight: 400;
   font-size: 1.2em;
 }
+.dark .instructionsTitle {
+  color: #c5c5c5;
+}
 .instructions__text {
   padding: 25px;
   font-size: 1.1em;
   color: white;
+}
+.dark .instructions__text {
+  color: #c5c5c5;
 }
 /* Footer */
 .footer {
