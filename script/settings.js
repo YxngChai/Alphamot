@@ -50,3 +50,7 @@ export function initDarkMode() {
     localStorage.setItem("darkMode", isDark ? "on" : "off");
   });
 }
+
+// function activeSound() {
+
+// }
