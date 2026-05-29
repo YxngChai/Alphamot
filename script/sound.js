@@ -20,5 +20,6 @@ export const SoundManager = {
   },
   toggleMute() {
     this.muted = !this.muted;
+    SoundManager.play("menu");
   },
 };
