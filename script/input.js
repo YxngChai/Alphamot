@@ -144,6 +144,7 @@ function showAnswer() {
   message.classList.add("lossAnswer");
   message.setAttribute("data-i18n", "correctAnswer");
   message.dataset.word = getWordToGuess();
+  // message.dataset.definition = function to get definition;
   keyboard.after(message);
   updateTexts();
 }
@@ -153,7 +154,7 @@ export function restartTheGame() {
   let message = document.createElement("div");
   message.classList.add("restart");
   message.innerHTML = `<p data-i18n="replay"></p>
-  <i class="fa-solid fa-arrow-rotate-left"></i>`;
+  <i class="fa-solid fa-arrow-rotate-left replay-arrow"></i>`;
 
   message.addEventListener("click", () => {
     SoundManager.play("restart");

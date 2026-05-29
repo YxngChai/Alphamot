@@ -11,7 +11,8 @@ const translations = {
     darkMode: "Dark Mode",
     sound: "Sound",
     replay: "Play Again",
-    correctAnswer: (word) => `Correct Answer: ${word}`,
+    // correctAnswer: (word) => `Correct Answer: ${word}`,
+    correctAnswer: (word) => `${word}: `, // add definition
     instructionsTitle: "How to Play",
     instructions_line1: "You have 6 tries to guess the hidden word",
     instructions_line2: "Type a valid word and press enter",
