@@ -35,17 +35,19 @@ export function setGameLanguage() {
     state.keyboard = "qwerty";
   }
 }
-
+const BASE_PATH = window.location.pathname.includes("my-game")
+  ? "/my-game/"
+  : "/";
 // Create one set of english and on french words that are valid to check against userGuess
 const englishWords = await fetch(
-  "../data/dictionaries/englishDictionary.json",
+  `${BASE_PATH}data/dictionaries/englishDictionary.json`,
 ).then((res) => res.json());
 export const englishWordSet = new Set(
   Object.keys(englishWords).map((w) => w.toLowerCase()),
 );
 
 const frenchWords = await fetch(
-  "../data/dictionaries/frenchDictionary.txt",
+  `${BASE_PATH}data/dictionaries/frenchDictionary.txt`,
 ).then((res) => res.text());
 export const frenchWordSet = new Set(
   frenchWords
@@ -54,7 +56,7 @@ export const frenchWordSet = new Set(
     .filter(Boolean),
 );
 const portugueseWords = await fetch(
-  "../data/dictionaries/portugueseDictionary.txt",
+  `${BASE_PATH}data/dictionaries/portugueseDictionary.txt`,
 ).then((res) => res.text());
 export const portugueseWordSet = new Set(
   portugueseWords

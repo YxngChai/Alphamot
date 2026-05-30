@@ -16,9 +16,11 @@ export const SoundManager = {
 
     const sound = this.sounds[name];
     if (!sound) return;
-    const clone = sound.cloneNode();
-    clone.currentTime = 0;
-    clone.play();
+    // const clone = sound.cloneNode();
+    // clone.currentTime = 0;
+    // clone.play();
+    sound.currentTime = 0;
+    sound.play();
   },
   toggleMute() {
     this.muted = !this.muted;
