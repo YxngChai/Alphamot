@@ -34,9 +34,7 @@ export function AnimateToggleSettings() {
 
 export function initDarkMode() {
   const darkModeBtn = document.querySelector(".darkModeBtn");
-
   const saved = localStorage.getItem("darkMode");
-
   if (saved === "on") {
     document.body.classList.add("dark");
     const toggleIcon = darkModeBtn.querySelector(".toggleIcon");

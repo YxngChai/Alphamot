@@ -20,6 +20,7 @@ import { openCloseSettings, initDarkMode } from "./settings.js";
 import { openCloseInstructions } from "./instructions.js";
 import { setWordToGuess } from "./gameState.js";
 import { AnimateToggleSettings, activateSound } from "./settings.js";
+import { initSound } from "./sound.js";
 
 export function playGame() {
   clearGame();
@@ -30,8 +31,6 @@ export function playGame() {
   setupFirstLetter(newWord);
   buildKeyboard(state.keyboard);
   initInput();
-  const word = newWord.toLowerCase();
-  console.log(state.wordPool[word]);
 }
 
 setLangAttribute();
@@ -48,6 +47,7 @@ AnimateToggleSettings();
 
 initDarkMode();
 activateSound();
+initSound();
 
 handleInputType();
 
