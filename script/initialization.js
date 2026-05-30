@@ -36,18 +36,16 @@ export function setGameLanguage() {
   }
 }
 
-const isGitHubPages = window.location.hostname.includes("github.io");
-const BASE_PATH = isGitHubPages ? "/Alphamot/" : "/";
 // Create one set of english and on french words that are valid to check against userGuess
 const englishWords = await fetch(
-  `${BASE_PATH}data/dictionaries/englishDictionary.json`,
+  `/Alphamot/data/dictionaries/englishDictionary.json`,
 ).then((res) => res.json());
 export const englishWordSet = new Set(
   Object.keys(englishWords).map((w) => w.toLowerCase()),
 );
 
 const frenchWords = await fetch(
-  `${BASE_PATH}data/dictionaries/frenchDictionary.txt`,
+  `/Alphamot/data/dictionaries/frenchDictionary.txt`,
 ).then((res) => res.text());
 export const frenchWordSet = new Set(
   frenchWords
@@ -56,7 +54,7 @@ export const frenchWordSet = new Set(
     .filter(Boolean),
 );
 const portugueseWords = await fetch(
-  `${BASE_PATH}data/dictionaries/portugueseDictionary.txt`,
+  `/Alphamot/data/dictionaries/portugueseDictionary.txt`,
 ).then((res) => res.text());
 export const portugueseWordSet = new Set(
   portugueseWords
