@@ -35,9 +35,9 @@ export function setGameLanguage() {
     state.keyboard = "qwerty";
   }
 }
-const BASE_PATH = window.location.pathname.includes("github.io")
-  ? "/Alphamot/"
-  : "/";
+
+const isGitHubPages = window.location.hostname.includes("github.io");
+const BASE_PATH = isGitHubPages ? "/Alphamot/" : "/";
 // Create one set of english and on french words that are valid to check against userGuess
 const englishWords = await fetch(
   `${BASE_PATH}data/dictionaries/englishDictionary.json`,
