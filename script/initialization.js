@@ -35,7 +35,7 @@ export function setGameLanguage() {
     state.keyboard = "qwerty";
   }
 }
-const BASE_PATH = window.location.pathname.includes("Alphamot")
+const BASE_PATH = window.location.pathname.includes("github.io")
   ? "/Alphamot/"
   : "/";
 // Create one set of english and on french words that are valid to check against userGuess
