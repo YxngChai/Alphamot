@@ -171,6 +171,7 @@ export function restartTheGame() {
 
 function handleLoss() {
   state.gameOver = true;
+  SoundManager.play("loss");
   hideKeyboard();
   showAnswer();
   restartTheGame();
