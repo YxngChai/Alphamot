@@ -39,6 +39,8 @@ export function initDarkMode() {
 
   if (saved === "on") {
     document.body.classList.add("dark");
+    const toggleIcon = darkModeBtn.querySelector(".toggleIcon");
+    toggleIcon.classList.replace("fa-toggle-off", "fa-toggle-on");
   } else {
     document.body.classList.remove("dark");
   }
