@@ -30,6 +30,8 @@ export function playGame() {
   setupFirstLetter(newWord);
   buildKeyboard(state.keyboard);
   initInput();
+  const word = newWord.toLowerCase();
+  console.log(state.wordPool[word]);
 }
 
 setLangAttribute();

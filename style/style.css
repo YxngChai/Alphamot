@@ -383,7 +383,7 @@ h1 span:hover {
 }
 
 /* Answer after loss */
-.lossAnswer,
+.definition,
 .restart {
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -399,14 +399,14 @@ h1 span:hover {
   border-radius: 10px;
 }
 
-.lossAnswer {
-  width: auto;
+.definition {
+  width: 90%;
   margin: 20px auto;
   padding: 20px;
 }
 .restart {
   width: 300px;
-  margin: 20px auto;
+  margin: 40px auto;
   padding: 20px;
   font-size: 1.4em;
   transition: 0.1s ease-in;
@@ -757,6 +757,11 @@ h1 span:hover {
     font-size: 0.8em;
     margin-right: 10px;
   }
+  .definition,
+  .restart {
+    font-size: 1.2em;
+    margin: 30px;
+  }
 }
 canvas {
   pointer-events: none;
@@ -789,6 +794,7 @@ canvas {
   .keyboard-key {
     height: 40px;
     font-size: 1em;
+    border-radius: 10px;
   }
   .btn-settings,
   .btn-help {
@@ -800,6 +806,10 @@ canvas {
   .instructions.opened .instructions-card,
   .settings.opened .settings-card {
     transform: scale(0.82);
+  }
+  .definition,
+  .restart {
+    font-size: 0.9em;
   }
   /* .settings.opened .settings-card {
     transform: scale(1) translateY(0) translateX(0);

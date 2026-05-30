@@ -141,9 +141,12 @@ function hideKeyboard() {
 function showAnswer() {
   const keyboard = document.querySelector(".keyboard");
   let message = document.createElement("div");
-  message.classList.add("lossAnswer");
-  message.setAttribute("data-i18n", "correctAnswer");
-  message.dataset.word = getWordToGuess();
+  message.classList.add("definition");
+  // message.setAttribute("data-i18n", "correctAnswer");
+  const word = getWordToGuess();
+  const definition = state.wordPool[word.toLowerCase()];
+
+  message.innerText = `${word}: ${definition}`;
   // message.dataset.definition = function to get definition;
   keyboard.after(message);
   updateTexts();
@@ -177,6 +180,7 @@ function handleWin() {
   SoundManager.play("win");
   throwConfetti();
   hideKeyboard();
+  showAnswer();
   restartTheGame();
 }
 

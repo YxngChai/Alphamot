@@ -75,19 +75,38 @@ export function verifyWord(userGuess) {
 }
 
 // Not emplemented yet
-async function getDefinition(wordToGuess) {
+export async function getDefinition(wordToGuess) {
   const response = await fetch(
-    `https://api.dictionaryapi.dev/api/v2/entries/en/apple`,
+    `https://api.dictionaryapi.dev/api/v2/entries/en/${wordToGuess}`,
   );
   if (!response.ok) {
     return false;
   }
   const dictionaryApi = await response.json();
+  console.log(dictionaryApi);
   const definition =
     dictionaryApi[0]?.meanings[0]?.definitions[0]?.definition ??
     "No definition found";
+  console.log(definition);
   return definition;
 }
+
+// not user yet
+// async function getDefinition(wordToGuess) {
+//   const response = await fetch(
+//     `https://api.dictionaryapi.dev/api/v2/entries/en/${wordToGuess}`,
+//   );
+//   if (!response.ok) {
+//     return false;
+//   }
+//   const dictionaryApi = await response.json();
+//   console.log(dictionaryApi);
+//   const definition =
+//     dictionaryApi[0]?.meanings[0]?.definitions[0]?.definition ??
+//     "No definition found";
+//   console.log(definition);
+//   return definition;
+// }
 
 // export async function handleGuess(userGuess) {
 //   const result = await verifyWord(userGuess);
@@ -95,7 +114,8 @@ async function getDefinition(wordToGuess) {
 // }
 
 export function generateWordToGuess(wordList) {
-  return wordList[Math.floor(Math.random() * wordList.length)].toUpperCase();
+  const keys = Object.keys(wordList);
+  return keys[Math.floor(Math.random() * keys.length)].toUpperCase();
 }
 
 export function setupFirstLetter(wordToGuess) {
