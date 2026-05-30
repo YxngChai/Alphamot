@@ -1,13 +1,13 @@
 export const SoundManager = {
   sounds: {
-    entry: new Audio("../data/sounds/entryedited.mp3"),
-    error: new Audio("../data/sounds/error.mp3"),
-    win: new Audio("../data/sounds/win.mp3"),
-    nextrow: new Audio("../data/sounds/nextrow.mp3"),
-    backspace: new Audio("../data/sounds/backspace.mp3"),
-    restart: new Audio("../data/sounds/restart.mp3"),
-    menu: new Audio("../data/sounds/menuedited.mp3"),
-    loss: new Audio("../data/sounds/loss.mp3"),
+    entry: new Audio("/Alphamot/data/sounds/entryedited.mp3"),
+    error: new Audio("/Alphamot/data/sounds/error.mp3"),
+    win: new Audio("/Alphamot/data/sounds/win.mp3"),
+    nextrow: new Audio("/Alphamot/data/sounds/nextrow.mp3"),
+    backspace: new Audio("/Alphamot/data/sounds/backspace.mp3"),
+    restart: new Audio("/Alphamot/data/sounds/restart.mp3"),
+    menu: new Audio("/Alphamot/data/sounds/menuedited.mp3"),
+    loss: new Audio("/Alphamot/data/sounds/loss.mp3"),
   },
   muted: false,
 
