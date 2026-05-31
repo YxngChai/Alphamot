@@ -6,9 +6,13 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="style/style.css" />
-     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-    <script type="module" src="script/main.js" defer></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <link rel="icon" type="image/png" href="/data/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/data/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/data/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/data/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/data/favicon/site.webmanifest" />
+     <script type="module" src="script/main.js" defer></script>
     <script
       src="https://kit.fontawesome.com/c8cb44d56f.js"
       crossorigin="anonymous"></script>
@@ -37,6 +41,9 @@
       <div class="app">
       </div>
       <!-- test  -->
+       <div class="endGame">
+
+       </div>
        <!-- <div class="definition" data-i18n="correctAnswer"></div>
       <div class="restart">
         <p data-i18n="replay"></p>
@@ -66,34 +73,35 @@
         </div>
       </div>
       <!-- Settings -->
-      <div class="settings">
-        <div class="settings-overlay"></div>
-        <div class="settings-card">
-          <div class="settings-card__row settings-card__row--top">
-            <h2 data-i18n="settingsTitle" class="settingsTitle"></h2>
-            <button class="btn-settings btn-close">            
-              <i class="fa-solid fa-x fa-xl"></i>
-            </button>
-          </div>
-          <div  class="settings-card__row setting-option">
-            <p data-i18n="language"></p>
-            <div>
-              <button class="languageBtn" data-lang="pt-BR"><i class="toggleIcon flag ">🇧🇷</i></button>
-              <button class="languageBtn" data-lang="fr"><i class="toggleIcon flag ">🇫🇷</i></button>
-              <button class="languageBtn" data-lang="en"><i class="toggleIcon flag ">🇬🇧</i></button>
-              
+       
+        <div class="settings">
+          <div class="settings-overlay"></div>
+          <div class="settings-card">
+            <div class="settings-card__row settings-card__row--top">
+              <h2 data-i18n="settingsTitle" class="settingsTitle"></h2>
+              <button class="btn-settings btn-close">            
+                <i class="fa-solid fa-x fa-xl"></i>
+              </button>
+            </div>
+            <div  class="settings-card__row setting-option">
+              <p data-i18n="language"></p>
+              <div>
+                <button class="languageBtn" data-lang="pt-BR"><i class="toggleIcon flag ">🇧🇷</i></button>
+                <button class="languageBtn" data-lang="fr"><i class="toggleIcon flag ">🇫🇷</i></button>
+                <button class="languageBtn" data-lang="en"><i class="toggleIcon flag ">🇬🇧</i></button>
+                
+              </div>
+            </div>
+            <div  class="settings-card__row setting-option darkModeBtn">
+              <p data-i18n="darkMode"></p>
+              <i   class="fa-solid fa-toggle-off toggleIcon"></i>
+            </div>
+            <div  class="settings-card__row setting-option">
+              <p data-i18n="sound"></p>
+              <i   class="fa-solid fa-toggle-on toggleIcon sound-btn"></i>
             </div>
           </div>
-          <div  class="settings-card__row setting-option darkModeBtn">
-            <p data-i18n="darkMode"></p>
-            <i   class="fa-solid fa-toggle-off toggleIcon"></i>
-          </div>
-          <div  class="settings-card__row setting-option">
-            <p data-i18n="sound"></p>
-            <i   class="fa-solid fa-toggle-on toggleIcon sound-btn"></i>
-          </div>
         </div>
-      </div>
     </main>
     <canvas class="js-confetti"></canvas>
 
