@@ -419,7 +419,7 @@ h1 span:hover {
   font-size: 1.4em;
   transition: 0.1s ease-in;
   cursor: pointer;
-  z-index: 9999;
+  z-index: 2;
   line-height: 15px;
 }
 .restart:hover {

@@ -158,14 +158,15 @@ export function restartTheGame() {
   message.classList.add("restart");
   message.innerHTML = `<p data-i18n="replay"></p>
   <i class="fa-solid fa-arrow-rotate-left replay-arrow"></i>`;
-
+  endGame.appendChild(message);
   message.addEventListener("click", () => {
     SoundManager.play("restart");
     resetState();
     clearGame();
     playGame();
+    endGame.innerHTML = "";
   });
-  endGame.appendChild(message);
+
   updateTexts();
 }
 
