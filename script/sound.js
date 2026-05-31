@@ -1,6 +1,6 @@
 export const SoundManager = {
   sounds: {
-    entry: new Audio("../data/sounds/entryedited.mp3"),
+    //    entry: new Audio("../data/sounds/entryedited.mp3"),
     error: new Audio("../data/sounds/error.mp3"),
     win: new Audio("../data/sounds/win.mp3"),
     nextrow: new Audio("../data/sounds/nextrow.mp3"),

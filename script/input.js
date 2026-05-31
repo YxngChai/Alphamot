@@ -72,7 +72,7 @@ export function enterALetter(key) {
   if (state.currentPlacement < currentRow.length) {
     currentRow[state.currentPlacement].classList.remove("fade");
     currentRow[state.currentPlacement].textContent = key.toUpperCase();
-    SoundManager.play("entry");
+    // SoundManager.play("entry");
 
     state.currentPlacement++;
   }
@@ -139,7 +139,7 @@ function hideKeyboard() {
   keyboard.classList.add("hidden");
 }
 function showAnswer() {
-  const keyboard = document.querySelector(".keyboard");
+  const endGame = document.querySelector(".endGame");
   let message = document.createElement("div");
   message.classList.add("definition");
   // message.setAttribute("data-i18n", "correctAnswer");
@@ -148,12 +148,12 @@ function showAnswer() {
 
   message.innerText = `${word}: ${definition}`;
   // message.dataset.definition = function to get definition;
-  keyboard.after(message);
+  endGame.appendChild(message);
   updateTexts();
 }
 
 export function restartTheGame() {
-  const app = document.querySelector(".app");
+  const endGame = document.querySelector(".endGame");
   let message = document.createElement("div");
   message.classList.add("restart");
   message.innerHTML = `<p data-i18n="replay"></p>
@@ -165,7 +165,7 @@ export function restartTheGame() {
     clearGame();
     playGame();
   });
-  app.appendChild(message);
+  endGame.appendChild(message);
   updateTexts();
 }
 
@@ -252,7 +252,6 @@ export async function handleEnter() {
     rememberCorrectPosition(state.userGuess);
     updateLineColor(position);
     if (checkWin(state.userGuess, getWordToGuess())) {
-      console.log(state.correctPositions);
       handleWin();
     } else {
       changeLineDown();

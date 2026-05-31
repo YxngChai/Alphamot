@@ -383,6 +383,13 @@ h1 span:hover {
 }
 
 /* Answer after loss */
+.endGame {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+}
+
 .definition,
 .restart {
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -403,6 +410,7 @@ h1 span:hover {
   width: 90%;
   margin: 20px auto;
   padding: 20px;
+  text-align: center;
 }
 .restart {
   width: 300px;
@@ -757,10 +765,12 @@ h1 span:hover {
     font-size: 0.8em;
     margin-right: 10px;
   }
-  .definition,
+  .definition {
+    font-size: 1.2em;
+  }
   .restart {
     font-size: 1.2em;
-    margin: 30px;
+    margin: 15px 0 25px 0;
   }
 }
 canvas {
@@ -851,5 +861,11 @@ canvas {
   }
   .settings-card__row {
     font-size: 1em;
+  }
+  .restart {
+    margin: 15px 0;
+  }
+  .definition {
+    margin: 10px 0;
   }
 }
