@@ -381,6 +381,9 @@ h1 span:hover {
 .currentRow.fade {
   color: rgb(195, 194, 194);
 }
+.dark .currentRow.fade {
+  color: rgba(195, 194, 194, 0.531);
+}
 
 /* Answer after loss */
 .endGame {
@@ -570,12 +573,17 @@ h1 span:hover {
   background: #60bff3;
 }
 .dark .selectedFlag {
-  background: #1584c0;
+  background: #5a6fcb;
 }
 .unselectedFlag:hover {
   opacity: 1;
   background: #60bff3;
 }
+.dark .unselectedFlag:hover {
+  opacity: 1;
+  background: #5a6fcb;
+}
+
 .dark .unselectedFlag:hover {
   background: #2d8abc;
 }
@@ -821,12 +829,6 @@ canvas {
   .restart {
     font-size: 0.9em;
   }
-  /* .settings.opened .settings-card {
-    transform: scale(1) translateY(0) translateX(0);
-  }
-  .instructions.opened .instructions-card {
-    transform: scale(1) translateY(0) translateX(0);
-  } */
 }
 @media screen and (max-width: 400px) {
   h1 {
