@@ -490,6 +490,5 @@ export const brazilianWordsToGuess = {
   violao: "Instrumento musical de cordas.",
   vizinho: "Pessoa que mora perto.",
   voz: "Som produzido ao falar.",
-  janela: "Abertura para entrada de luz e ar.",
   zoologico: "Local onde animais são mantidos para exibição.",
 };
