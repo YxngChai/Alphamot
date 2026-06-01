@@ -4,14 +4,14 @@ import { setGameLanguage, clearGame } from "./initialization.js";
 import { restartTheGame } from "./input.js";
 import { SoundManager } from "./sound.js";
 
-const translations = {
+export const translations = {
   en: {
     settingsTitle: "Settings",
     language: "Language",
+    keyboardLg: "English",
     darkMode: "Dark Mode",
     sound: "Sound",
     replay: "Play Again",
-    // correctAnswer: (word) => `Correct Answer: ${word}`,
     correctAnswer: (word) => `${word}: `, // add definition
     instructionsTitle: "How to Play",
     instructions_line1: "You have 6 tries to guess the hidden word",
@@ -24,6 +24,7 @@ const translations = {
   fr: {
     settingsTitle: "Paramètres",
     language: "Langue",
+    keyboardLg: "Français",
     darkMode: "Mode Sombre",
     sound: "Son",
     replay: "Rejouer",
@@ -39,6 +40,7 @@ const translations = {
   "pt-BR": {
     settingsTitle: "Configurações",
     language: "Idioma",
+    keyboardLg: "Brazilian Portuguese",
     darkMode: "Modo Escuro ",
     sound: "Som",
     replay: "Jogar novamente",

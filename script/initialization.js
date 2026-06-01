@@ -5,6 +5,7 @@ import {
   englishWordsToGuess,
   frenchWordsToGuess,
 } from "./wordLists.js";
+import { translations } from "./translation.js";
 
 export function setLangAttribute() {
   const supported = ["fr", "en", "pt-BR"];
@@ -164,6 +165,10 @@ export function buildKeyboard(keyboardLanguage) {
   const keyboard = document.querySelector(".keyboard");
   const keyboardLayout = keyboards[keyboardLanguage];
 
+  const p = document.createElement("p");
+  p.classList.add("keyboardLanguage");
+  p.textContent = translations[state.language]["keyboardLg"];
+  keyboard.appendChild(p);
   keyboardLayout.forEach((row, i) => {
     let keyboardRow = document.createElement("div");
     keyboardRow.classList.add("keyboardRow");

@@ -284,7 +284,12 @@ h1 span:hover {
 .keyboard.hidden {
   display: none;
 }
-
+.keyboardLanguage {
+  margin: 7px 0 0 8px;
+}
+.dark .keyboardLanguage {
+  color: rgb(226, 226, 226);
+}
 .keyboardRow {
   display: flex;
   justify-content: space-around;
