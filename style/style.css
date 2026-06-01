@@ -768,6 +768,10 @@ h1 span:hover {
     gap: 10px;
     margin: 20px 0;
   }
+  .keyboardLanguage {
+    margin: 1px 0 0 8px;
+    font-size: 0.9em;
+  }
   .keyboardRow {
     gap: 5px;
   }
@@ -813,6 +817,9 @@ canvas {
 
   .keyboard {
     margin: 20px 5px;
+  }
+  .keyboardLanguage {
+    margin: 1px 0 0 4px;
   }
   .keyboard-key {
     height: 40px;
