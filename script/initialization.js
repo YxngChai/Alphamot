@@ -94,7 +94,7 @@ export async function getDefinition(wordToGuess) {
   return definition;
 }
 
-// not user yet
+// not used yet
 // async function getDefinition(wordToGuess) {
 //   const response = await fetch(
 //     `https://api.dictionaryapi.dev/api/v2/entries/en/${wordToGuess}`,
