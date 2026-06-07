@@ -167,7 +167,6 @@ export function restartTheGame() {
     resetState();
     clearGame();
     playGame();
-    // endGame.innerHTML = "";
   });
 
   updateTexts();
