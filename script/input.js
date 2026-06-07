@@ -32,7 +32,6 @@ export function handleInputType() {
 
   // Keyboard input
   document.addEventListener("keydown", (event) => {
-    console.log(event.key);
     if (event.key === "Tab" || event.key === "Enter") {
       event.preventDefault();
     }
@@ -168,7 +167,7 @@ export function restartTheGame() {
     resetState();
     clearGame();
     playGame();
-    endGame.innerHTML = "";
+    // endGame.innerHTML = "";
   });
 
   updateTexts();

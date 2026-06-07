@@ -129,6 +129,8 @@ export function setupFirstLetter(wordToGuess) {
 export function clearGame() {
   const app = document.querySelector(".app");
   app.innerHTML = "";
+  const endGame = document.querySelector(".endGame");
+  endGame.innerHTML = "";
   const gameArea = document.createElement("div");
   gameArea.classList.add("gameArea");
   const gameGrid = document.createElement("div");
