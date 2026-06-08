@@ -37,40 +37,63 @@ export function setGameLanguage() {
   }
 }
 
-const isGitHubPages = window.location.hostname.includes("github.io");
-const BASE_PATH = isGitHubPages ? "/Alphamot/" : "/";
 // Create one set of english and on french words that are valid to check against userGuess
-const englishWords = await fetch(
-  `${BASE_PATH}data/dictionaries/englishDictionary.json`,
-).then((res) => res.json());
-export const englishWordSet = new Set(
-  Object.keys(englishWords).map((w) => w.toLowerCase()),
-);
+let englishWordSet = new Set();
+try {
+  const response = await fetch(`./data/dictionaries/englishDictionary.json`);
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}`);
+  }
+  const englishWords = await response.json();
+  englishWordSet = new Set(
+    Object.keys(englishWords).map((w) => w.toLowerCase()),
+  );
+} catch (error) {
+  console.error("Failed to load English dictionary:", error);
+  englishWordSet = new Set();
+}
 
-const frenchWords = await fetch(
-  `${BASE_PATH}data/dictionaries/frenchDictionary.txt`,
-).then((res) => res.text());
-export const frenchWordSet = new Set(
-  frenchWords
-    .split(/\r?\n/)
-    .map((w) => w.trim().toLowerCase())
-    .filter(Boolean),
-);
-const portugueseWords = await fetch(
-  `${BASE_PATH}data/dictionaries/portugueseDictionary.txt`,
-).then((res) => res.text());
-export const portugueseWordSet = new Set(
-  portugueseWords
-    .split(/\r?\n/)
-    .map((w) =>
-      w
-        .trim()
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, ""),
-    )
-    .filter(Boolean),
-);
+let frenchWordSet = new Set();
+try {
+  const response = await fetch(`./data/dictionaries/frenchDictionary.txt`);
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}`);
+  }
+  const frenchWords = await response.text();
+  frenchWordSet = new Set(
+    frenchWords
+      .split(/\r?\n/)
+      .map((w) => w.trim().toLowerCase())
+      .filter(Boolean),
+  );
+} catch (error) {
+  console.error("Failed to load French dictionary:", error);
+  frenchWordSet = new Set();
+}
+
+let portugueseWordSet = new Set();
+try {
+  const response = await fetch(`./data/dictionaries/portugueseDictionary.txt`);
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}`);
+  }
+  const portugueseWords = await response.text();
+  portugueseWordSet = new Set(
+    portugueseWords
+      .split(/\r?\n/)
+      .map((w) =>
+        w
+          .trim()
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, ""),
+      )
+      .filter(Boolean),
+  );
+} catch (error) {
+  console.error("Failed to load Portuguese dictionary:", error);
+  portugueseWordSet = new Set();
+}
 
 export function verifyWord(userGuess) {
   const guessWordToVerify = userGuess.toLowerCase();
@@ -79,19 +102,23 @@ export function verifyWord(userGuess) {
 
 // Not emplemented yet
 export async function getDefinition(wordToGuess) {
-  const response = await fetch(
-    `https://api.dictionaryapi.dev/api/v2/entries/en/${wordToGuess}`,
-  );
-  if (!response.ok) {
-    return false;
+  try {
+    const response = await fetch(
+      `https://api.dictionaryapi.dev/api/v2/entries/en/${wordToGuess}`,
+    );
+    if (!response.ok) {
+      return false;
+    }
+    const dictionaryApi = await response.json();
+    console.log(dictionaryApi);
+    const definition =
+      dictionaryApi[0]?.meanings[0]?.definitions[0]?.definition ??
+      "No definition found";
+    console.log(definition);
+    return definition;
+  } catch (error) {
+    console.error("Error loading the definition:", error);
   }
-  const dictionaryApi = await response.json();
-  console.log(dictionaryApi);
-  const definition =
-    dictionaryApi[0]?.meanings[0]?.definitions[0]?.definition ??
-    "No definition found";
-  console.log(definition);
-  return definition;
 }
 
 // not used yet
