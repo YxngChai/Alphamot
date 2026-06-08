@@ -10,7 +10,7 @@ import {
   preventQuickTapMobileZoom,
 } from "./initialization.js";
 import { initInput, manageUserInput, handleInputType } from "./input.js";
-import { state } from "./gameState.js";
+import { state, loadGame } from "./gameState.js";
 import {
   changeLanguage,
   updateTexts,
@@ -21,6 +21,7 @@ import { openCloseInstructions } from "./instructions.js";
 import { setWordToGuess } from "./gameState.js";
 import { AnimateToggleSettings, activateSound } from "./settings.js";
 import { initSound } from "./sound.js";
+import { restoreGame } from "./restoreGame.js";
 
 export function playGame() {
   clearGame();
@@ -51,7 +52,12 @@ initSound();
 
 handleInputType();
 
-playGame();
+const saved = loadGame();
+if (saved) {
+  restoreGame(saved);
+} else {
+  playGame();
+}
 
 const replayBtn = document.querySelector(".restart");
 if (replayBtn) {

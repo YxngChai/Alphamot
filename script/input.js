@@ -1,7 +1,7 @@
 import { processWord } from "./guessManipulation.js";
 import { playGame } from "./main.js";
 import { verifyWord, clearGame } from "./initialization.js";
-import { getWordToGuess, resetState, state } from "./gameState.js";
+import { getWordToGuess, resetState, state, saveGame } from "./gameState.js";
 import { updateTexts } from "./translation.js";
 import { SoundManager } from "./sound.js";
 
@@ -53,7 +53,7 @@ function initCorrectPositions() {
 }
 
 //Collect list at each turn, compare list and returns unique items
-function sortUsedLetters(wrongLetters, misplaced, correct) {
+export function sortUsedLetters(wrongLetters, misplaced, correct) {
   state.gameState.wrongLetters = [
     ...new Set([...state.gameState.wrongLetters, ...wrongLetters]),
   ];
@@ -109,7 +109,7 @@ function checkWin(userGuess, wordToGuess) {
   return userGuess === wordToGuess;
 }
 // Change user input to line below
-function updateLineColor(position) {
+export function updateLineColor(position) {
   for (let i = 0; i < getWordToGuess().length; i++) {
     if (position[i] !== "") {
       rows[state.rowCounter].children[i].classList.add(position[i]);
@@ -117,7 +117,7 @@ function updateLineColor(position) {
   }
 }
 
-function rememberCorrectPosition(userGuess) {
+export function rememberCorrectPosition(userGuess) {
   for (let i = 0; i < userGuess.length; i++) {
     if (userGuess[i] === getWordToGuess()[i]) {
       state.correctPositions[i] = getWordToGuess()[i];
@@ -188,7 +188,7 @@ function handleWin() {
   restartTheGame();
 }
 
-function changeLineDown() {
+export function changeLineDown() {
   state.tries++;
   if (state.tries === 6) {
     handleLoss();
@@ -206,7 +206,7 @@ function changeLineDown() {
   }
 }
 
-function updateKeyboard(wrongLetters, misplaced, correct) {
+export function updateKeyboard(wrongLetters, misplaced, correct) {
   const keys = document.querySelectorAll(".keyboard-key");
   keys.forEach((key) => {
     if (correct.includes(key.dataset.key)) {
@@ -251,7 +251,9 @@ export async function handleEnter() {
       const { wrongLetters, misplaced, correct, position } = processWord(
         state.userGuess,
       );
-      // updateKeyboard(wrongLetters, misplaced, correct);
+      state.guesses.push(state.userGuess);
+      console.log(state.guesses);
+      saveGame();
       sortUsedLetters(wrongLetters, misplaced, correct);
       updateKeyboard(
         state.gameState.wrongLetters,

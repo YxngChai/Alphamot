@@ -4,6 +4,7 @@ export const state = {
   tries: 0,
   rowCounter: 0,
   userGuess: "",
+  guesses: [],
   correctPositions: [],
   gameState: {
     wrongLetters: [],
@@ -23,6 +24,7 @@ export function resetState() {
   state.rowCounter = 0;
   state.tries = 0;
   state.userGuess = "";
+  state.guesses = [];
   state.gameState = {
     wrongLetters: [],
     misplaced: [],
@@ -36,4 +38,23 @@ export function setWordToGuess(word) {
 }
 export function getWordToGuess() {
   return state.wordToGuess;
+}
+
+const KEY = "alphamot-save";
+
+export function saveGame() {
+  const saveData = {
+    wordToGuess: state.wordToGuess,
+    guesses: state.guesses,
+    rowCounter: state.rowCounter,
+    tries: state.tries,
+  };
+  localStorage.setItem(KEY, JSON.stringify(saveData));
+}
+export function loadGame() {
+  const data = localStorage.getItem(KEY);
+  return data ? JSON.parse(data) : null;
+}
+export function clearSave() {
+  localStorage.removeItem(KEY);
 }
