@@ -111,7 +111,7 @@ function buildUserGuess() {
   return guess;
 }
 // Check if Guess is right asnwer
-function checkWin(userGuess, wordToGuess) {
+export function checkWin(userGuess, wordToGuess) {
   return userGuess === wordToGuess;
 }
 // Change user input to line below
@@ -185,7 +185,7 @@ function handleLoss() {
   showAnswer();
   restartTheGame();
 }
-function handleWin() {
+export function handleWin() {
   state.gameOver = true;
   SoundManager.play("win");
   throwConfetti();
