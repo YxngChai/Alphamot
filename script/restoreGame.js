@@ -15,11 +15,12 @@ import {
   rememberCorrectPosition,
   updateLineColor,
   changeLineDown,
+  enterALetter,
 } from "./input.js";
 
 import { processWord } from "./guessManipulation.js";
 
-import { getWordToGuess } from "./gameState.js";
+import { getWordToGuess, clearSave, saveGame } from "./gameState.js";
 
 export function restoreGame(saved) {
   clearGame();
@@ -38,10 +39,15 @@ export function restoreGame(saved) {
 }
 
 export function replayGuesses(guesses) {
+  console.log(state.guesses);
   console.log(state.wordToGuess);
   guesses.forEach((guess, index) => {
+    console.log(guess);
+    for (let i = 1; i < guess.length; i++) {
+      enterALetter(guess[i]);
+    }
+
     const { wrongLetters, misplaced, correct, position } = processWord(guess);
-    state.guesses.push(guess);
     sortUsedLetters(wrongLetters, misplaced, correct);
     updateKeyboard(
       state.gameState.wrongLetters,

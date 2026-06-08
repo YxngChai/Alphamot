@@ -1,7 +1,13 @@
 import { processWord } from "./guessManipulation.js";
 import { playGame } from "./main.js";
 import { verifyWord, clearGame } from "./initialization.js";
-import { getWordToGuess, resetState, state, saveGame } from "./gameState.js";
+import {
+  getWordToGuess,
+  resetState,
+  state,
+  saveGame,
+  clearSave,
+} from "./gameState.js";
 import { updateTexts } from "./translation.js";
 import { SoundManager } from "./sound.js";
 
