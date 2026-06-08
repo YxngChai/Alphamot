@@ -18,9 +18,13 @@ export const SoundManager = {
     if (!sound) return;
     const clone = sound.cloneNode();
     clone.currentTime = 0;
-    clone.play();
-    // sound.currentTime = 0;
-    // sound.play();
+    try {
+      clone.play().catch((err) => {
+        console.warn("Audio play blocked:", err);
+      });
+    } catch (err) {
+      console.warn("Sound error:", err);
+    }
   },
   toggleMute() {
     this.muted = !this.muted;

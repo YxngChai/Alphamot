@@ -220,44 +220,53 @@ function updateKeyboard(wrongLetters, misplaced, correct) {
   });
 }
 //Confetti effect
+
 function throwConfetti() {
-  const canvas = document.querySelector(".js-confetti");
-  const jsConfetti = new JSConfetti();
-  jsConfetti.addConfetti({ confettiNumber: 1000 });
+  try {
+    const canvas = document.querySelector(".js-confetti");
+    const jsConfetti = new JSConfetti();
+    jsConfetti.addConfetti({ confettiNumber: 1000 });
+  } catch (error) {
+    console.warn("Confetti error:", error);
+  }
 }
 
 // Function to validate the word by pressing enter
 export async function handleEnter() {
-  if (state.gameOver) return;
-  state.userGuess = buildUserGuess();
+  try {
+    if (state.gameOver) return;
+    state.userGuess = buildUserGuess();
 
-  const isValid = verifyWord(state.userGuess);
+    const isValid = verifyWord(state.userGuess);
 
-  if (state.gameOver) return;
-  if (!isValid) {
-    rows[state.rowCounter].classList.add("shake");
-    SoundManager.play("error");
-    setTimeout(() => rows[state.rowCounter].classList.remove("shake"), 300);
-    return;
-  }
-
-  if (state.userGuess.length === getWordToGuess().length) {
-    const { wrongLetters, misplaced, correct, position } = processWord(
-      state.userGuess,
-    );
-    // updateKeyboard(wrongLetters, misplaced, correct);
-    sortUsedLetters(wrongLetters, misplaced, correct);
-    updateKeyboard(
-      state.gameState.wrongLetters,
-      state.gameState.misplaced,
-      state.gameState.correct,
-    );
-    rememberCorrectPosition(state.userGuess);
-    updateLineColor(position);
-    if (checkWin(state.userGuess, getWordToGuess())) {
-      handleWin();
-    } else {
-      changeLineDown();
+    if (state.gameOver) return;
+    if (!isValid) {
+      rows[state.rowCounter].classList.add("shake");
+      SoundManager.play("error");
+      setTimeout(() => rows[state.rowCounter].classList.remove("shake"), 300);
+      return;
     }
+
+    if (state.userGuess.length === getWordToGuess().length) {
+      const { wrongLetters, misplaced, correct, position } = processWord(
+        state.userGuess,
+      );
+      // updateKeyboard(wrongLetters, misplaced, correct);
+      sortUsedLetters(wrongLetters, misplaced, correct);
+      updateKeyboard(
+        state.gameState.wrongLetters,
+        state.gameState.misplaced,
+        state.gameState.correct,
+      );
+      rememberCorrectPosition(state.userGuess);
+      updateLineColor(position);
+      if (checkWin(state.userGuess, getWordToGuess())) {
+        handleWin();
+      } else {
+        changeLineDown();
+      }
+    }
+  } catch (error) {
+    console.error("error during word validation", error);
   }
 }
