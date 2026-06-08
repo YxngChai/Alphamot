@@ -16,6 +16,8 @@ import {
   updateLineColor,
   changeLineDown,
   enterALetter,
+  checkWin,
+  handleWin,
 } from "./input.js";
 
 import { processWord } from "./guessManipulation.js";
@@ -56,6 +58,10 @@ export function replayGuesses(guesses) {
     );
     rememberCorrectPosition(guess);
     updateLineColor(position);
-    changeLineDown();
+    if (checkWin(guess, getWordToGuess())) {
+      handleWin();
+    } else {
+      changeLineDown();
+    }
   });
 }
