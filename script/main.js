@@ -10,7 +10,7 @@ import {
   preventQuickTapMobileZoom,
 } from "./initialization.js";
 import { initInput, manageUserInput, handleInputType } from "./input.js";
-import { state, loadGame } from "./gameState.js";
+import { state, loadGame, saveGame } from "./gameState.js";
 import {
   changeLanguage,
   updateTexts,
@@ -32,6 +32,7 @@ export function playGame() {
   setupFirstLetter(newWord);
   buildKeyboard(state.keyboard);
   initInput();
+  saveGame();
 }
 
 setLangAttribute();
