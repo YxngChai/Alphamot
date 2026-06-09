@@ -1,7 +1,7 @@
 import { SoundManager } from "./sound.js";
 
 export function openCloseInstructions() {
-  const btnInstructionsOpen = document.querySelectorAll(".btn-help");
+  const btnInstructionsOpen = document.querySelectorAll(".open-help");
   const instructions = document.querySelector(".instructions");
   const overlay = document.querySelector(".instructions-overlay");
 

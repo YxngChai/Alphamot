@@ -53,11 +53,16 @@ initSound();
 
 handleInputType();
 
-const saved = loadGame();
-if (saved) {
-  restoreGame(saved);
-} else {
-  playGame();
+const launchGame = document.querySelector(".launch-game");
+if (launchGame) {
+  launchGame.addEventListener("click", () => {
+    const saved = loadGame();
+    if (saved) {
+      restoreGame(saved);
+    } else {
+      playGame();
+    }
+  });
 }
 
 const replayBtn = document.querySelector(".restart");

@@ -1,6 +1,6 @@
 import { SoundManager } from "./sound.js";
 
-const btnSettingsOpen = document.querySelectorAll(".btn-settings");
+const btnSettingsOpen = document.querySelectorAll(".open-settings");
 const settings = document.querySelector(".settings");
 
 export function openCloseSettings() {

@@ -29,16 +29,33 @@
         <span>T</span>
       </h1>
       <nav>
-        <button class="btn-help" title="Help">          
+        <button class="btn-help open-help" title="Help">          
           <i class="fa-solid fa-question fa-xl setting-wheel"></i>        
         </button>
-        <button class="btn-settings" title="Settings">          
+        <button class="btn-settings open-settings" title="Settings">          
            <i class="fa-solid fa-gear setting-wheel"></i>
         </button>
       </nav>
     </header>
     <main>
       <div class="app" tabindex="0">
+        <div class="home">
+        <h2 class="home-logo">
+          <span>A</span>
+          <span>L</span>
+          <span>P</span>
+          <span>H</span>
+          <span>A</span>
+          <span>M</span>
+          <span>O</span>
+          <span>T</span>
+        </h2>
+        <div class="home-buttons">
+        <button class="home-button launch-game">Play</button>
+        <button class="home-button open-help">How to play</button>
+        <button class="home-button open-settings">Change Language</button>
+        </div>
+        </div>
       </div>
       <!-- test  -->
        <div class="endGame">
@@ -48,7 +65,7 @@
         <div class="instructions-card">
           <div class="settings-card__row settings-card__row--top instructions-top">
             <p data-i18n="instructionsTitle" class="instructionsTitle"></p>
-            <button class="btn-help btn-close" tabindex="-1">            
+            <button class="btn-help btn-close open-help" tabindex="-1">            
               <i class="fa-solid fa-x fa-l"></i>
             </button>
           </div>
@@ -72,7 +89,7 @@
           <div class="settings-card">
             <div class="settings-card__row settings-card__row--top">
               <h2 data-i18n="settingsTitle" class="settingsTitle"></h2>
-              <button class="btn-settings btn-close" tabindex="-1">            
+              <button class="btn-settings btn-close open-settings" tabindex="-1">            
                 <i class="fa-solid fa-x fa-xl"></i>
               </button>
             </div>
