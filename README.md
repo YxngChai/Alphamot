@@ -1,7 +1,6 @@
 # ALPHAMOT
 
-A multilingual Wordle-inspired word guessing game built with vanilla JavaScript.
-
+A multilingual Wordle-inspired word guessing game with persistant memory built with JavaScript.
 Play the game, guess the hidden word in 6 attempts, and challenge yourself across multiple languages.
 
 ![alt text](/data/images/screenshot.png)
@@ -54,6 +53,11 @@ The game automatically detects the user’s browser language on first visit.
 
 ### Persistence
 
+Game Progress is saved locally:
+
+- current word is saved
+- past guesses are recovered and displayed on refresh
+
 User preferences are saved locally:
 
 - Selected language
@@ -105,9 +109,8 @@ This project helped me practice:
 
 ## Future Improvements
 
-- Save progress even when reloading the page
-- Daily challenge mode
 - Statistics tracking
+- Daily challenge mode
 - Add Difficulty / timer / hard mode forced to use correct letters
 - Share results feature
 - Button to reveal a letter
