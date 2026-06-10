@@ -110,6 +110,10 @@ nav {
 .btn-help {
   margin-right: 20px;
 }
+.dark .btn-help--dark,
+.dark .btn-settings--dark {
+  background: linear-gradient(120deg, #f5f6f67f, #e5e5e577);
+}
 
 .btn-settings:hover {
   transform: rotate(5deg) scale(1.2);
@@ -303,6 +307,9 @@ h1 span:hover {
   box-shadow: 5px 8px 6px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
 }
+.dark .gameGrid {
+  background: rgba(255, 255, 255, 0.07);
+}
 
 .gridRow {
   margin: 5px 0;
@@ -380,14 +387,28 @@ h1 span:hover {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
 }
+.dark .keyboard {
+  background: rgba(255, 255, 255, 0.07);
+}
 .keyboard.hidden {
   display: none;
 }
-.keyboardLanguage {
-  margin: 7px 0 0 8px;
+.keyboardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: -10px;
 }
-.dark .keyboardLanguage {
-  color: rgb(226, 226, 226);
+.keyboardLanguage {
+  margin: 0 0 0 8px;
+}
+
+.home-keyboard-btn {
+  width: 2em;
+  transition: all 0.2s ease-in;
+}
+.home-keyboard-btn:hover {
+  transform: scale(1.1);
 }
 .keyboardRow {
   display: flex;
@@ -418,7 +439,7 @@ h1 span:hover {
   cursor: pointer;
 }
 .dark .keyboard-key {
-  background-color: rgb(99, 99, 99);
+  background-color: rgb(59, 59, 59);
   color: #c3c2c2;
 }
 
@@ -441,7 +462,7 @@ h1 span:hover {
 }
 .dark .keyboard-key.correct {
   background: rgb(50, 161, 50);
-  background: linear-gradient(to bottom, #51bd29, #30761d);
+  background: linear-gradient(to bottom, #409520, #2a6919);
 }
 .keyboard-key.correct:hover {
   background: rgb(69, 219, 69);
@@ -457,7 +478,7 @@ h1 span:hover {
 }
 .dark .keyboard-key.wrong {
   background: #a5a3a3;
-  background: linear-gradient(to top, #2d2d2d, #696868);
+  background: linear-gradient(to top, #424242, #818181);
 }
 .keyboard-key.wrong:hover {
   background: #d0cece;
@@ -473,7 +494,7 @@ h1 span:hover {
 }
 .dark .keyboard-key.misplaced {
   background: #c8cb03;
-  background: linear-gradient(to bottom, #c8b065, #b1821b);
+  background: linear-gradient(to bottom, #b39d5b, #9e7317);
 }
 .keyboard-key.misplaced:hover {
   background: linear-gradient(to bottom, #f9da7e, #c1880f);
@@ -875,9 +896,16 @@ h1 span:hover {
     gap: 10px;
     margin: 20px 0;
   }
+
   .keyboardLanguage {
     margin: 1px 0 0 8px;
     font-size: 0.9em;
+  }
+  .home-keyboard-btn {
+    width: 1.6em;
+  }
+  .keyboardTop {
+    margin-bottom: -5px;
   }
   .keyboardRow {
     gap: 5px;
@@ -941,6 +969,12 @@ canvas {
   .keyboardLanguage {
     margin: 1px 0 0 4px;
   }
+  .home-keyboard-btn {
+    width: 1.6em;
+  }
+  .keyboardTop {
+    margin-bottom: -5px;
+  }
   .keyboard-key {
     height: 40px;
     font-size: 1em;
@@ -985,6 +1019,15 @@ canvas {
     min-width: 0px;
     height: 40px;
     border-radius: 10px;
+  }
+  .keyboardLanguage {
+    font-size: 0.6em;
+  }
+  .home-keyboard-btn {
+    width: 1.3em;
+  }
+  .keyboardTop {
+    margin-bottom: -5px;
   }
   .keyboard-key {
     height: 35px;

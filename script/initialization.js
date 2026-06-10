@@ -193,11 +193,19 @@ export function buildGameGrid(wordToGuess) {
 export function buildKeyboard(keyboardLanguage) {
   const keyboard = document.querySelector(".keyboard");
   const keyboardLayout = keyboards[keyboardLanguage];
+  const keyboardTop = document.createElement("div");
+  keyboardTop.classList.add("keyboardTop");
 
-  const p = document.createElement("p");
-  p.classList.add("keyboardLanguage");
-  p.textContent = translations[state.language]["keyboardLg"];
-  keyboard.appendChild(p);
+  const languageName = document.createElement("span");
+  languageName.classList.add("keyboardLanguage");
+  languageName.textContent = translations[state.language]["keyboardLg"];
+  keyboardTop.appendChild(languageName);
+
+  const home = document.createElement("span");
+  home.innerHTML = `<button class="go-home"><svg  class="home-keyboard-btn go-home" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path class="go-home" d="M304 70.1C313.1 61.9 326.9 61.9 336 70.1L568 278.1C577.9 286.9 578.7 302.1 569.8 312C560.9 321.9 545.8 322.7 535.9 313.8L527.9 306.6L527.9 511.9C527.9 547.2 499.2 575.9 463.9 575.9L175.9 575.9C140.6 575.9 111.9 547.2 111.9 511.9L111.9 306.6L103.9 313.8C94 322.6 78.9 321.8 70 312C61.1 302.2 62 287 71.8 278.1L304 70.1zM320 120.2L160 263.7L160 512C160 520.8 167.2 528 176 528L224 528L224 424C224 384.2 256.2 352 296 352L344 352C383.8 352 416 384.2 416 424L416 528L464 528C472.8 528 480 520.8 480 512L480 263.7L320 120.3zM272 528L368 528L368 424C368 410.7 357.3 400 344 400L296 400C282.7 400 272 410.7 272 424L272 528z"/></svg></button>`;
+  keyboardTop.appendChild(home);
+
+  keyboard.appendChild(keyboardTop);
   keyboardLayout.forEach((row, i) => {
     let keyboardRow = document.createElement("div");
     keyboardRow.classList.add("keyboardRow");
@@ -246,4 +254,35 @@ export function preventQuickTapMobileZoom() {
     },
     { passive: false },
   );
+}
+
+export function renderHomePage() {
+  const home = document.querySelector(".app");
+  home.innerHTML = "";
+  home.innerHTML = `
+     <div class="home">
+        <h2 class="home-logo">
+          <span>A</span>
+          <span>L</span>
+          <span>P</span>
+          <span>H</span>
+          <span>A</span>
+          <span>M</span>
+          <span>O</span>
+          <span>T</span>
+        </h2>
+        <div class="home-buttons">
+        <button class="home-button launch-game">Play</button>
+        <button class="home-button open-help">How to play</button>
+        <button class="home-button open-settings">Change Language</button>
+        </div>
+        </div>
+  `;
+}
+export function returnHome() {
+  document.addEventListener("click", (e) => {
+    if (e.target.matches(".go-home")) {
+      renderHomePage();
+    }
+  });
 }

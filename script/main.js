@@ -8,6 +8,8 @@ import {
   setGameLanguage,
   initFirstTime,
   preventQuickTapMobileZoom,
+  renderHomePage,
+  returnHome,
 } from "./initialization.js";
 import { initInput, manageUserInput, handleInputType } from "./input.js";
 import { state, loadGame, saveGame } from "./gameState.js";
@@ -46,6 +48,7 @@ preventQuickTapMobileZoom();
 openCloseSettings();
 openCloseInstructions();
 AnimateToggleSettings();
+returnHome();
 
 initDarkMode();
 activateSound();
@@ -53,17 +56,19 @@ initSound();
 
 handleInputType();
 
-const launchGame = document.querySelector(".launch-game");
-if (launchGame) {
-  launchGame.addEventListener("click", () => {
+renderHomePage();
+
+document.addEventListener("click", (e) => {
+  if (e.target.matches(".launch-game")) {
     const saved = loadGame();
     if (saved) {
       restoreGame(saved);
+      console.log(state.tries);
     } else {
       playGame();
     }
-  });
-}
+  }
+});
 
 const replayBtn = document.querySelector(".restart");
 if (replayBtn) {

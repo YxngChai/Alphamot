@@ -4,17 +4,21 @@ const btnSettingsOpen = document.querySelectorAll(".open-settings");
 const settings = document.querySelector(".settings");
 
 export function openCloseSettings() {
-  btnSettingsOpen.forEach((btn) => {
-    btn.addEventListener("click", () => {
+  document.addEventListener("click", (e) => {
+    if (e.target.matches(".open-settings")) {
       SoundManager.play("menu");
       settings.classList.toggle("opened");
-    });
+    }
   });
-
-  const overlay = document.querySelector(".settings-overlay");
-  overlay.addEventListener("click", () => {
-    settings.classList.remove("opened");
+  document.addEventListener("click", (e) => {
+    if (e.target.matches(".settings-overlay")) {
+      settings.classList.remove("opened");
+    }
   });
+  // const overlay = document.querySelector(".settings-overlay");
+  // overlay.addEventListener("click", () => {
+  //   settings.classList.remove("opened");
+  // });
 }
 
 export function AnimateToggleSettings() {

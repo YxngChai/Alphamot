@@ -196,6 +196,7 @@ export function handleWin() {
 
 export function changeLineDown() {
   state.tries++;
+
   if (state.tries === 6) {
     handleLoss();
   } else {
@@ -272,6 +273,7 @@ export async function handleEnter() {
         handleWin();
       } else {
         changeLineDown();
+        console.log(state.tries);
       }
     }
   } catch (error) {
