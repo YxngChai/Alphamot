@@ -8,6 +8,8 @@ import {
   setGameLanguage,
   initFirstTime,
   preventQuickTapMobileZoom,
+  renderHomePage,
+  returnHome,
 } from "./initialization.js";
 import { initInput, manageUserInput, handleInputType } from "./input.js";
 import { state, loadGame, saveGame } from "./gameState.js";
@@ -20,7 +22,7 @@ import { openCloseSettings, initDarkMode } from "./settings.js";
 import { openCloseInstructions } from "./instructions.js";
 import { setWordToGuess } from "./gameState.js";
 import { AnimateToggleSettings, activateSound } from "./settings.js";
-import { initSound } from "./sound.js";
+import { initSound, SoundManager } from "./sound.js";
 import { restoreGame } from "./restoreGame.js";
 
 export function playGame() {
@@ -35,6 +37,7 @@ export function playGame() {
   saveGame();
 }
 
+renderHomePage();
 setLangAttribute();
 setGameLanguage();
 updateTexts();
@@ -46,6 +49,7 @@ preventQuickTapMobileZoom();
 openCloseSettings();
 openCloseInstructions();
 AnimateToggleSettings();
+returnHome();
 
 initDarkMode();
 activateSound();
@@ -53,12 +57,17 @@ initSound();
 
 handleInputType();
 
-const saved = loadGame();
-if (saved) {
-  restoreGame(saved);
-} else {
-  playGame();
-}
+document.addEventListener("click", (e) => {
+  if (e.target.matches(".launch-game")) {
+    SoundManager.play("restart");
+    const saved = loadGame();
+    if (saved) {
+      restoreGame(saved);
+    } else {
+      playGame();
+    }
+  }
+});
 
 const replayBtn = document.querySelector(".restart");
 if (replayBtn) {

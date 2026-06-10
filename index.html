@@ -29,18 +29,17 @@
         <span>T</span>
       </h1>
       <nav>
-        <button class="btn-help" title="Help">          
+        <button class="btn-help open-help btn-help--dark" title="Help">          
           <i class="fa-solid fa-question fa-xl setting-wheel"></i>        
         </button>
-        <button class="btn-settings" title="Settings">          
+        <button class="btn-settings open-settings btn-settings--dark" title="Settings">          
            <i class="fa-solid fa-gear setting-wheel"></i>
         </button>
       </nav>
     </header>
     <main>
-      <div class="app" tabindex="0">
+      <div class="app">
       </div>
-      <!-- test  -->
        <div class="endGame">
        </div>
       <div class="instructions">
@@ -48,8 +47,8 @@
         <div class="instructions-card">
           <div class="settings-card__row settings-card__row--top instructions-top">
             <p data-i18n="instructionsTitle" class="instructionsTitle"></p>
-            <button class="btn-help btn-close" tabindex="-1">            
-              <i class="fa-solid fa-x fa-l"></i>
+            <button class="btn-help btn-close open-help" tabindex="-1">            
+              <i class="fa-solid fa-x fa-l open-help"></i>
             </button>
           </div>
           <div>
@@ -72,8 +71,8 @@
           <div class="settings-card">
             <div class="settings-card__row settings-card__row--top">
               <h2 data-i18n="settingsTitle" class="settingsTitle"></h2>
-              <button class="btn-settings btn-close" tabindex="-1">            
-                <i class="fa-solid fa-x fa-xl"></i>
+              <button class="btn-settings btn-close open-settings" tabindex="-1">            
+                <i class="fa-solid fa-x fa-xl open-settings"></i>
               </button>
             </div>
             <div  class="settings-card__row setting-option">

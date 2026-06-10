@@ -110,6 +110,10 @@ nav {
 .btn-help {
   margin-right: 20px;
 }
+.dark .btn-help--dark,
+.dark .btn-settings--dark {
+  background: linear-gradient(120deg, #f5f6f67f, #e5e5e577);
+}
 
 .btn-settings:hover {
   transform: rotate(5deg) scale(1.2);
@@ -125,7 +129,7 @@ nav {
   color: rgb(59, 59, 59);
 }
 
-/* Title */
+/* Top Logo */
 
 h1 {
   font-weight: 500;
@@ -139,9 +143,6 @@ h1 span {
   width: 50px;
   height: 50px;
   border: 1px solid rgb(49, 49, 49);
-  /* box-shadow:
-    rgba(0, 0, 0, 0.19) 0px 10px 20px,
-    rgba(0, 0, 0, 0.23) 0px 6px 6px; */
   box-shadow:
     rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
@@ -153,7 +154,7 @@ h1 span {
   transition: 0.2s ease-in;
 }
 .dark h1 span {
-  background-color: rgb(45, 45, 45);
+  background-color: rgb(228, 228, 228);
   border: 1px solid rgb(105, 105, 105);
   opacity: 0.9;
 }
@@ -187,6 +188,108 @@ h1 span:hover {
   transform: scale(1.2);
 }
 
+/* Home Logo */
+
+.home-logo {
+  font-weight: 500;
+  color: #0bcd22;
+  font-size: 3.2em;
+  display: flex;
+  padding: 20px 20px;
+  margin: 18vh 0 70px;
+}
+
+.home-logo span {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border: 1px solid rgb(49, 49, 49);
+  box-shadow:
+    rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset,
+    rgba(0, 0, 0, 0.324) 2px 2px 10px;
+  border-radius: 15px;
+  margin: 0 2px;
+  line-height: 53px;
+  text-align: center;
+  background-color: white;
+  transition: 0.2s ease-in;
+}
+.dark .home-logo span {
+  background-color: rgb(228, 228, 228);
+  border: 1px solid rgb(105, 105, 105);
+  opacity: 0.9;
+}
+
+.home-logo span:nth-child(2n) {
+  color: #fe3485;
+}
+
+.home-logo span:nth-child(3n) {
+  color: #1192f5;
+}
+.home-logo span:nth-child(5) {
+  color: rgb(21, 196, 91);
+}
+.home-logo span:nth-child(2) {
+  color: #f8be10;
+}
+.home-logo span:nth-child(6) {
+  color: rgb(194, 23, 194);
+  z-index: -1;
+}
+.home-logo span:nth-child(7) {
+  color: #10c2f8;
+}
+.home-logo span:nth-child(8) {
+  color: rgb(247, 39, 39);
+}
+
+.home-logo span {
+  display: inline-block;
+  animation: wave 2.5s infinite;
+}
+.home-logo span:nth-child(1) {
+  animation-delay: 0s;
+}
+.home-logo span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.home-logo span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.home-logo span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.home-logo span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.home-logo span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.home-logo span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+.home-logo span:nth-child(8) {
+  animation-delay: 0.7s;
+}
+@keyframes wave {
+  0% {
+    transform: translateY(0);
+  }
+  15% {
+    transform: translateY(-26px);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 /* GameGrid */
 .gameArea {
   margin: 10px 0;
@@ -203,6 +306,9 @@ h1 span:hover {
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 5px 8px 6px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
+}
+.dark .gameGrid {
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .gridRow {
@@ -281,14 +387,28 @@ h1 span:hover {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
 }
+.dark .keyboard {
+  background: rgba(255, 255, 255, 0.07);
+}
 .keyboard.hidden {
   display: none;
 }
-.keyboardLanguage {
-  margin: 7px 0 0 8px;
+.keyboardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: -10px;
 }
-.dark .keyboardLanguage {
-  color: rgb(226, 226, 226);
+.keyboardLanguage {
+  margin: 0 0 0 8px;
+}
+
+.home-keyboard-btn {
+  width: 2em;
+  transition: all 0.2s ease-in;
+}
+.home-keyboard-btn:hover {
+  transform: scale(1.1);
 }
 .keyboardRow {
   display: flex;
@@ -319,7 +439,7 @@ h1 span:hover {
   cursor: pointer;
 }
 .dark .keyboard-key {
-  background-color: rgb(99, 99, 99);
+  background-color: rgb(59, 59, 59);
   color: #c3c2c2;
 }
 
@@ -342,7 +462,7 @@ h1 span:hover {
 }
 .dark .keyboard-key.correct {
   background: rgb(50, 161, 50);
-  background: linear-gradient(to bottom, #51bd29, #30761d);
+  background: linear-gradient(to bottom, #409520, #2a6919);
 }
 .keyboard-key.correct:hover {
   background: rgb(69, 219, 69);
@@ -358,7 +478,7 @@ h1 span:hover {
 }
 .dark .keyboard-key.wrong {
   background: #a5a3a3;
-  background: linear-gradient(to top, #2d2d2d, #696868);
+  background: linear-gradient(to top, #424242, #818181);
 }
 .keyboard-key.wrong:hover {
   background: #d0cece;
@@ -374,7 +494,7 @@ h1 span:hover {
 }
 .dark .keyboard-key.misplaced {
   background: #c8cb03;
-  background: linear-gradient(to bottom, #c8b065, #b1821b);
+  background: linear-gradient(to bottom, #b39d5b, #9e7317);
 }
 .keyboard-key.misplaced:hover {
   background: linear-gradient(to bottom, #f9da7e, #c1880f);
@@ -751,6 +871,14 @@ h1 span:hover {
     border-radius: 10px;
     line-height: 40px;
   }
+  .home-logo {
+    font-size: 2.5em;
+  }
+  .home-logo span {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+  }
   .gameArea {
     padding: 0;
   }
@@ -768,9 +896,16 @@ h1 span:hover {
     gap: 10px;
     margin: 20px 0;
   }
+
   .keyboardLanguage {
     margin: 1px 0 0 8px;
     font-size: 0.9em;
+  }
+  .home-keyboard-btn {
+    width: 1.6em;
+  }
+  .keyboardTop {
+    margin-bottom: -5px;
   }
   .keyboardRow {
     gap: 5px;
@@ -804,12 +939,25 @@ canvas {
     border-radius: 10px;
     line-height: 25px;
   }
+  .home-logo {
+    font-size: 2em;
+    margin: 18vh 0 50px;
+  }
+  .home-logo span {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    line-height: 35px;
+  }
   .btn-settings,
   .btn-help {
     width: 35px;
     height: 35px;
     font-size: 0.6em;
     border-radius: 10px;
+  }
+  .btn-help {
+    margin-right: 10px;
   }
   .gridRow div {
     border: black 1px solid;
@@ -821,14 +969,16 @@ canvas {
   .keyboardLanguage {
     margin: 1px 0 0 4px;
   }
+  .home-keyboard-btn {
+    width: 1.6em;
+  }
+  .keyboardTop {
+    margin-bottom: -5px;
+  }
   .keyboard-key {
     height: 40px;
     font-size: 1em;
     border-radius: 10px;
-  }
-  .btn-settings,
-  .btn-help {
-    margin-right: 20px;
   }
   .toggleIcon {
     font-size: 1.5em;
@@ -853,12 +1003,31 @@ canvas {
     border-radius: 8px;
     line-height: 21px;
   }
+  .home-logo {
+    font-size: 1.5em;
+    margin: 18vh 0 50px;
+  }
+  .home-logo span {
+    width: 35px;
+    height: 35px;
+    border-radius: 12px;
+    line-height: 30px;
+  }
   .gridRow div {
     font-size: 1.2em;
     max-width: 40px;
     min-width: 0px;
     height: 40px;
     border-radius: 10px;
+  }
+  .keyboardLanguage {
+    font-size: 0.6em;
+  }
+  .home-keyboard-btn {
+    width: 1.3em;
+  }
+  .keyboardTop {
+    margin-bottom: -5px;
   }
   .keyboard-key {
     height: 35px;
@@ -882,4 +1051,32 @@ canvas {
   .definition {
     margin: 10px 0;
   }
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.home-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.home-button {
+  padding: 15px 35px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border-radius: 25px;
+  transition: all 0.1s ease-in;
+}
+.home-button:hover {
+  transform: scale(1.07);
+  border: 1px solid rgba(255, 255, 255, 0.916);
 }

@@ -36,15 +36,14 @@ export function restoreGame(saved) {
   initInput();
   state.guesses = saved.guesses;
   state.currentPlacement = 1;
+  state.tries = 0;
 
   replayGuesses(saved.guesses);
 }
 
 export function replayGuesses(guesses) {
-  console.log(state.guesses);
   console.log(state.wordToGuess);
   guesses.forEach((guess, index) => {
-    console.log(guess);
     for (let i = 1; i < guess.length; i++) {
       enterALetter(guess[i]);
     }
@@ -61,7 +60,9 @@ export function replayGuesses(guesses) {
     if (checkWin(guess, getWordToGuess())) {
       handleWin();
     } else {
+      state.isRestoring = true;
       changeLineDown();
+      state.isRestoring = false;
     }
   });
 }

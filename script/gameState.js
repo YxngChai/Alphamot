@@ -16,6 +16,7 @@ export const state = {
   wordPool: [],
   verificationSet: new Set(),
   keyboard: "qwerty",
+  isRestoring: false,
 };
 
 export function resetState() {
