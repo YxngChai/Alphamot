@@ -186,17 +186,19 @@ h1 span:hover {
 
 /* Home Logo */
 
-h2 {
+.home-logo {
   font-weight: 500;
   color: #0bcd22;
-  font-size: 3em;
+  font-size: 3.2em;
   display: flex;
   padding: 20px 20px;
+  margin: 18vh 0 70px;
 }
-h2 span {
+
+.home-logo span {
   display: block;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border: 1px solid rgb(49, 49, 49);
   box-shadow:
     rgba(0, 0, 0, 0.4) 0px 2px 4px,
@@ -205,39 +207,83 @@ h2 span {
     rgba(0, 0, 0, 0.324) 2px 2px 10px;
   border-radius: 15px;
   margin: 0 2px;
-  line-height: 45px;
+  line-height: 53px;
   text-align: center;
   background-color: white;
   transition: 0.2s ease-in;
 }
-.dark h2 span {
+.dark .home-logo span {
   background-color: rgb(45, 45, 45);
   border: 1px solid rgb(105, 105, 105);
   opacity: 0.9;
 }
 
-h2 span:nth-child(2n) {
+.home-logo span:nth-child(2n) {
   color: #fe3485;
 }
 
-h2 span:nth-child(3n) {
+.home-logo span:nth-child(3n) {
   color: #1192f5;
 }
-h2 span:nth-child(5) {
+.home-logo span:nth-child(5) {
   color: rgb(21, 196, 91);
 }
-h2 span:nth-child(2) {
+.home-logo span:nth-child(2) {
   color: #f8be10;
 }
-h2 span:nth-child(6) {
+.home-logo span:nth-child(6) {
   color: rgb(194, 23, 194);
   z-index: -1;
 }
-h2 span:nth-child(7) {
+.home-logo span:nth-child(7) {
   color: #10c2f8;
 }
-h2 span:nth-child(8) {
+.home-logo span:nth-child(8) {
   color: rgb(247, 39, 39);
+}
+
+.home-logo span {
+  display: inline-block;
+  animation: wave 2.5s infinite;
+}
+.home-logo span:nth-child(1) {
+  animation-delay: 0s;
+}
+.home-logo span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.home-logo span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.home-logo span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.home-logo span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.home-logo span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.home-logo span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+.home-logo span:nth-child(8) {
+  animation-delay: 0.7s;
+}
+@keyframes wave {
+  0% {
+    transform: translateY(0);
+  }
+  15% {
+    transform: translateY(-26px);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* GameGrid */
@@ -804,6 +850,14 @@ h2 span:nth-child(8) {
     border-radius: 10px;
     line-height: 40px;
   }
+  .home-logo {
+    font-size: 2.5em;
+  }
+  .home-logo span {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+  }
   .gameArea {
     padding: 0;
   }
@@ -857,12 +911,25 @@ canvas {
     border-radius: 10px;
     line-height: 25px;
   }
+  .home-logo {
+    font-size: 2em;
+    margin: 18vh 0 50px;
+  }
+  .home-logo span {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    line-height: 35px;
+  }
   .btn-settings,
   .btn-help {
     width: 35px;
     height: 35px;
     font-size: 0.6em;
     border-radius: 10px;
+  }
+  .btn-help {
+    margin-right: 10px;
   }
   .gridRow div {
     border: black 1px solid;
@@ -878,10 +945,6 @@ canvas {
     height: 40px;
     font-size: 1em;
     border-radius: 10px;
-  }
-  .btn-settings,
-  .btn-help {
-    margin-right: 20px;
   }
   .toggleIcon {
     font-size: 1.5em;
@@ -905,6 +968,16 @@ canvas {
     height: 25px;
     border-radius: 8px;
     line-height: 21px;
+  }
+  .home-logo {
+    font-size: 1.5em;
+    margin: 18vh 0 50px;
+  }
+  .home-logo span {
+    width: 35px;
+    height: 35px;
+    border-radius: 12px;
+    line-height: 30px;
   }
   .gridRow div {
     font-size: 1.2em;
@@ -948,9 +1021,7 @@ canvas {
   gap: 30px;
   margin-bottom: 50px;
 }
-.home-logo {
-  margin: 20vh 0 50px;
-}
+
 .home-button {
   padding: 15px 35px;
   background: rgba(255, 255, 255, 0.2);
@@ -965,48 +1036,4 @@ canvas {
 .home-button:hover {
   transform: scale(1.07);
   border: 1px solid rgba(255, 255, 255, 0.916);
-}
-
-.home-logo span {
-  display: inline-block;
-  animation: wave 2.5s infinite;
-}
-.home-logo span:nth-child(1) {
-  animation-delay: 0s;
-}
-.home-logo span:nth-child(2) {
-  animation-delay: 0.1s;
-}
-.home-logo span:nth-child(3) {
-  animation-delay: 0.2s;
-}
-.home-logo span:nth-child(4) {
-  animation-delay: 0.3s;
-}
-.home-logo span:nth-child(5) {
-  animation-delay: 0.4s;
-}
-.home-logo span:nth-child(6) {
-  animation-delay: 0.5s;
-}
-.home-logo span:nth-child(7) {
-  animation-delay: 0.6s;
-}
-
-.home-logo span:nth-child(8) {
-  animation-delay: 0.7s;
-}
-@keyframes wave {
-  0% {
-    transform: translateY(0);
-  }
-  15% {
-    transform: translateY(-26px);
-  }
-  30% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(0);
-  }
 }
