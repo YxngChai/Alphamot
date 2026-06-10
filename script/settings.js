@@ -36,16 +36,16 @@ export function initDarkMode() {
   const darkModeBtn = document.querySelector(".darkModeBtn");
   const saved = localStorage.getItem("darkMode");
   if (saved === "on") {
-    document.body.classList.add("dark");
+    document.documentElement.classList.add("dark");
     const toggleIcon = darkModeBtn.querySelector(".toggleIcon");
     toggleIcon.classList.replace("fa-toggle-off", "fa-toggle-on");
   } else {
-    document.body.classList.remove("dark");
+    document.documentElement.classList.remove("dark");
   }
 
   darkModeBtn.addEventListener("click", () => {
     SoundManager.play("menu");
-    const isDark = document.body.classList.toggle("dark");
+    const isDark = document.documentElement.classList.toggle("dark");
 
     localStorage.setItem("darkMode", isDark ? "on" : "off");
   });

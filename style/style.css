@@ -21,13 +21,8 @@ a {
   color: inherit;
   cursor: pointer;
 }
-body {
-  max-width: 900px;
-  min-height: 100vh;
-  margin: auto;
-  font-family: "Fredoka";
-  font-weight: 200;
-  background: #8bdeda;
+
+html {
   background: -webkit-linear-gradient(
     300deg,
     #ef9393,
@@ -44,20 +39,36 @@ body {
     #43add0,
     #8bdeda
   );
-
-  padding: 0 10px;
-  display: flex;
-  flex-direction: column;
 }
-body.dark {
+
+html.dark {
   background: linear-gradient(
-    to left,
+    145deg,
     #b0304f,
     #8a3fb0,
     #4f4fd6,
     #1f7fd1,
     #19a39a
   );
+  background: -webkit-linear-gradient(
+    145deg,
+    #b0304f,
+    #8a3fb0,
+    #4f4fd6,
+    #1f7fd1,
+    #19a39a
+  );
+}
+body {
+  max-width: 900px;
+  min-height: 100vh;
+  margin: auto;
+  font-family: "Fredoka";
+  font-weight: 200;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
 }
 
 main {
