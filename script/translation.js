@@ -6,9 +6,11 @@ import { SoundManager } from "./sound.js";
 
 export const translations = {
   en: {
+    play: "Play",
     settingsTitle: "Settings",
     language: "Language",
     keyboardLg: "English",
+    changeLG: "Change Language",
     darkMode: "Dark Mode",
     sound: "Sound",
     replay: "Play Again",
@@ -22,9 +24,11 @@ export const translations = {
     instructions_line6: "Find the correct word in as few tries as possible!",
   },
   fr: {
+    play: "Jouer",
     settingsTitle: "Paramètres",
     language: "Langue",
     keyboardLg: "Français",
+    changeLG: "Changer la langue",
     darkMode: "Mode Sombre",
     sound: "Son",
     replay: "Rejouer",
@@ -38,9 +42,11 @@ export const translations = {
     instructions_line6: "Trouvez le mot correct en un minimum d’essais !",
   },
   "pt-BR": {
+    play: "Jogar",
     settingsTitle: "Configurações",
     language: "Idioma",
     keyboardLg: "Brazilian Portuguese",
+    changeLG: "Mudar idioma",
     darkMode: "Modo Escuro ",
     sound: "Som",
     replay: "Jogar novamente",

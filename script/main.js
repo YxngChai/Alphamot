@@ -37,6 +37,7 @@ export function playGame() {
   saveGame();
 }
 
+renderHomePage();
 setLangAttribute();
 setGameLanguage();
 updateTexts();
@@ -55,8 +56,6 @@ activateSound();
 initSound();
 
 handleInputType();
-
-renderHomePage();
 
 document.addEventListener("click", (e) => {
   if (e.target.matches(".launch-game")) {

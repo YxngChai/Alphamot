@@ -5,7 +5,7 @@ import {
   englishWordsToGuess,
   frenchWordsToGuess,
 } from "./wordLists.js";
-import { translations } from "./translation.js";
+import { translations, updateTexts } from "./translation.js";
 
 export function setLangAttribute() {
   const supported = ["fr", "en", "pt-BR"];
@@ -272,9 +272,9 @@ export function renderHomePage() {
           <span>T</span>
         </h2>
         <div class="home-buttons">
-        <button class="home-button launch-game">Play</button>
-        <button class="home-button open-help">How to play</button>
-        <button class="home-button open-settings">Change Language</button>
+        <button data-i18n="play" class="home-button launch-game"></button>
+        <button data-i18n="instructionsTitle" class="home-button open-help"></button>
+        <button data-i18n="changeLG" class="home-button open-settings"></button>
         </div>
         </div>
   `;
@@ -283,6 +283,7 @@ export function returnHome() {
   document.addEventListener("click", (e) => {
     if (e.target.matches(".go-home")) {
       renderHomePage();
+      updateTexts();
     }
   });
 }
