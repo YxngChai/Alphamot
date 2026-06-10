@@ -184,6 +184,7 @@ function handleLoss() {
   hideKeyboard();
   showAnswer();
   restartTheGame();
+  localStorage.removeItem("alphamot-save");
 }
 export function handleWin() {
   state.gameOver = true;
@@ -192,6 +193,7 @@ export function handleWin() {
   hideKeyboard();
   showAnswer();
   restartTheGame();
+  localStorage.removeItem("alphamot-save");
 }
 
 export function changeLineDown() {
@@ -200,7 +202,9 @@ export function changeLineDown() {
   if (state.tries === 6) {
     handleLoss();
   } else {
-    SoundManager.play("nextrow");
+    if (!state.isRestoring) {
+      SoundManager.play("nextrow");
+    }
     for (let child of rows[state.rowCounter + 1].children) {
       child.classList.remove("upcomingRow");
       child.classList.add("currentRow");

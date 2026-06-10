@@ -6,6 +6,7 @@ import {
   frenchWordsToGuess,
 } from "./wordLists.js";
 import { translations, updateTexts } from "./translation.js";
+import { SoundManager } from "./sound.js";
 
 export function setLangAttribute() {
   const supported = ["fr", "en", "pt-BR"];
@@ -282,6 +283,7 @@ export function renderHomePage() {
 export function returnHome() {
   document.addEventListener("click", (e) => {
     if (e.target.matches(".go-home")) {
+      SoundManager.play("nextrow");
       renderHomePage();
       updateTexts();
     }

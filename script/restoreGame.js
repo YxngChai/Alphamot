@@ -60,7 +60,9 @@ export function replayGuesses(guesses) {
     if (checkWin(guess, getWordToGuess())) {
       handleWin();
     } else {
+      state.isRestoring = true;
       changeLineDown();
+      state.isRestoring = false;
     }
   });
 }
