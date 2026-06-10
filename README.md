@@ -3,6 +3,8 @@
 A multilingual Wordle-inspired word guessing game with persistant memory built with JavaScript.
 Play the game, guess the hidden word in 6 attempts, and challenge yourself across multiple languages.
 
+Designed to behave like a real production game with persistent sessions, state restoration, and clean separation between UI and game logic.
+
 ![alt text](/data/images/screenshot.png)
 
 ## Features
@@ -53,12 +55,15 @@ The game automatically detects the user’s browser language on first visit.
 
 ### Persistence
 
-Game Progress is saved locally:
+Game state is fully saved locally, allowing seamless continuation after refresh:
 
-- current word is saved
-- past guesses are recovered and displayed on refresh
+- Current word is saved
+- Past guesses are restored on reload
+- Game progress persists between sessions
+- Automatically resumes active games on launch
+- Completed games do not restore into playable state
 
-User preferences are saved locally:
+User preferences are also saved:
 
 - Selected language
 - Dark mode preference
