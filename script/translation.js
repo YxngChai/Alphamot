@@ -1,6 +1,10 @@
 import { state, resetState } from "./gameState.js";
 import { playGame } from "./main.js";
-import { setGameLanguage, clearGame } from "./initialization.js";
+import {
+  setGameLanguage,
+  clearGame,
+  renderHomePage,
+} from "./initialization.js";
 import { restartTheGame } from "./input.js";
 import { SoundManager } from "./sound.js";
 
@@ -96,11 +100,11 @@ export function changeLanguage() {
       state.language = btn.dataset.lang;
       localStorage.setItem("lang", state.language);
 
+      renderHomePage();
       setGameLanguage();
       updateTexts();
       styleFlagLanguageOptions();
       resetState();
-      playGame();
     });
   });
 }
