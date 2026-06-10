@@ -154,7 +154,7 @@ h1 span {
   transition: 0.2s ease-in;
 }
 .dark h1 span {
-  background-color: rgb(45, 45, 45);
+  background-color: rgb(228, 228, 228);
   border: 1px solid rgb(105, 105, 105);
   opacity: 0.9;
 }
@@ -217,7 +217,7 @@ h1 span:hover {
   transition: 0.2s ease-in;
 }
 .dark .home-logo span {
-  background-color: rgb(45, 45, 45);
+  background-color: rgb(228, 228, 228);
   border: 1px solid rgb(105, 105, 105);
   opacity: 0.9;
 }
