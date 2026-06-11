@@ -263,7 +263,6 @@ export async function handleEnter() {
         state.userGuess,
       );
       state.guesses.push(state.userGuess);
-      console.log(state.guesses);
       saveGame();
       sortUsedLetters(wrongLetters, misplaced, correct);
       updateKeyboard(
