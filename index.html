@@ -17,7 +17,7 @@
       src="https://kit.fontawesome.com/c8cb44d56f.js"
       crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-    <script src="script/gameStats.js" defer></script>
+    <script src="script/gameStatistics.js" defer></script>
 
   <body>
     <header>
@@ -45,9 +45,18 @@
       </div>
       <div class="endGame">
       </div>
-      <div>
+
+      <section class="statistics">
+        <div class="statistics__numbers">
+          <div class="statistics_totalPlayed">100%</div>
+          <div class="statistics_winPercentage">4</div>
+          <div class="statistics_CurrentStreak">6</div>
+          <div class="statistics_MaxStreak">34</div>
+        </div>
+        <div class="statistics__graph">
       <canvas id="myChart"></canvas>
       </div>
+      </section>
        <!-- instructions -->
       <div class="instructions">
         <div class="instructions-overlay"></div>
