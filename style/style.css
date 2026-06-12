@@ -755,20 +755,6 @@ h1 span:hover {
   opacity: 1;
   pointer-events: auto;
 }
-/* @keyframes blob {
-  0% {
-    border-radius: 52% 48% 63% 37% / 37% 57% 43% 63%;
-  }
-  25% {
-    border-radius: 58% 42% 64% 36% / 60% 36% 64% 40%;
-  }
-  50% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  }
-  100% {
-    border-radius: 52% 48% 63% 37% / 37% 57% 43% 63%;
-  }
-} */
 .instructions__image-frame {
   border: 1px solid black;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -836,6 +822,24 @@ h1 span:hover {
 }
 .link-icon:hover {
   transform: scale(1.2);
+}
+
+/* Game Stats */
+
+.statistics {
+  border: 1px solid palegreen;
+  margin: 50px 0 80px 0;
+}
+.statistics__numbers {
+  border: 1px solid gold;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+}
+.statistics__graph {
+  display: flex;
+  justify-content: center;
 }
 
 /* Effect */
