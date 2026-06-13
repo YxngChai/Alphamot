@@ -45,17 +45,19 @@
       </div>
       <div class="endGame">
       </div>
-
+      <!-- Game Stats -->
       <section class="statistics">
-        <div class="statistics__numbers">
-          <div class="statistics_totalPlayed">100%</div>
-          <div class="statistics_winPercentage">4</div>
-          <div class="statistics_CurrentStreak">6</div>
-          <div class="statistics_MaxStreak">34</div>
+        <div class="statistics__panel">
+          <div class="statistics__numbers">
+            <div class="statistics_totalPlayed statistics__cell"><span class="statistics__digits">134</span> <span>Played</span></div>
+            <div class="statistics_winPercentage statistics__cell"><span class="statistics__digits">97%</span> <span>Win</span></div>
+            <div class="statistics_CurrentStreak statistics__cell"><span class="statistics__digits">34</span> <span>Current Streak</span></div>
+            <div class="statistics_MaxStreak statistics__cell"><span class="statistics__digits">45</span> <span>Max Streak</span></div>
+          </div>
+          <div class="statistics__graph"> 
+            <canvas id="myChart" class="statistics__graph-chart"></canvas>
+          </div> 
         </div>
-        <div class="statistics__graph">
-      <canvas id="myChart"></canvas>
-      </div>
       </section>
        <!-- instructions -->
       <div class="instructions">
@@ -81,7 +83,6 @@
         </div>
       </div>
       <!-- Settings -->
-       
         <div class="settings">
           <div class="settings-overlay"></div>
           <div class="settings-card">
@@ -112,7 +113,6 @@
         </div>
     </main>
     <canvas class="js-confetti"></canvas>
-
     <footer class="footer">
       <div>
       <h3 class="footer-name">Valentin Robert</h3>
