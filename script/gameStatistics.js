@@ -1,4 +1,6 @@
 const ctx = document.getElementById("myChart");
+const data = [3, 10, 17, 8, 4, 3, 2];
+const max = Math.max(...data);
 
 const valueLabelPlugin = {
   id: "valueLabel",
@@ -11,10 +13,10 @@ const valueLabelPlugin = {
 
         ctx.save();
         ctx.fillStyle = "#1f1f1fc3";
-        ctx.font = "16px Arial";
+        ctx.font = "12px Arial";
         ctx.textAlign = "left";
         ctx.textBaseline = "middle";
-        ctx.fillText(value, bar.x - 30, bar.y);
+        ctx.fillText(value, bar.x + 10, bar.y);
         ctx.restore();
       });
     });
@@ -27,14 +29,21 @@ new Chart(ctx, {
     labels: ["1", "2", "3", "4", "5", "6", "Lost"],
     datasets: [
       {
-        label: "Guess distribution",
-        data: [3, 10, 17, 8, 4, 3, 2],
+        label: "",
+        data: data,
         borderWidth: 1,
-        backgroundColor: "#6127dde1",
+        backgroundColor: data.map((value) =>
+          value === max ? "#6627c461" : "#1c1c8833",
+        ),
       },
     ],
   },
   options: {
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
     indexAxis: "y",
     scales: {
       x: {
