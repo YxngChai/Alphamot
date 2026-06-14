@@ -26,6 +26,7 @@ export const translations = {
     instructions_line4: "🟨 Yellow → correct letter but wrong position",
     instructions_line5: "🟦 Gray → letter is not in the word",
     instructions_line6: "Find the correct word in as few tries as possible!",
+    statistics: "Statistics",
   },
   fr: {
     play: "Jouer",
@@ -44,6 +45,7 @@ export const translations = {
     instructions_line4: "🟨 Jaune → lettre correcte mais mauvaise position",
     instructions_line5: "🟦 Blue → la lettre n’est pas dans le mot",
     instructions_line6: "Trouvez le mot correct en un minimum d’essais !",
+    statistics: "Statistiques",
   },
   "pt-BR": {
     play: "Jogar",
@@ -63,6 +65,7 @@ export const translations = {
     instructions_line5: "🟦 Azul → a letra não está na palavra",
     instructions_line6:
       "Encontre a palavra correta com o menor número de tentativas possível!",
+    statistics: "Estatísticas",
   },
 };
 export function styleFlagLanguageOptions() {
