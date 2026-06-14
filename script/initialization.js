@@ -276,6 +276,7 @@ export function renderHomePage() {
         <button data-i18n="play" class="home-button launch-game"></button>
         <button data-i18n="instructionsTitle" class="home-button open-help"></button>
         <button data-i18n="changeLG" class="home-button open-settings"></button>
+        <button data-i18n="statistics" class="home-button open-stats"></button>
         </div>
         </div>
   `;

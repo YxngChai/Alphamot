@@ -2,6 +2,13 @@ const ctx = document.getElementById("myChart");
 const data = [3, 10, 17, 8, 4, 3, 2];
 const max = Math.max(...data);
 
+const stats = document.querySelector(".statistics");
+document.addEventListener("click", (e) => {
+  if (e.target.matches(".open-stats")) {
+    stats.classList.toggle("opened");
+  }
+});
+
 const valueLabelPlugin = {
   id: "valueLabel",
   afterDatasetsDraw(chart) {
