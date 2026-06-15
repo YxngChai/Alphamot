@@ -10,7 +10,7 @@ import {
 } from "./gameState.js";
 import { updateTexts } from "./translation.js";
 import { SoundManager } from "./sound.js";
-import { stats, generateChart } from "./gameStatistics.js";
+import { stats, generateChart, updateStatsText } from "./gameStatistics.js";
 
 let rows;
 let currentRow;
@@ -180,8 +180,11 @@ export function restartTheGame() {
 }
 
 function handleLoss() {
+  stats.totalPlayed++;
   stats.guessDistribution.lost++;
+  stats.currentStreak = 0;
   generateChart();
+  updateStatsText();
   state.gameOver = true;
   SoundManager.play("loss");
   hideKeyboard();
@@ -190,8 +193,15 @@ function handleLoss() {
   localStorage.removeItem("alphamot-save");
 }
 export function handleWin() {
+  stats.totalPlayed++;
+  stats.win++;
+  stats.currentStreak++;
+  if (stats.currentStreak > stats.maxStreak) {
+    stats.maxStreak = stats.currentStreak;
+  }
   stats.guessDistribution[state.tries + 1]++;
   generateChart();
+  updateStatsText();
   state.gameOver = true;
   SoundManager.play("win");
   throwConfetti();
