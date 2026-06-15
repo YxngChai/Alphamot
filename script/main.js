@@ -24,6 +24,7 @@ import { setWordToGuess } from "./gameState.js";
 import { AnimateToggleSettings, activateSound } from "./settings.js";
 import { initSound, SoundManager } from "./sound.js";
 import { restoreGame } from "./restoreGame.js";
+import { stats } from "./gameStatistics.js";
 
 export function playGame() {
   clearGame();
@@ -35,6 +36,8 @@ export function playGame() {
   buildKeyboard(state.keyboard);
   initInput();
   saveGame();
+
+  console.log(stats);
 }
 
 renderHomePage();

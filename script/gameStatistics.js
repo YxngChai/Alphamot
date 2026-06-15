@@ -1,11 +1,26 @@
-const ctx = document.getElementById("myChart");
-const data = [3, 10, 17, 8, 4, 3, 2];
-const max = Math.max(...data);
+export const stats = {
+  played: 0,
+  win: 0,
+  currentStreak: 0,
+  maxStreak: 0,
+  guessDistribution: {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    lost: 0,
+  },
+};
+let chartInstance = null;
 
-const stats = document.querySelector(".statistics");
+const ctx = document.getElementById("myChart");
+
 document.addEventListener("click", (e) => {
   if (e.target.matches(".open-stats")) {
-    stats.classList.toggle("opened");
+    const statsSection = document.querySelector(".statistics");
+    statsSection.classList.toggle("opened");
   }
 });
 
@@ -23,49 +38,69 @@ const valueLabelPlugin = {
         ctx.font = "12px Arial";
         ctx.textAlign = "left";
         ctx.textBaseline = "middle";
-        ctx.fillText(value, bar.x + 10, bar.y);
+        const text = value.toString();
+        const padding = 10;
+        const x = Math.min(bar.x + padding, chart.width - 10);
+        const y = bar.y;
+        ctx.fillText(text, x, y);
         ctx.restore();
       });
     });
   },
 };
+export function generateChart() {
+  const data = [
+    stats.guessDistribution[1],
+    stats.guessDistribution[2],
+    stats.guessDistribution[3],
+    stats.guessDistribution[4],
+    stats.guessDistribution[5],
+    stats.guessDistribution[6],
+    stats.guessDistribution.lost,
+  ];
+  const max = Math.max(...data);
 
-new Chart(ctx, {
-  type: "bar",
-  data: {
-    labels: ["1", "2", "3", "4", "5", "6", "Lost"],
-    datasets: [
-      {
-        label: "",
-        data: data,
-        borderWidth: 1,
-        backgroundColor: data.map((value) =>
-          value === max ? "#6627c461" : "#1c1c8833",
-        ),
-      },
-    ],
-  },
-  options: {
-    plugins: {
-      legend: {
-        display: false,
-      },
+  if (chartInstance) {
+    chartInstance.destroy();
+  }
+  chartInstance = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["1", "2", "3", "4", "5", "6", "Lost"],
+      datasets: [
+        {
+          label: "",
+          data: data,
+          borderWidth: 1,
+          backgroundColor: data.map((value) =>
+            value === max ? "#6627c461" : "#1c1c8833",
+          ),
+        },
+      ],
     },
-    indexAxis: "y",
-    scales: {
-      x: {
-        display: false,
-        grid: {
+    options: {
+      plugins: {
+        legend: {
           display: false,
         },
       },
-      y: {
-        ticks: {
-          color: "#020005e5",
+      indexAxis: "y",
+      scales: {
+        x: {
+          display: false,
+          grid: {
+            display: false,
+          },
         },
-        beginAtZero: true,
+        y: {
+          ticks: {
+            color: "#020005e5",
+          },
+          beginAtZero: true,
+        },
       },
     },
-  },
-  plugins: [valueLabelPlugin],
-});
+    plugins: [valueLabelPlugin],
+  });
+}
+generateChart();
