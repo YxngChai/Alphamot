@@ -108,6 +108,7 @@ export function changeLanguage() {
       updateTexts();
       styleFlagLanguageOptions();
       resetState();
+      localStorage.removeItem("alphamot-save");
     });
   });
 }
