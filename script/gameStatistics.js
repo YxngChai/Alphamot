@@ -1,5 +1,5 @@
 export const stats = {
-  played: 0,
+  totalPlayed: 0,
   win: 0,
   currentStreak: 0,
   maxStreak: 0,
@@ -14,14 +14,32 @@ export const stats = {
   },
 };
 let chartInstance = null;
-
 const ctx = document.getElementById("myChart");
+
+function getWinPercentage(stats) {
+  return stats.totalPlayed ? (stats.win / stats.totalPlayed) * 100 : 0;
+}
+
+export function updateStatsText() {
+  document.querySelectorAll("[data-stats]").forEach((el) => {
+    const key = el.dataset.stats;
+    console.log(el);
+    console.log(key);
+    console.log(stats[key]);
+    if (key === "winPercentage") {
+      el.textContent = getWinPercentage(stats);
+    } else {
+      el.textContent = stats[key];
+    }
+  });
+}
 
 document.addEventListener("click", (e) => {
   if (e.target.matches(".open-stats")) {
     const statsSection = document.querySelector(".statistics");
     statsSection.classList.toggle("opened");
   }
+  updateStatsText();
 });
 
 const valueLabelPlugin = {
