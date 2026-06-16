@@ -574,6 +574,11 @@ h1 span:hover {
   justify-content: center;
   border-radius: 10px;
 }
+.dark .definition,
+.dark .restart {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(188, 187, 187, 0.3);
+}
 
 .definition {
   width: 90%;
@@ -918,6 +923,9 @@ h1 span:hover {
 .statistics__digits {
   font-size: 1.7em;
 }
+.statistics__text {
+  font-size: 1em;
+}
 
 /* Effect */
 
@@ -1024,6 +1032,9 @@ h1 span:hover {
   .statistics__digits {
     font-size: 1.2em;
   }
+  .statistics__cell {
+    gap: 5px;
+  }
 }
 canvas {
   pointer-events: none;
@@ -1090,6 +1101,9 @@ canvas {
   .definition,
   .restart {
     font-size: 0.9em;
+  }
+  .statistics__text {
+    font-size: 0.8em;
   }
 }
 @media screen and (max-width: 400px) {
