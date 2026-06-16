@@ -10,7 +10,12 @@ import {
 } from "./gameState.js";
 import { updateTexts } from "./translation.js";
 import { SoundManager } from "./sound.js";
-import { stats, generateChart, updateStatsText } from "./gameStatistics.js";
+import {
+  stats,
+  generateChart,
+  updateStatsText,
+  saveStats,
+} from "./gameStatistics.js";
 
 let rows;
 let currentRow;
@@ -183,6 +188,7 @@ function handleLoss() {
   stats.totalPlayed++;
   stats.guessDistribution.lost++;
   stats.currentStreak = 0;
+  saveStats();
   generateChart();
   updateStatsText();
   state.gameOver = true;
@@ -200,6 +206,7 @@ export function handleWin() {
     stats.maxStreak = stats.currentStreak;
   }
   stats.guessDistribution[state.tries + 1]++;
+  saveStats();
   generateChart();
   updateStatsText();
   state.gameOver = true;

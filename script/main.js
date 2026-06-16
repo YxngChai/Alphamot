@@ -24,7 +24,12 @@ import { setWordToGuess } from "./gameState.js";
 import { AnimateToggleSettings, activateSound } from "./settings.js";
 import { initSound, SoundManager } from "./sound.js";
 import { restoreGame } from "./restoreGame.js";
-import { stats } from "./gameStatistics.js";
+import {
+  stats,
+  loadStats,
+  restoreStats,
+  generateChart,
+} from "./gameStatistics.js";
 
 export function playGame() {
   clearGame();
@@ -36,8 +41,6 @@ export function playGame() {
   buildKeyboard(state.keyboard);
   initInput();
   saveGame();
-
-  console.log(stats);
 }
 
 renderHomePage();
@@ -58,10 +61,14 @@ initDarkMode();
 activateSound();
 initSound();
 
+restoreStats(loadStats());
+generateChart();
 handleInputType();
 
 document.addEventListener("click", (e) => {
   if (e.target.matches(".launch-game")) {
+    const statsSection = document.querySelector(".statistics");
+    statsSection.classList.toggle("opened");
     SoundManager.play("restart");
     const saved = loadGame();
     if (saved) {

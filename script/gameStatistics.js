@@ -17,17 +17,16 @@ let chartInstance = null;
 const ctx = document.getElementById("myChart");
 
 function getWinPercentage(stats) {
-  return stats.totalPlayed ? (stats.win / stats.totalPlayed) * 100 : 0;
+  return Math.round(
+    stats.totalPlayed ? (stats.win / stats.totalPlayed) * 100 : 0,
+  );
 }
 
 export function updateStatsText() {
   document.querySelectorAll("[data-stats]").forEach((el) => {
     const key = el.dataset.stats;
-    console.log(el);
-    console.log(key);
-    console.log(stats[key]);
     if (key === "winPercentage") {
-      el.textContent = getWinPercentage(stats);
+      el.textContent = getWinPercentage(stats) + "%";
     } else {
       el.textContent = stats[key];
     }
@@ -121,4 +120,28 @@ export function generateChart() {
     plugins: [valueLabelPlugin],
   });
 }
-generateChart();
+
+const KEY = "alphamot-stats";
+export function saveStats() {
+  const saveStats = {
+    totalPlayed: stats.totalPlayed,
+    win: stats.win,
+    currentStreak: stats.currentStreak,
+    maxStreak: stats.maxStreak,
+    guessDistribution: stats.guessDistribution,
+  };
+  localStorage.setItem(KEY, JSON.stringify(saveStats));
+}
+export function loadStats() {
+  const data = localStorage.getItem(KEY);
+  return data ? JSON.parse(data) : null;
+}
+export function restoreStats(saved) {
+  if (!saved) return;
+
+  stats.totalPlayed = saved.totalPlayed ?? 0;
+  stats.win = saved.win ?? 0;
+  stats.currentStreak = saved.currentStreak ?? 0;
+  stats.maxStreak = saved.maxStreak ?? 0;
+  stats.guessDistribution = saved.guessDistribution ?? stats.guessDistribution;
+}
