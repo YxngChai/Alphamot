@@ -913,6 +913,7 @@ h1 span:hover {
   gap: 10px;
   width: 100px;
   height: 100px;
+  padding: 5px;
 }
 .statistics__digits {
   font-size: 1.7em;

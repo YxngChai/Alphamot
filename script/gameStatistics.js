@@ -84,7 +84,7 @@ export function generateChart() {
   chartInstance = new Chart(ctx, {
     type: "bar",
     data: {
-      labels: ["1", "2", "3", "4", "5", "6", "Lost"],
+      labels: ["1", "2", "3", "4", "5", "6", "X"],
       datasets: [
         {
           label: "",
