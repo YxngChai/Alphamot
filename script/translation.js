@@ -27,6 +27,10 @@ export const translations = {
     instructions_line5: "🟦 Gray → letter is not in the word",
     instructions_line6: "Find the correct word in as few tries as possible!",
     statistics: "Statistics",
+    played: "Played",
+    win: "Win",
+    currentStreak: "Current Streak",
+    maxStreak: "Max Streak",
   },
   fr: {
     play: "Jouer",
@@ -46,6 +50,10 @@ export const translations = {
     instructions_line5: "🟦 Blue → la lettre n’est pas dans le mot",
     instructions_line6: "Trouvez le mot correct en un minimum d’essais !",
     statistics: "Statistiques",
+    played: "Parties",
+    win: "Victoires",
+    currentStreak: "Série actuelle",
+    maxStreak: "Meilleur série",
   },
   "pt-BR": {
     play: "Jogar",
@@ -66,6 +74,10 @@ export const translations = {
     instructions_line6:
       "Encontre a palavra correta com o menor número de tentativas possível!",
     statistics: "Estatísticas",
+    played: "Partidas jogadas",
+    win: "Vitórias",
+    currentStreak: "Sequência atual",
+    maxStreak: "Maior sequência",
   },
 };
 export function styleFlagLanguageOptions() {
