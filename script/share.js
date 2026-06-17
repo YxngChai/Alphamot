@@ -46,3 +46,5 @@ export function loadLanguage() {
     state.language = challengeLang;
   }
 }
+
+// function shareGame() {}

@@ -560,7 +560,8 @@ h1 span:hover {
 }
 
 .definition,
-.restart {
+.restart,
+.share-btn {
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   background: rgba(255, 255, 255, 0.2);
@@ -572,14 +573,33 @@ h1 span:hover {
 
   display: flex;
   justify-content: center;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 .dark .definition,
-.dark .restart {
+.dark .restart,
+.dark .share-btn {
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(188, 187, 187, 0.3);
 }
-
+.share-btn {
+  width: 300px;
+  margin: 20px 0 40px 0;
+  padding: 15px 0 10px 0;
+  font-size: 1.4em;
+  transition: 0.1s ease-in;
+  cursor: pointer;
+  z-index: 2;
+}
+.share-btn:hover {
+  transform: scale(1.1);
+}
+.share-icon {
+  display: inline-block;
+  margin-left: 20px;
+  height: 30px;
+  font-size: 0.9em;
+  color: black;
+}
 .definition {
   width: 90%;
   margin: 20px auto;
@@ -588,7 +608,7 @@ h1 span:hover {
 }
 .restart {
   width: 300px;
-  margin: 40px auto;
+  margin: 30px auto;
   padding: 20px;
   font-size: 1.4em;
   transition: 0.1s ease-in;
@@ -824,6 +844,7 @@ h1 span:hover {
 }
 /* Footer */
 .footer {
+  margin-top: 20px;
   height: 110px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(12px);
@@ -1020,7 +1041,8 @@ h1 span:hover {
   .definition {
     font-size: 1.2em;
   }
-  .restart {
+  .restart,
+  .share-btn {
     font-size: 1.2em;
     margin: 15px 0 25px 0;
   }
@@ -1099,8 +1121,9 @@ canvas {
     transform: scale(0.82);
   }
   .definition,
-  .restart {
-    font-size: 0.9em;
+  .restart,
+  .share-btn {
+    font-size: 1em;
   }
   .statistics__text {
     font-size: 0.8em;
@@ -1159,8 +1182,12 @@ canvas {
   .settings-card__row {
     font-size: 1em;
   }
-  .restart {
+  .restart,
+  .share-btn {
     margin: 15px 0;
+  }
+  .share-icon {
+    height: 25px;
   }
   .definition {
     margin: 10px 0;
