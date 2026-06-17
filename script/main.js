@@ -30,10 +30,11 @@ import {
   restoreStats,
   generateChart,
 } from "./gameStatistics.js";
+import { loadSharedWord, loadLanguage } from "./share.js";
 
 export function playGame() {
   clearGame();
-  const newWord = generateWordToGuess(state.wordPool);
+  const newWord = loadSharedWord() ?? generateWordToGuess(state.wordPool);
   console.log(newWord);
   setWordToGuess(newWord);
   buildGameGrid(newWord);
@@ -41,10 +42,13 @@ export function playGame() {
   buildKeyboard(state.keyboard);
   initInput();
   saveGame();
+  window.history.replaceState({}, "", window.location.pathname);
 }
 
+loadSharedWord();
 renderHomePage();
 setLangAttribute();
+loadLanguage();
 setGameLanguage();
 updateTexts();
 styleFlagLanguageOptions();
@@ -68,7 +72,7 @@ handleInputType();
 document.addEventListener("click", (e) => {
   if (e.target.matches(".launch-game")) {
     const statsSection = document.querySelector(".statistics");
-    statsSection.classList.toggle("opened");
+    statsSection.classList.remove("opened");
     SoundManager.play("restart");
     const saved = loadGame();
     if (saved) {
