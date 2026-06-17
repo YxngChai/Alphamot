@@ -1,8 +1,6 @@
 import { clearSave, state } from "./gameState.js";
 
 export function shareGame() {
-  //   const url = window.location.href;
-
   const encodedWord = btoa(state.wordToGuess);
   const shareUrl = new URL(window.location.origin);
 
@@ -16,7 +14,6 @@ export function shareGame() {
       url: shareUrl.href,
     });
   } else {
-    // fallback for desktop browsers
     navigator.clipboard.writeText(`Come try to beat me! ${shareUrl}`);
     alert("Link copied!");
   }
@@ -39,5 +36,3 @@ export function loadLanguage() {
     state.language = challengeLang;
   }
 }
-
-// function shareGame() {}
