@@ -1,3 +1,5 @@
+import { SoundManager } from "./sound.js";
+
 export const stats = {
   totalPlayed: 0,
   win: 0,
@@ -37,6 +39,7 @@ document.addEventListener("click", (e) => {
   if (e.target.matches(".open-stats")) {
     const statsSection = document.querySelector(".statistics");
     statsSection.classList.toggle("opened");
+    SoundManager.play("menu");
   }
   updateStatsText();
 });
