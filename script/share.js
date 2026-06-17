@@ -1,27 +1,23 @@
 import { clearSave, state } from "./gameState.js";
 
-const shareData = {
-  title: "MDN",
-  text: "Try to beat me!",
-  url: "https://yxngchai.github.io/Alphamot/",
-};
+export function shareGame() {
+  //   const url = window.location.href;
 
-function shareGame() {
-  const url = window.location.href;
+  const encodedWord = btoa(state.wordToGuess);
+  const shareUrl = new URL(window.location.origin);
+
+  shareUrl.searchParams.set("lang", state.language);
+  shareUrl.searchParams.set("word", encodedWord);
 
   if (navigator.share) {
     navigator.share({
-      title: "My Wordle game",
-
+      title: "Alphamot",
       text: "Come try to beat me!",
-
-      url: url,
+      url: shareUrl.href,
     });
   } else {
     // fallback for desktop browsers
-
-    navigator.clipboard.writeText(`Come try to beat me! ${url}`);
-
+    navigator.clipboard.writeText(`Come try to beat me! ${shareUrl}`);
     alert("Link copied!");
   }
 }
@@ -31,12 +27,9 @@ export function loadSharedWord() {
   const encodedWord = params.get("word");
 
   if (encodedWord) {
-    console.log(encodedWord);
     clearSave();
-    // return atob(encodedWord).toUpperCase();
-    return encodedWord.toUpperCase();
-  } else {
-    console.log("No word");
+
+    return atob(encodedWord);
   }
 }
 export function loadLanguage() {

@@ -16,6 +16,7 @@ import {
   updateStatsText,
   saveStats,
 } from "./gameStatistics.js";
+import { shareGame } from "./share.js";
 
 let rows;
 let currentRow;
@@ -192,6 +193,7 @@ export function generateShareBtn() {
   endGame.appendChild(shareBtn);
   shareBtn.addEventListener("click", () => {
     SoundManager.play("menu");
+    shareGame();
   });
 
   updateTexts();

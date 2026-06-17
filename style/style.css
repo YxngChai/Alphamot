@@ -1046,6 +1046,9 @@ h1 span:hover {
     font-size: 1.2em;
     margin: 15px 0 25px 0;
   }
+  .share-btn {
+    line-height: 35px;
+  }
   .statistics__cell {
     width: 80px;
     height: 80px;
@@ -1185,6 +1188,9 @@ canvas {
   .restart,
   .share-btn {
     margin: 15px 0;
+  }
+  .share-btn {
+    line-height: 25px;
   }
   .share-icon {
     height: 25px;

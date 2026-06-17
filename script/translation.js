@@ -117,7 +117,7 @@ export function changeLanguage() {
       });
       state.language = btn.dataset.lang;
       localStorage.setItem("lang", state.language);
-
+      clearGame();
       renderHomePage();
       setGameLanguage();
       updateTexts();

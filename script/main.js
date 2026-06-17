@@ -42,6 +42,7 @@ export function playGame() {
   buildKeyboard(state.keyboard);
   initInput();
   saveGame();
+  window.history.replaceState({}, "", window.location.pathname);
 }
 
 loadSharedWord();
