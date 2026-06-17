@@ -1,4 +1,6 @@
 import { clearSave, state } from "./gameState.js";
+import { processWord } from "./guessManipulation.js";
+import { translations } from "./translation.js";
 
 export function shareGame() {
   const encodedWord = btoa(state.wordToGuess);
@@ -7,10 +9,23 @@ export function shareGame() {
   shareUrl.searchParams.set("lang", state.language);
   shareUrl.searchParams.set("word", encodedWord);
 
+  const grid = buildShareGrid();
+  const text = `Alphamot
+  
+${grid}
+
+${translations[state.language].shareMessage}
+  `;
+  console.log(text);
+
   if (navigator.share) {
     navigator.share({
       title: "Alphamot",
-      text: "Come try to beat me!",
+      text: `
+      🟩🟨🟦🟦🟦
+      🟩🟩🟨🟦🟦
+      🟩🟩🟩🟩🟩
+      `,
       url: shareUrl.href,
     });
   } else {
@@ -35,4 +50,24 @@ export function loadLanguage() {
   if (challengeLang) {
     state.language = challengeLang;
   }
+}
+
+const emojiMap = {
+  correct: "🟩",
+  misplaced: "🟨",
+  wrong: "🟦",
+};
+
+export function buildShareGrid() {
+  let grid = "";
+
+  for (const guess of state.guesses) {
+    const { position } = processWord(guess, true);
+
+    for (const cell of position) {
+      grid += emojiMap[cell] || "🟦";
+    }
+    grid += "\n";
+  }
+  return grid.trim();
 }
