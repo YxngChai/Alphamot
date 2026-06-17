@@ -1048,7 +1048,7 @@ h1 span:hover {
   }
   .alphamot-share-button {
     line-height: 35px;
-    padding: 7px 0;
+    padding: 7px 0 0 0;
   }
   .statistics__cell {
     width: 80px;
@@ -1191,8 +1191,10 @@ canvas {
     margin: 15px 0;
   }
   .alphamot-share-button {
-    line-height: 25px;
+    line-height: 30px;
+    padding: 10px 0;
   }
+
   .alphamot-share-icon {
     height: 25px;
   }

@@ -32,6 +32,7 @@ export const translations = {
     currentStreak: "Current Streak",
     maxStreak: "Max Streak",
     share: "Share",
+    shareMessage: "Try to beat me!",
   },
   fr: {
     play: "Jouer",
@@ -56,6 +57,7 @@ export const translations = {
     currentStreak: "Série actuelle",
     maxStreak: "Meilleur série",
     share: "Partager",
+    shareMessage: "Essaie de me battre !",
   },
   "pt-BR": {
     play: "Jogar",
@@ -81,6 +83,7 @@ export const translations = {
     currentStreak: "Sequência atual",
     maxStreak: "Maior sequência",
     share: "Compartilhar",
+    shareMessage: "Tente me vencer!",
   },
 };
 export function styleFlagLanguageOptions() {
