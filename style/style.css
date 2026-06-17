@@ -561,7 +561,7 @@ h1 span:hover {
 
 .definition,
 .restart,
-.share-btn {
+.alphamot-share-button {
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   background: rgba(255, 255, 255, 0.2);
@@ -577,11 +577,11 @@ h1 span:hover {
 }
 .dark .definition,
 .dark .restart,
-.dark .share-btn {
+.dark .alphamot-share-button {
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(188, 187, 187, 0.3);
 }
-.share-btn {
+.alphamot-share-button {
   width: 300px;
   margin: 20px 0 40px 0;
   padding: 15px 0 10px 0;
@@ -590,7 +590,7 @@ h1 span:hover {
   cursor: pointer;
   z-index: 2;
 }
-.share-btn:hover {
+.alphamot-share-button:hover {
   transform: scale(1.1);
 }
 .share-icon {
@@ -1042,11 +1042,11 @@ h1 span:hover {
     font-size: 1.2em;
   }
   .restart,
-  .share-btn {
+  .alphamot-share-button {
     font-size: 1.2em;
     margin: 15px 0 25px 0;
   }
-  .share-btn {
+  .alphamot-share-button {
     line-height: 35px;
     padding: 7px 0;
   }
@@ -1126,7 +1126,7 @@ canvas {
   }
   .definition,
   .restart,
-  .share-btn {
+  .alphamot-share-button {
     font-size: 1em;
   }
   .statistics__text {
@@ -1187,10 +1187,10 @@ canvas {
     font-size: 1em;
   }
   .restart,
-  .share-btn {
+  .alphamot-share-button {
     margin: 15px 0;
   }
-  .share-btn {
+  .alphamot-share-button {
     line-height: 25px;
   }
   .share-icon {
