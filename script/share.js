@@ -2,7 +2,7 @@ import { clearSave, state } from "./gameState.js";
 
 export function shareGame() {
   const encodedWord = btoa(state.wordToGuess);
-  const shareUrl = new URL(window.location.origin);
+  const shareUrl = new URL(window.location.href);
 
   shareUrl.searchParams.set("lang", state.language);
   shareUrl.searchParams.set("word", encodedWord);
