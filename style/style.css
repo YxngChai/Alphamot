@@ -593,7 +593,7 @@ h1 span:hover {
 .alphamot-share-button:hover {
   transform: scale(1.1);
 }
-.share-icon {
+.alphamot-share-icon {
   display: inline-block;
   margin-left: 20px;
   height: 30px;
@@ -1193,7 +1193,7 @@ canvas {
   .alphamot-share-button {
     line-height: 25px;
   }
-  .share-icon {
+  .alphamot-share-icon {
     height: 25px;
   }
   .definition {
