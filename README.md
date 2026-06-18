@@ -27,6 +27,9 @@ Designed to behave like a real production game with persistent sessions, state r
   - Win percentage tracking
   - Current and maximum streak tracking
   - Guess distribution chart
+- Challenge friends by sharing same word after game ends
+- Shareable game links with encoded words
+- On mobile anEmoji result grid in message.
 
 ### Multilingual Support
 
@@ -35,6 +38,7 @@ Designed to behave like a real production game with persistent sessions, state r
 - 🇧🇷 Brazilian Portuguese
 
 The game automatically detects the user’s browser language on first visit.
+Shared challenges preserve selected language
 
 ### User Experience
 
@@ -84,6 +88,12 @@ Game Statistics are also saved:
 - Maximum streak
 - Guess distribution history
 
+Shared challenge links can also:
+
+- Load a custom word from a URL
+- Override the game language from URL parameters
+- Start a fresh challenge by clearing previous saved progress
+
 ## Technologies Used
 
 Frontend
@@ -112,6 +122,8 @@ Browser APIs
 - Fetch API
 - DOM Manipulation
 - Audio API
+- Web Share API
+- Clipboard API
 
 ## What I Learned
 
@@ -128,11 +140,14 @@ This project helped me practice:
 - Project structure and code organization
 - Data visualization with Chart.js
 - Statistics tracking and persistence
+- URL parameter handling
+- Web Share API integration
+- Clipboard API usage
+- Encoding and decoding data for URLs
 
 ## Future Improvements
 
 - Daily challenge mode
 - Add Difficulty / timer / hard mode forced to use correct letters
-- Share results feature
 - Button to reveal a letter
 - Progressive Web App (PWA)

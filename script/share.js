@@ -16,16 +16,11 @@ ${grid}
 
 ${translations[state.language].shareMessage}
   `;
-  console.log(text);
 
   if (navigator.share) {
     navigator.share({
       title: "Alphamot",
-      text: `
-      🟩🟨🟦🟦🟦
-      🟩🟩🟨🟦🟦
-      🟩🟩🟩🟩🟩
-      `,
+      text,
       url: shareUrl.href,
     });
   } else {
